@@ -5,9 +5,6 @@ weight: 1
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
 
 ### Week 8 Objectives:
@@ -27,10 +24,10 @@ pre: " <b> 1.8. </b> "
 
 ### Week 8 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
+* Understood what AWS is and mastered the basic service groups:
   * Compute
   * Storage
-  * Networking 
+  * Networking
   * Database
   * ...
 

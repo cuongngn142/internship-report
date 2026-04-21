@@ -5,10 +5,6 @@ weight: 2
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 11:
 
@@ -27,10 +23,10 @@ pre: " <b> 1.11. </b> "
 
 ### Kết quả đạt được tuần 11:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
+* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản:
   * Compute
   * Storage
-  * Networking 
+  * Networking
   * Database
   * ...
 

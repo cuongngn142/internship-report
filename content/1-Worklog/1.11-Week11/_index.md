@@ -5,9 +5,6 @@ weight: 2
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
 
 ### Week 11 Objectives:
@@ -27,10 +24,10 @@ pre: " <b> 1.11. </b> "
 
 ### Week 11 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
+* Understood what AWS is and mastered the basic service groups:
   * Compute
   * Storage
-  * Networking 
+  * Networking
   * Database
   * ...
 
