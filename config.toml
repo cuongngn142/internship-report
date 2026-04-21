@@ -1,4 +1,4 @@
-baseURL = "https://workshop-sample.fcjuni.com/"
+baseURL = "https://cuongngn142.github.io/internship-report/"
 relativeURLs = false
 canonifyURLs = false
 defaultContentLanguage = "en"
@@ -20,7 +20,7 @@ home = [ "HTML", "RSS", "JSON"]
   showVisitedLinks = true
   disableBreadcrumb = false
   disableNextPrev = false
-  
+
 [Languages]
 [Languages.en]
 title = "Internship Report"
