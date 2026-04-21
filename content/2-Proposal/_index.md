@@ -5,9 +5,6 @@ weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
 In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
 
@@ -73,7 +70,7 @@ This project has two parts—setting up weather edge stations and building the w
 - Post-Launch: Up to 1 year for research.
 
 ### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
+You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).
 Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
 
 ### Infrastructure Costs
@@ -107,9 +104,9 @@ Total: $0.7/month, $8.40/12 months
 - Use CloudFormation for cost-related rollbacks.
 
 ### 8. Expected Outcomes
-#### Technical Improvements: 
-Real-time data and analytics replace manual processes.  
+#### Technical Improvements:
+Real-time data and analytics replace manual processes.
 Scalable to 10-15 stations.
 #### Long-term Value
-1-year data foundation for AI research.  
+1-year data foundation for AI research.
 Reusable for future projects.
