@@ -16,13 +16,13 @@ pre: " <b> 1.3. </b> "
 
 | Day | Task | Start Date | End Date | Status |
 |-----|------|------------|----------|--------|
-| Monday | Study AWS IAM concepts including Users, Groups, Roles, and Policies. | 11/05/2026 | 11/05/2026 | Done |
-| Tuesday | Practice Lab 02: Configure IAM users, roles, policies, and MFA security settings. | 12/05/2026 | 12/05/2026 | Done |
-| Wednesday | Learn AWS VPC architecture and networking components such as Subnets, Route Tables, and Internet Gateway. | 13/05/2026 | 13/05/2026 | Done |
-| Thursday | Practice Lab 03: Build a production-standard VPC with public and private subnets. | 14/05/2026 | 14/05/2026 | Done |
-| Friday | Configure Security Groups, NAT Gateway, and routing for secure network communication. | 15/05/2026 | 15/05/2026 | Done |
-| Saturday | Test connectivity and validate VPC architecture deployment on AWS. | 16/05/2026 | 16/05/2026 | Done |
-| Sunday | Review IAM and VPC implementation, summarize knowledge and troubleshooting experience. | 17/05/2026 | 17/05/2026 | Done |
+| Monday | Study AWS IAM concepts including Users, Groups, Roles, and Policies. | 04/05/2026 | 04/05/2026 | Done |
+| Tuesday | Practice Lab 02: Configure IAM users, roles, policies, and MFA security settings. | 05/05/2026 | 05/05/2026 | Done |
+| Wednesday | Learn AWS VPC architecture and networking components such as Subnets, Route Tables, and Internet Gateway. | 06/05/2026 | 06/05/2026 | Done |
+| Thursday | Practice Lab 03: Build a production-standard VPC with public and private subnets. | 07/05/2026 | 07/05/2026 | Done |
+| Friday | Configure Security Groups, NAT Gateway, and routing for secure network communication. | 08/05/2026 | 08/05/2026 | Done |
+| Saturday | Test connectivity and validate VPC architecture deployment on AWS. | 09/05/2026 | 09/05/2026 | Done |
+| Sunday | Review IAM and VPC implementation, summarize knowledge and troubleshooting experience. | 10/05/2026 | 10/05/2026 | Done |
 
 ### Results Achieved:
 

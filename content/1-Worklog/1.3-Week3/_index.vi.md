@@ -16,13 +16,13 @@ pre: " <b> 1.3. </b> "
 
 | Ngày | Nội dung công việc | Ngày bắt đầu | Ngày kết thúc | Trạng thái |
 |------|--------------------|--------------|----------------|------------|
-| Thứ 2 | Tìm hiểu các khái niệm IAM như User, Group, Role và Policy trên AWS. | 11/05/2026 | 11/05/2026 | Hoàn thành |
-| Thứ 3 | Thực hành Lab 02: Cấu hình IAM User, Role, Policy và MFA bảo mật. | 12/05/2026 | 12/05/2026 | Hoàn thành |
-| Thứ 4 | Tìm hiểu kiến trúc AWS VPC và các thành phần như Subnet, Route Table, Internet Gateway. | 13/05/2026 | 13/05/2026 | Hoàn thành |
-| Thứ 5 | Thực hành Lab 03: Xây dựng VPC theo chuẩn production với Public và Private Subnet. | 14/05/2026 | 14/05/2026 | Hoàn thành |
-| Thứ 6 | Cấu hình Security Group, NAT Gateway và Routing để đảm bảo kết nối mạng an toàn. | 15/05/2026 | 15/05/2026 | Hoàn thành |
-| Thứ 7 | Kiểm tra kết nối và xác thực hoạt động của kiến trúc VPC trên AWS. | 16/05/2026 | 16/05/2026 | Hoàn thành |
-| Chủ nhật | Tổng kết kiến thức IAM và VPC, ghi chú các lỗi và kinh nghiệm xử lý trong quá trình thực hành. | 17/05/2026 | 17/05/2026 | Hoàn thành |
+| Thứ 2 | Tìm hiểu các khái niệm IAM như User, Group, Role và Policy trên AWS. | 04/05/2026 | 04/05/2026 | Hoàn thành |
+| Thứ 3 | Thực hành Lab 02: Cấu hình IAM User, Role, Policy và MFA bảo mật. | 05/05/2026 | 05/05/2026 | Hoàn thành |
+| Thứ 4 | Tìm hiểu kiến trúc AWS VPC và các thành phần như Subnet, Route Table, Internet Gateway. | 06/05/2026 | 06/05/2026 | Hoàn thành |
+| Thứ 5 | Thực hành Lab 03: Xây dựng VPC theo chuẩn production với Public và Private Subnet. | 07/05/2026 | 07/05/2026 | Hoàn thành |
+| Thứ 6 | Cấu hình Security Group, NAT Gateway và Routing để đảm bảo kết nối mạng an toàn. | 08/05/2026 | 08/05/2026 | Hoàn thành |
+| Thứ 7 | Kiểm tra kết nối và xác thực hoạt động của kiến trúc VPC trên AWS. | 09/05/2026 | 09/05/2026 | Hoàn thành |
+| Chủ nhật | Tổng kết kiến thức IAM và VPC, ghi chú các lỗi và kinh nghiệm xử lý trong quá trình thực hành. | 10/05/2026 | 10/05/2026 | Hoàn thành |
 
 ### Kết quả đạt được:
 
