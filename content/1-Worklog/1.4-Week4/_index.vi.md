@@ -14,15 +14,13 @@ pre: ' <b> 1.4. </b> '
 
 ### Công việc thực hiện trong tuần:
 
-| Ngày     | Nội dung công việc                                                                | Ngày bắt đầu | Ngày kết thúc | Trạng thái      |
-| -------- | --------------------------------------------------------------------------------- | ------------ | ------------- | --------------- |
-| Thứ 2    | Ôn tập lại kiến thức VPC, Subnet, Route Table và Security Group từ Lab 03.        | 11/05/2026   | 11/05/2026    | Hoàn thành      |
-| Thứ 3    | Bắt đầu Lab 04 và tìm hiểu tổng quan dịch vụ Amazon EC2.                          | 12/05/2026   | 12/05/2026    | Hoàn thành      |
-| Thứ 4    | Tìm hiểu các loại EC2 Instance Type và lựa chọn cấu hình phù hợp cho workload.    | 13/05/2026   | 13/05/2026    | Hoàn thành      |
-| Thứ 5    | Thực hành khởi tạo EC2 Instance, cấu hình Security Group và Key Pair.             | 14/05/2026   | 14/05/2026    | Hoàn thành      |
-| Thứ 6    | Tìm hiểu AMI, tạo Custom AMI và thực hành backup bằng Snapshot.                   | 15/05/2026   | 15/05/2026    | Hoàn thành      |
-| Thứ 7    | Kiểm tra kết nối EC2, thực hành SSH và xử lý lỗi cấu hình.                        | 16/05/2026   | 16/05/2026    | Hoàn thành      |
-| Chủ nhật | Tổng hợp kết quả Lab 04, ghi chú lỗi và tiếp tục hoàn thiện các nội dung còn lại. | 17/05/2026   | 17/05/2026    | Chưa hoàn thành |
+| Ngày  | Nội dung công việc                                                                                                                            | Ngày bắt đầu | Ngày kết thúc | Tài liệu tham khảo |
+| ----- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ------------- | ------------------ |
+| Thứ 2 | Ôn tập lại kiến thức VPC, Subnet, Route Table và Security Group từ Lab 03.                                                                    | 11/05/2026   | 11/05/2026    |                    |
+| Thứ 3 | Bắt đầu Lab 04 và tìm hiểu tổng quan dịch vụ Amazon EC2.                                                                                      | 12/05/2026   | 12/05/2026    |                    |
+| Thứ 4 | Tìm hiểu các loại EC2 Instance Type và lựa chọn cấu hình phù hợp cho workload.                                                                | 13/05/2026   | 13/05/2026    |                    |
+| Thứ 5 | Thực hành khởi tạo EC2 Instance, cấu hình Security Group và Key Pair.                                                                         | 14/05/2026   | 14/05/2026    |                    |
+| Thứ 6 | Tìm hiểu AMI, tạo Custom AMI, thực hành backup bằng Snapshot, kiểm tra kết nối EC2, thực hành SSH, tổng kết Lab 04 và dọn dẹp tài nguyên lab. | 15/05/2026   | 15/05/2026    |                    |
 
 ### Kết quả đạt được:
 
