@@ -14,13 +14,13 @@ pre: ' <b> 1.5. </b> '
 
 ### Tasks to be carried out this week:
 
-| Day       | Task                                                                                                                                                                         | Start Date | End Date   | Status |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------- | ------ |
-| Monday    | Complete the remaining tasks of Lab 04 and verify AWS system configurations.                                                                                                 | 18/05/2026 | 18/05/2026 | Done   |
-| Tuesday   | Start Lab 05 and learn how to create Amazon EC2 Instances.                                                                                                                   | 19/05/2026 | 19/05/2026 | Done   |
-| Wednesday | Practice configuring Security Groups, Key Pairs, and SSH connections to EC2 Instances.                                                                                       | 20/05/2026 | 20/05/2026 | Done   |
-| Thursday  | Learn about Amazon RDS and practice creating databases on AWS.                                                                                                               | 21/05/2026 | 21/05/2026 | Done   |
-| Friday    | Configure the connection between EC2 Instances and the RDS Database, deploy the application on EC2, practice backup and recovery procedures, and clean up AWS lab resources. | 22/05/2026 | 22/05/2026 | Done   |
+| Day       | Task                                                                                                                                                                         | Start Date | End Date   | Reference Material |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------- | ------------------ |
+| Monday    | Complete the remaining tasks of Lab 04 and verify AWS system configurations.                                                                                                 | 18/05/2026 | 18/05/2026 |                    |
+| Tuesday   | Start Lab 05 and learn how to create Amazon EC2 Instances.                                                                                                                   | 19/05/2026 | 19/05/2026 |                    |
+| Wednesday | Practice configuring Security Groups, Key Pairs, and SSH connections to EC2 Instances.                                                                                       | 20/05/2026 | 20/05/2026 |                    |
+| Thursday  | Learn about Amazon RDS and practice creating databases on AWS.                                                                                                               | 21/05/2026 | 21/05/2026 |                    |
+| Friday    | Configure the connection between EC2 Instances and the RDS Database, deploy the application on EC2, practice backup and recovery procedures, and clean up AWS lab resources. | 22/05/2026 | 22/05/2026 |                    |
 
 ### Results Achieved:
 

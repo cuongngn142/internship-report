@@ -1,5 +1,5 @@
 ---
-title: 'Nhật ký công việc Tuần 3'
+title: 'Worklog Tuần 3'
 date: 2026-05-04
 weight: 3
 chapter: false
@@ -14,7 +14,7 @@ pre: ' <b> 1.3. </b> '
 
 ### Công việc thực hiện trong tuần:
 
-| Ngày  | Nội dung công việc                                                                                                         | Ngày bắt đầu | Ngày kết thúc | Tài liệu tham khảo |
+| Ngày  | Nội dung công việc                                                                                                         | Ngày bắt đầu | Ngày kết thúc | Nguồn tài liệu |
 | ----- | -------------------------------------------------------------------------------------------------------------------------- | ------------ | ------------- | ------------------ |
 | Thứ 2 | Tìm hiểu các khái niệm AWS IAM bao gồm User, Group, Role và Policy.                                                        | 04/05/2026   | 04/05/2026    |                    |
 | Thứ 3 | Thực hành Lab 02: Cấu hình IAM User, Role, Policy và MFA bảo mật.                                                          | 05/05/2026   | 05/05/2026    |                    |
