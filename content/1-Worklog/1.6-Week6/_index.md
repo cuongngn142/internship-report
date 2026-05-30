@@ -1,55 +1,55 @@
 ---
-title: "Week 6 Worklog"
-date: 2024-01-01
-weight: 1
+title: 'Week 6 Worklog'
+date: 2026-05-25
+weight: 6
 chapter: false
-pre: " <b> 1.6. </b> "
+pre: ' <b> 1.6. </b> '
 ---
 
-
+---
 
 ### Week 6 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+- Complete Lab 06 on AWS Auto Scaling and Load Balancing.
+- Complete Lab 07 on AWS Budget Management and Cost Optimization.
+- Participate in the weekly AWS Meetup to learn about AWS community activities and cloud learning platforms.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task                                                                                                                                                                      | Start Date | Completion Date | Reference Material                      |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | --------------- | --------------------------------------- |
+| 2   | - Learn the architecture of Auto Scaling and Load Balancing on AWS <br> - Prepare resources required for Lab 06                                                           | 05/25/2026 | 05/25/2026      | https://cloudjourney.awsstudygroup.com/ |
+| 3   | - **Lab 06:** <br>  + Create Launch Template <br>  + Configure EC2 deployment parameters                                                                                  | 05/26/2026 | 05/26/2026      | https://cloudjourney.awsstudygroup.com/ |
+| 4   | - **Lab 06:** <br>  + Set up Application Load Balancer <br>  + Test traffic distribution between EC2 instances                                                            | 05/27/2026 | 05/27/2026      | https://cloudjourney.awsstudygroup.com/ |
+| 5   | - **Lab 06:** <br>  + Create Auto Scaling Group <br>  + Test scaling scenarios and validate the solution                                                                  | 05/28/2026 | 05/28/2026      | https://cloudjourney.awsstudygroup.com/ |
+| 6   | - **Lab 07:** <br>  + Create Budget <br>  + Create Cost Budget <br>  + Create Usage Budget <br>  + Create RI Budget <br>  + Create Savings Plans Budget                   | 05/29/2026 | 05/30/2026      | https://cloudjourney.awsstudygroup.com/ |
+| 7   | - Participate in AWS Meetup <br> - Learn about AWS Hackathon activities <br> - Explore AWS Game 3D and FloCI platforms <br> - Exchange experiences with community members | 05/31/2026 | 05/31/2026      | AWS Meetup Event                        |
 
 ### Week 6 Achievements:
 
-* Understood what AWS is and mastered the basic service groups:
-  * Compute
-  * Storage
-  * Networking
-  * Database
-  * ...
+- Successfully completed Lab 06 and understood the process of building scalable applications on AWS.
 
-* Successfully created and configured an AWS Free Tier account.
+- Created and configured a Launch Template for automated EC2 instance deployment.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+- Configured an Application Load Balancer and verified its ability to distribute traffic across multiple EC2 instances.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+- Successfully created an Auto Scaling Group and tested automatic scaling based on workload demands.
 
-* Used AWS CLI to perform basic operations such as:
+- Gained practical knowledge of High Availability and Elastic Scaling architectures on AWS.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+- Successfully completed Lab 07 on AWS Budget Management.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+- Learned how to create and manage different AWS budget types:
+  - Cost Budget
+  - Usage Budget
+  - Reserved Instance (RI) Budget
+  - Savings Plans Budget
+
+- Understood how to monitor AWS spending, forecast costs, and configure budget alerts to optimize cloud expenses.
+
+- Participated in the weekly AWS Meetup and learned about:
+  - AWS Hackathon activities and community events.
+  - AWS Game 3D, a learning platform that allows users to practice deploying and configuring AWS services through interactive game-based scenarios without consuming AWS credits.
+  - FloCI, a local environment that enables learners to simulate and experiment with AWS services on their personal computers without incurring cloud costs.
+
+- Enhanced practical AWS knowledge through both hands-on laboratory exercises and community knowledge-sharing sessions.
