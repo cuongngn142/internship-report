@@ -1,57 +1,46 @@
 ---
-title: "Worklog Tuần 8"
-date: 2024-01-01
-weight: 1
+title: 'Worklog Tuần 8'
+date: 2026-06-08
+weight: 8
 chapter: false
-pre: " <b> 1.8. </b> "
+pre: ' <b> 1.8. </b> '
 ---
 
-
+---
 
 ### Mục tiêu tuần 8:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- Hoàn thiện thiết kế quy trình làm việc của dự án.
+- Phân công vai trò và trách nhiệm cho các thành viên trong nhóm.
+- Nghiên cứu các công nghệ và kiến thức liên quan đến dự án.
+- Chuẩn bị kế hoạch phát triển và phân bổ nhiệm vụ để triển khai dự án.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc                                                                                                                                                | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu      |
+| --- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ------------------- |
+| 2   | - Rà soát yêu cầu và mục tiêu dự án <br> - Phân tích phạm vi và các kết quả cần đạt được                                                                 | 08/06/2026   | 08/06/2026      | Tài liệu dự án      |
+| 3   | - Thiết kế quy trình làm việc của dự án <br> - Xác định các giai đoạn phát triển và quy trình phối hợp                                                   | 09/06/2026   | 09/06/2026      | Thảo luận nhóm      |
+| 4   | - Phân công vai trò và trách nhiệm cho từng thành viên <br> - Xây dựng quy trình trao đổi và báo cáo công việc                                           | 10/06/2026   | 10/06/2026      | Kế hoạch nhóm       |
+| 5   | - Nghiên cứu các công nghệ, framework và công cụ liên quan đến dự án <br> - Tìm hiểu các phương pháp triển khai phù hợp                                  | 11/06/2026   | 12/06/2026      | Tài liệu chính thức |
+| 6   | - Xây dựng lộ trình phát triển dự án <br> - Lập kế hoạch phân chia công việc và các mốc triển khai <br> - Tổng kết và hoàn thiện công tác chuẩn bị dự án | 13/06/2026   | 14/06/2026      | Kế hoạch dự án      |
 
 ### Kết quả đạt được tuần 8:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản:
-  * Compute
-  * Storage
-  * Networking
-  * Database
-  * ...
+- Hoàn thiện thiết kế quy trình làm việc và quy trình phát triển của dự án.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+- Xác định rõ các giai đoạn triển khai, sản phẩm đầu ra và cách thức phối hợp giữa các thành viên.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+- Phân công vai trò và trách nhiệm cụ thể cho từng thành viên trong nhóm.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+- Thiết lập quy trình trao đổi thông tin và báo cáo tiến độ công việc.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+- Nghiên cứu và đánh giá các công nghệ, framework và công cụ phù hợp với yêu cầu dự án.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+- Nâng cao hiểu biết về các kiến thức kỹ thuật liên quan đến quá trình phát triển hệ thống.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+- Xây dựng lộ trình phát triển dự án với các mốc thời gian và mục tiêu cụ thể.
 
+- Hoàn thiện kế hoạch phân bổ nhiệm vụ để phục vụ giai đoạn triển khai.
 
+- Chuẩn bị đầy đủ các điều kiện cần thiết cho giai đoạn phát triển dự án tiếp theo.
