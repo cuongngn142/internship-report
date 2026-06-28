@@ -1,57 +1,44 @@
 ---
-title: "Worklog Tuần 9"
-date: 2024-01-01
-weight: 1
+title: 'Worklog Tuần 9'
+date: 2026-06-15
+weight: 9
 chapter: false
-pre: " <b> 1.9. </b> "
+pre: ' <b> 1.9. </b> '
 ---
-
-
 
 ### Mục tiêu tuần 9:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- Xây dựng môi trường giám sát bảo mật cơ bản trên AWS.
+- Cấu hình các dịch vụ ghi log, giám sát và phát hiện mối đe dọa để theo dõi hệ thống.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc                                                                                                                                                                             | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                           |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ---------------------------------------- |
+| 2   | - Tạo AWS Account và bật MFA cho Root User <br> - Tạo IAM User có quyền AdministratorAccess để sử dụng hằng ngày                                                                      | 15/06/2026   | 15/06/2026      | https://docs.aws.amazon.com/iam/         |
+| 3   | - Bật AWS CloudTrail để ghi nhận toàn bộ API Call <br> - Cấu hình VPC Flow Logs và gửi log về CloudWatch Logs                                                                         | 16/06/2026   | 16/06/2026      | https://docs.aws.amazon.com/cloudtrail/  |
+| 4   | - Bật AWS Config để theo dõi thay đổi cấu hình tài nguyên <br> - Cấu hình AWS Budgets và tạo cảnh báo chi phí hàng tháng                                                              | 17/06/2026   | 17/06/2026      | https://docs.aws.amazon.com/config/      |
+| 5   | - Bật Amazon GuardDuty tại region ap-southeast-1 <br> - Bật AWS Security Hub với tiêu chuẩn NIST 800-53 <br> - Tích hợp GuardDuty Findings vào Security Hub                           | 18/06/2026   | 18/06/2026      | https://docs.aws.amazon.com/securityhub/ |
+| 6   | - Bật IAM Access Analyzer <br> - Tạo CloudWatch Alarm cho các sự kiện failed login và root account usage <br> - Sinh GuardDuty Sample Findings và kiểm tra cảnh báo trên Security Hub | 19/06/2026   | 19/06/2026      | https://docs.aws.amazon.com/guardduty/   |
 
 ### Kết quả đạt được tuần 9:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản:
-  * Compute
-  * Storage
-  * Networking
-  * Database
-  * ...
+- Thiết lập các biện pháp bảo mật IAM cơ bản bằng cách bật MFA cho Root User và sử dụng IAM User Administrator để quản trị hằng ngày.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+- Bật AWS CloudTrail để ghi lại toàn bộ API Call trong tài khoản AWS.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+- Cấu hình VPC Flow Logs để thu thập log lưu lượng mạng và gửi về Amazon CloudWatch Logs.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+- Bật AWS Config nhằm theo dõi và ghi nhận các thay đổi cấu hình của tài nguyên AWS.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+- Tạo AWS Budgets cùng cảnh báo chi phí hàng tháng để kiểm soát ngân sách sử dụng dịch vụ.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+- Kích hoạt Amazon GuardDuty để phát hiện các hoạt động bất thường và các mối đe dọa bảo mật.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+- Bật AWS Security Hub và tích hợp các GuardDuty Findings vào bảng điều khiển bảo mật tập trung.
 
+- Cấu hình IAM Access Analyzer để phát hiện các tài nguyên được chia sẻ ra bên ngoài tài khoản AWS.
 
+- Tạo CloudWatch Alarm để giám sát các sự kiện quan trọng như đăng nhập thất bại và sử dụng Root User.
+
+- Sinh GuardDuty Sample Findings và xác nhận các cảnh báo đã được hiển thị chính xác trên AWS Security Hub.
