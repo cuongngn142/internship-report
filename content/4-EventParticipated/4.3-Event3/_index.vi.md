@@ -129,4 +129,4 @@ _Thêm các hình ảnh khi tham gia sự kiện tại đây._
 
 > **Mini Meetup – First Cloud AI Journey** đã giúp tôi hiểu rõ hơn về thị trường việc làm trong lĩnh vực Cloud và AI, đồng thời mang lại nhiều kinh nghiệm thực tế từ các chuyên gia trong ngành. Những kiến thức và định hướng thu được từ sự kiện sẽ là nền tảng quan trọng để tôi tiếp tục học tập, phát triển kỹ năng và chuẩn bị cho công việc sau khi tốt nghiệp.
 
-![Image Event](/images/4-EventParticipated/IMG_20260530_111427.jpg)
+![Image Event](/images/4-EventParticipated/IMG_20260704_112101.jpg)
