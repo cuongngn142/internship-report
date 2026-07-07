@@ -1,124 +1,129 @@
 ---
-title: "Blog 1"
-date: 2024-01-01
+title: 'Blog 1'
+date: 2024-07-07
 weight: 1
 chapter: false
-pre: " <b> 3.1. </b> "
+pre: ' <b> 3.1. </b> '
 ---
 
+# Customize Federated Sign-In with the Inbound Federation Lambda Trigger in Amazon Cognito
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+When building applications that use Federated Sign-In with Amazon Cognito, developers commonly integrate authentication through Google, Microsoft Entra ID (Azure AD), Facebook, or other external Identity Providers (IdPs). However, once an IdP successfully authenticates a user, Amazon Cognito processes and stores the user information almost immediately. As a result, tasks such as normalizing user attributes, filtering groups, or automatically linking accounts often require additional backend logic or the use of other Lambda triggers that are not specifically designed for this purpose.
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
-
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
-
----
-
-## Architecture Guidance
-
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
-
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
-
-**The solution architecture is now as follows:**
-
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+In this blog, AWS introduces the **Inbound Federation Lambda Trigger**, a new Amazon Cognito Lambda Trigger that allows developers to intercept and modify user data received from an Identity Provider before Cognito creates or updates the user profile in the User Pool. This feature simplifies integration with external identity systems, reduces backend processing logic, and provides greater flexibility over the Federated Sign-In workflow.
 
 ---
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:
-- Small, autonomous, loosely coupled
-- Reusable, communicating through well-defined interfaces
-- Specialized to do one thing well
-- Often implemented in an **event-driven architecture**
+## Overview of the Inbound Federation Lambda Trigger
 
-When determining where to draw boundaries between microservices, consider:
-- **Intrinsic**: technology used, performance, reliability, scalability
-- **Extrinsic**: dependent functionality, rate of change, reusability
-- **Human**: team ownership, managing *cognitive load*
+The Inbound Federation Lambda Trigger is invoked after a user successfully authenticates with an Identity Provider and before Amazon Cognito writes the user information into the User Pool.
 
----
+At this stage, the Lambda function has access to information such as:
 
-## Technology Choices and Communication Scope
+- User Pool ID
+- App Client ID
+- Identity Provider being used
+- Authentication protocol (SAML, OIDC, Login with Amazon, etc.)
+- All user attributes returned by the Identity Provider
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+Based on this information, developers can:
 
----
+- Normalize user attributes
+- Add or remove attributes
+- Filter group memberships
+- Call external APIs
+- Automatically link user accounts
 
-## The Pub/Sub Hub
-
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.
-- Each microservice depends only on the *hub*
-- Inter-microservice connections are limited to the contents of the published message
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
-
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
+After the Lambda function completes its processing, Amazon Cognito continues by creating or updating the user profile and issuing the Access Token, ID Token, and Refresh Token to the application.
 
 ---
 
-## Core Microservice
+## Authentication Workflow
 
-Provides foundational data and communication layer, including:
-- **Amazon S3** bucket for data
-- **Amazon DynamoDB** for data catalog
-- **AWS Lambda** to write messages into the data lake and catalog
-- **Amazon SNS** topic as the *hub*
-- **Amazon S3** bucket for artifacts such as Lambda code
+Compared with the traditional Federated Sign-In process, the authentication workflow remains almost unchanged. Users are still redirected to the Identity Provider for authentication.
 
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
+The main difference is that after the Identity Provider returns the authenticated user information, Amazon Cognito invokes the Inbound Federation Lambda Trigger before storing the data in the User Pool.
 
----
+The workflow consists of the following steps:
 
-## Front Door Microservice
+1. The user signs in through an Identity Provider.
+2. Amazon Cognito redirects the user to the IdP.
+3. The Identity Provider authenticates the user and returns the user information.
+4. Amazon Cognito invokes the Inbound Federation Lambda Trigger.
+5. The Lambda function validates, transforms, or enriches the user data.
+6. Amazon Cognito updates the User Pool.
+7. Amazon Cognito issues authentication tokens to the application.
 
-- Provides an API Gateway for external REST interaction
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:
-  1. SNS deduplication TTL is only 5 minutes
-  2. SNS FIFO requires SQS FIFO
-  3. Ability to proactively notify the sender that the message is a duplicate
+This extension point allows all user information to be processed before it is stored in Amazon Cognito.
 
 ---
 
-## Staging ER7 Microservice
+## Common Use Cases
 
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute
-- Step Functions Express Workflow to convert ER7 → JSON
-- Two Lambdas:
-  1. Fix ER7 formatting (newline, carriage return)
-  2. Parsing logic
-- Result or error is pushed back into the pub/sub hub
+### Filtering Large Group Attributes
+
+In many B2B and SaaS environments, an Identity Provider may return hundreds of group memberships for a single user.
+
+If all of these groups are stored in Amazon Cognito, the attribute size may exceed the User Pool limits, causing the authentication process to fail.
+
+For example, an Active Directory environment may return more than 200 groups, while the application only requires two groups for authorization. The Lambda Trigger can remove unnecessary groups before Cognito stores the user profile, reducing redundant data and ensuring a successful authentication process.
 
 ---
 
-## New Features in the Solution
+### Automatic Account Linking
 
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+In B2C applications, users may initially register using an email address and password, then later choose to sign in with Google or Facebook.
+
+Without account linking, Amazon Cognito creates multiple user profiles for the same individual.
+
+The Inbound Federation Lambda Trigger can identify an existing account based on the user's email address or other unique attributes and automatically link the external Identity Provider to that account.
+
+As a result, users maintain a single profile in the Cognito User Pool, and all application data remains consistent across authentication methods.
+
+---
+
+### User Attribute Normalization and Data Enrichment
+
+Different Identity Providers may use different attribute names, such as:
+
+- given_name
+- first_name
+- displayName
+
+The Lambda Trigger can normalize these attributes into a consistent format before they are stored in the User Pool.
+
+Additionally, the Lambda function can retrieve extra information from external systems, including:
+
+- Roles
+- Permissions
+- Departments
+- Tenants
+- Subscription details
+
+This additional information can be added to the user profile before Amazon Cognito issues authentication tokens.
+
+---
+
+## Implementation Best Practices
+
+When implementing the Inbound Federation Lambda Trigger, AWS recommends following several best practices:
+
+- Design Lambda functions to execute quickly and minimize authentication latency.
+- Use caching when external API calls are required.
+- Monitor performance using Amazon CloudWatch.
+- Configure alarms for Lambda exceptions and timeout events.
+- Be aware that Apple Sign In may use private relay email addresses, making automatic account linking difficult. In such cases, a manual account-linking workflow should be provided.
+
+---
+
+## Conclusion
+
+The Inbound Federation Lambda Trigger is a new Amazon Cognito feature that extends the Federated Sign-In workflow by allowing developers to process user data before it is stored in the User Pool. Instead of implementing additional backend logic, developers can normalize user attributes, filter group memberships, enrich user information from external systems, and automatically link accounts directly within the authentication flow.
+
+For B2B, SaaS, and B2C applications that rely on Federated Authentication, this feature provides a flexible and efficient way to integrate external Identity Providers, simplify identity management, and improve the overall user authentication experience.
+
+---
+
+## Original Article
+
+https://aws.amazon.com/blogs/security/customize-federated-sign-in-with-new-amazon-cognito-lambda-trigger/

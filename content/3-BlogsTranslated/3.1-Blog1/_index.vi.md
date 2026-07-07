@@ -1,124 +1,129 @@
 ---
-title: "Blog 1"
-date: 2024-01-01
+title: 'Blog 1'
+date: 2024-07-07
 weight: 1
 chapter: false
-pre: " <b> 3.1. </b> "
+pre: ' <b> 3.1. </b> '
 ---
 
+# Tùy chỉnh Federated Sign-In với Inbound Federation Lambda Trigger trong Amazon Cognito
 
-# Bắt đầu với healthcare data lakes: Sử dụng microservices
+Khi xây dựng các ứng dụng sử dụng Federated Sign-In với Amazon Cognito, nhà phát triển thường tích hợp đăng nhập thông qua Google, Microsoft Entra ID (Azure AD), Facebook hoặc các Identity Provider (IdP) khác. Tuy nhiên, sau khi IdP xác thực thành công, Amazon Cognito sẽ xử lý và lưu thông tin người dùng gần như ngay lập tức. Điều này khiến việc chuẩn hóa dữ liệu, lọc thuộc tính hoặc tự động liên kết tài khoản thường phải được thực hiện ở backend hoặc thông qua các Lambda Trigger khác chưa thực sự phù hợp.
 
-Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. **Data lake** là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.
-
-Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, *“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”*, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.
-
----
-
-## Hướng dẫn kiến trúc
-
-Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.
-
-Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các **HL7v2 messages** được định dạng theo **Quy tắc mã hóa 7 (ER7)** thông qua giao diện REST.
-
-**Kiến trúc giải pháp bây giờ như sau:**
-
-> *Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.*
+Trong bài viết này, AWS giới thiệu **Inbound Federation Lambda Trigger** – một Lambda Trigger mới của Amazon Cognito cho phép can thiệp trực tiếp vào dữ liệu người dùng nhận từ Identity Provider trước khi Cognito tạo hoặc cập nhật hồ sơ người dùng trong User Pool. Tính năng này giúp đơn giản hóa việc tích hợp với các hệ thống nhận dạng bên ngoài, giảm lượng logic xử lý ở backend và mang lại khả năng kiểm soát linh hoạt hơn đối với luồng Federated Sign-In.
 
 ---
 
-Mặc dù thuật ngữ *microservices* có một số sự mơ hồ cố hữu, một số đặc điểm là chung:
-- Chúng nhỏ, tự chủ, kết hợp rời rạc
-- Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ
-- Chuyên biệt để giải quyết một việc
-- Thường được triển khai trong **event-driven architecture**
+## Tổng quan về Inbound Federation Lambda Trigger
 
-Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:
-- **Nội tại**: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng
-- **Bên ngoài**: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng
-- **Con người**: quyền sở hữu nhóm, quản lý *cognitive load*
+Inbound Federation Lambda Trigger được thực thi sau khi người dùng xác thực thành công với Identity Provider và trước khi Amazon Cognito ghi dữ liệu vào User Pool.
 
----
+Tại thời điểm này, Lambda có thể truy cập nhiều thông tin như:
 
-## Lựa chọn công nghệ và phạm vi giao tiếp
+- User Pool ID
+- App Client ID
+- Identity Provider đang sử dụng
+- Loại giao thức xác thực (SAML, OIDC, Login with Amazon,...)
+- Toàn bộ thuộc tính người dùng do IdP trả về
 
-| Phạm vi giao tiếp                        | Các công nghệ / mô hình cần xem xét                                                        |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Trong một microservice                   | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Giữa các microservices trong một dịch vụ | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Giữa các dịch vụ                         | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+Từ các thông tin trên, nhà phát triển có thể:
 
----
+- Chuẩn hóa thuộc tính người dùng
+- Thêm hoặc loại bỏ thuộc tính
+- Lọc danh sách Group
+- Gọi API của hệ thống bên ngoài
+- Tự động liên kết tài khoản người dùng
 
-## The pub/sub hub
-
-Việc sử dụng kiến trúc **hub-and-spoke** (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.
-- Mỗi microservice chỉ phụ thuộc vào *hub*
-- Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất
-- Giảm số lượng synchronous calls vì pub/sub là *push* không đồng bộ một chiều
-
-Nhược điểm: cần **phối hợp và giám sát** để tránh microservice xử lý nhầm message.
+Sau khi Lambda hoàn tất xử lý, Cognito mới tiếp tục tạo hoặc cập nhật User Profile và phát hành Access Token, ID Token cùng Refresh Token cho ứng dụng.
 
 ---
 
-## Core microservice
+## Luồng hoạt động
 
-Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:
-- **Amazon S3** bucket cho dữ liệu
-- **Amazon DynamoDB** cho danh mục dữ liệu
-- **AWS Lambda** để ghi message vào data lake và danh mục
-- **Amazon SNS** topic làm *hub*
-- **Amazon S3** bucket cho artifacts như mã Lambda
+So với Federated Sign-In truyền thống, luồng xác thực hầu như không thay đổi. Người dùng vẫn được chuyển hướng đến Identity Provider để đăng nhập và xác thực.
 
-> Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.
+Điểm khác biệt là sau khi Identity Provider trả về thông tin người dùng, Amazon Cognito sẽ gọi Inbound Federation Lambda Trigger trước khi lưu dữ liệu vào User Pool.
 
----
+Quá trình hoạt động gồm các bước:
 
-## Front door microservice
+1. Người dùng đăng nhập thông qua Identity Provider.
+2. Cognito chuyển hướng đến IdP để xác thực.
+3. IdP xác thực thành công và trả về thông tin người dùng.
+4. Cognito kích hoạt Inbound Federation Lambda Trigger.
+5. Lambda xử lý, chuẩn hóa hoặc bổ sung dữ liệu.
+6. Cognito cập nhật User Pool.
+7. Cognito phát hành Token cho ứng dụng.
 
-- Cung cấp API Gateway để tương tác REST bên ngoài
-- Xác thực & ủy quyền dựa trên **OIDC** thông qua **Amazon Cognito**
-- Cơ chế *deduplication* tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
-  1. SNS deduplication TTL chỉ 5 phút
-  2. SNS FIFO yêu cầu SQS FIFO
-  3. Chủ động báo cho sender biết message là bản sao
+Nhờ điểm mở rộng này, toàn bộ dữ liệu người dùng đều có thể được xử lý trước khi lưu vào Cognito.
 
 ---
 
-## Staging ER7 microservice
+## Các trường hợp sử dụng phổ biến
 
-- Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute
-- Step Functions Express Workflow để chuyển ER7 → JSON
-- Hai Lambda:
-  1. Sửa format ER7 (newline, carriage return)
-  2. Parsing logic
-- Kết quả hoặc lỗi được đẩy lại vào pub/sub hub
+### Lọc thuộc tính Group có kích thước lớn
+
+Trong các hệ thống B2B hoặc SaaS, Identity Provider có thể gửi hàng trăm nhóm (Group Membership) của người dùng.
+
+Nếu toàn bộ thông tin này được lưu vào Cognito, kích thước thuộc tính có thể vượt quá giới hạn của User Pool và khiến quá trình đăng nhập thất bại.
+
+Ví dụ, Active Directory có thể trả về hơn 200 Group nhưng ứng dụng chỉ sử dụng hai Group để phân quyền. Lambda Trigger sẽ loại bỏ các Group không cần thiết trước khi Cognito lưu hồ sơ người dùng, giúp giảm dữ liệu dư thừa và đảm bảo quá trình xác thực diễn ra thành công.
 
 ---
 
-## Tính năng mới trong giải pháp
+### Tự động liên kết tài khoản
 
-### 1. AWS CloudFormation cross-stack references
-Ví dụ *outputs* trong core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+Trong các ứng dụng B2C, người dùng có thể đăng ký bằng Email/Password nhưng sau đó đăng nhập bằng Google hoặc Facebook.
+
+Nếu không thực hiện Account Linking, Cognito sẽ tạo nhiều User Profile khác nhau cho cùng một người dùng.
+
+Inbound Federation Lambda Trigger cho phép kiểm tra tài khoản đã tồn tại dựa trên email hoặc các thuộc tính định danh khác, sau đó tự động liên kết Identity Provider với tài khoản hiện có.
+
+Nhờ đó, người dùng chỉ có một hồ sơ duy nhất trong Cognito User Pool và toàn bộ dữ liệu được đồng bộ xuyên suốt.
+
+---
+
+### Chuẩn hóa và bổ sung dữ liệu người dùng
+
+Một số Identity Provider sử dụng các tên thuộc tính khác nhau như:
+
+- given_name
+- first_name
+- displayName
+
+Lambda Trigger có thể chuẩn hóa toàn bộ về cùng một định dạng trước khi lưu vào User Pool.
+
+Ngoài ra, Lambda còn có thể gọi API của hệ thống bên ngoài để lấy thêm thông tin như:
+
+- Vai trò (Role)
+- Quyền (Permission)
+- Department
+- Tenant
+- Subscription
+
+Những dữ liệu này sẽ được bổ sung vào hồ sơ người dùng trước khi Cognito phát hành Token.
+
+---
+
+## Các khuyến nghị khi triển khai
+
+Khi sử dụng Inbound Federation Lambda Trigger, AWS khuyến nghị:
+
+- Thiết kế Lambda thực thi nhanh để giảm thời gian đăng nhập.
+- Sử dụng cơ chế cache nếu cần truy vấn dữ liệu từ hệ thống bên ngoài.
+- Theo dõi hiệu năng bằng Amazon CloudWatch.
+- Thiết lập cảnh báo cho các trường hợp Timeout hoặc Exception.
+- Đối với Apple Sign In, cần lưu ý email ẩn danh có thể khiến việc tự động liên kết tài khoản không khả thi, vì vậy nên xây dựng quy trình liên kết thủ công khi cần.
+
+---
+
+## Kết luận
+
+Inbound Federation Lambda Trigger là một tính năng mới của Amazon Cognito giúp mở rộng khả năng xử lý dữ liệu trong luồng Federated Sign-In. Thay vì phải xây dựng nhiều logic ở backend, nhà phát triển có thể trực tiếp chuẩn hóa dữ liệu, lọc thuộc tính, bổ sung thông tin từ hệ thống bên ngoài hoặc tự động liên kết tài khoản trước khi Cognito cập nhật User Pool.
+
+Đối với các ứng dụng B2B, SaaS và B2C sử dụng Federated Authentication, đây là một tính năng hữu ích giúp đơn giản hóa quá trình tích hợp Identity Provider, tăng tính linh hoạt trong quản lý danh tính và cải thiện trải nghiệm đăng nhập của người dùng.
+
+---
+
+## Bài viết gốc
+
+https://aws.amazon.com/vi/blogs/security/customize-federated-sign-in-with-new-amazon-cognito-lambda-trigger/

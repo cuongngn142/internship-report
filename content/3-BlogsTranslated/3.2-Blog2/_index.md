@@ -1,124 +1,190 @@
 ---
 title: "Blog 2"
-date: 2024-01-01
-weight: 1
+date: 2024-07-07
+weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
 
+# Adding a Voice Layer to WhatsApp Conversations with AWS End User Messaging
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+Businesses around the world use WhatsApp as one of the primary channels to communicate with customers. It is a familiar, trusted, and efficient platform for many scenarios, including appointment confirmations, customer support, notifications, and business interactions. However, most conversations today still rely entirely on text messages.
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+Although text messaging is convenient, there are situations where typing is slow, inconvenient, or unable to clearly express a user's intent. In these cases, voice messages provide a more natural and efficient communication method.
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
-
----
-
-## Architecture Guidance
-
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
-
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
-
-**The solution architecture is now as follows:**
-
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+This blog introduces how **AWS End User Messaging** enables businesses to receive and respond to WhatsApp voice messages. By combining AWS services such as AWS Lambda, Amazon Transcribe, Amazon Polly, and Amazon SNS, organizations can build voice-to-voice messaging solutions without implementing real-time voice calls.
 
 ---
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:
-- Small, autonomous, loosely coupled
-- Reusable, communicating through well-defined interfaces
-- Specialized to do one thing well
-- Often implemented in an **event-driven architecture**
+## Why Voice Messages Matter
 
-When determining where to draw boundaries between microservices, consider:
-- **Intrinsic**: technology used, performance, reliability, scalability
-- **Extrinsic**: dependent functionality, rate of change, reusability
-- **Human**: team ownership, managing *cognitive load*
+Text messaging remains an essential communication method, but voice notes offer several unique advantages.
 
----
+Some of the main benefits include:
 
-## Technology Choices and Communication Scope
+- Richer communication through tone, emotion, and emphasis.
+- Faster communication, as speaking is generally much quicker than typing on a mobile device.
+- Improved accessibility for elderly users or users with visual impairments.
+- Greater flexibility by allowing customers to choose between voice and text depending on the situation.
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+Rather than replacing text messaging, voice messages complement existing conversations and improve the overall customer experience.
 
 ---
 
-## The Pub/Sub Hub
+## Common Use Cases
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.
-- Each microservice depends only on the *hub*
-- Inter-microservice connections are limited to the contents of the published message
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
+Voice messaging is particularly valuable in situations where speaking is more convenient than typing.
 
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
+Typical use cases include:
 
----
+- Elderly users who prefer listening and speaking.
+- Field workers and delivery drivers who cannot easily type while working.
+- Healthcare applications where patients describe symptoms more naturally through speech.
+- Restaurants and travel services where customers can quickly make reservations.
+- Customer support scenarios involving complex issues that are easier to explain verbally.
 
-## Core Microservice
-
-Provides foundational data and communication layer, including:
-- **Amazon S3** bucket for data
-- **Amazon DynamoDB** for data catalog
-- **AWS Lambda** to write messages into the data lake and catalog
-- **Amazon SNS** topic as the *hub*
-- **Amazon S3** bucket for artifacts such as Lambda code
-
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
+These scenarios demonstrate how voice messaging can improve both communication efficiency and customer satisfaction.
 
 ---
 
-## Front Door Microservice
+## AWS End User Messaging and WhatsApp
 
-- Provides an API Gateway for external REST interaction
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:
-  1. SNS deduplication TTL is only 5 minutes
-  2. SNS FIFO requires SQS FIFO
-  3. Ability to proactively notify the sender that the message is a duplicate
+AWS End User Messaging is a fully managed AWS service that enables businesses to send and receive messages across multiple communication channels, including:
+
+- WhatsApp
+- SMS
+- MMS (United States only)
+- Outbound Voice
+- Push Notifications
+
+For WhatsApp messaging, incoming messages are automatically delivered to an Amazon SNS topic, allowing seamless integration with other AWS services such as:
+
+- Amazon SNS
+- Amazon SQS
+- AWS Lambda
+- Amazon Bedrock
+
+This event-driven architecture makes it easy to process both text and voice messages using serverless services.
+
+For voice messaging, developers can combine several AWS AI services:
+
+- Amazon Transcribe for Speech-to-Text conversion.
+- Amazon Polly for Text-to-Speech synthesis.
+- Third-party speech recognition models such as Whisper through the Amazon Bedrock Marketplace.
 
 ---
 
-## Staging ER7 Microservice
+## Voice-to-Voice Messaging Architecture
 
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute
-- Step Functions Express Workflow to convert ER7 → JSON
-- Two Lambdas:
-  1. Fix ER7 formatting (newline, carriage return)
-  2. Parsing logic
-- Result or error is pushed back into the pub/sub hub
+The flexibility of AWS End User Messaging enables businesses to build complete voice-to-voice messaging workflows.
+
+The process consists of the following steps:
+
+1. A customer sends a voice message through WhatsApp.
+2. AWS End User Messaging receives the message.
+3. Amazon SNS publishes the inbound event.
+4. AWS Lambda downloads and processes the audio.
+5. Amazon Transcribe (or Whisper) converts speech into text.
+6. The chatbot or conversational application processes the request.
+7. Amazon Polly converts the response into natural speech.
+8. AWS End User Messaging sends the generated voice message back to the customer through WhatsApp.
+
+Because this solution processes recorded audio asynchronously, it is different from real-time voice calling.
 
 ---
 
-## New Features in the Solution
+## Sample Solution
 
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+AWS provides an open-source AWS CDK project that demonstrates this architecture.
+
+The sample project performs the following tasks:
+
+- Receive WhatsApp voice messages.
+- Convert speech into text.
+- Process the request using chatbot logic.
+- Generate a natural voice response.
+- Send the audio response back through WhatsApp.
+
+The solution supports multiple deployment modes:
+
+- Inbound-only messaging
+- Outbound-only messaging
+- Complete voice-to-voice messaging
+
+Current features include:
+
+- End-to-end encryption using AWS KMS.
+- Configurable Amazon SNS topics.
+- Choice between Amazon Transcribe and Whisper for speech recognition.
+- Optional text-to-speech generation with Amazon Polly.
+- Support for both voice and text conversations.
+
+---
+
+## Getting Started
+
+The complete solution is available as an open-source AWS CDK project.
+
+Before deployment, you need:
+
+- An AWS account with appropriate permissions.
+- Node.js version 18 or later.
+- AWS CDK CLI installed.
+- A WhatsApp Business Account registered with AWS End User Messaging.
+
+When registering the WhatsApp Business Account, a Meta Business account must be created. The phone number used for registration must not have been previously associated with a personal WhatsApp account. After registration, the WhatsApp Business application should be activated using the same phone number.
+
+---
+
+## Deployment
+
+To deploy the solution, first clone the sample repository and install the required dependencies.
+
+```
+npm install
+```
+
+Next, configure your WhatsApp Phone Number ID in the `config.params.json` file. If it has not been configured, AWS CDK will prompt you during deployment.
+
+Build the project:
+
+```
+npm run build
+```
+
+Deploy the infrastructure:
+
+```
+cdk deploy
+```
+
+The CDK stack automatically provisions all required AWS resources, including:
+
+- AWS Lambda functions
+- Amazon SNS topics
+- Amazon S3 buckets
+- IAM roles
+
+For detailed configuration instructions, refer to the GitHub repository provided by AWS.
+
+When the solution is no longer needed, remove all deployed resources to avoid unnecessary charges:
+
+```
+cdk destroy
+```
+
+---
+
+## Conclusion
+
+Voice messaging has become a common communication method for personal conversations on WhatsApp. Bringing the same capability into business messaging allows organizations to provide interactions that are more natural, accessible, and engaging.
+
+By combining AWS End User Messaging with services such as AWS Lambda, Amazon Transcribe, Amazon Polly, and Amazon SNS, developers can build scalable voice-enabled customer communication solutions without changing the way customers interact with their business.
+
+The AWS CDK sample project provides an excellent starting point for experimenting with voice-to-voice messaging and extending the solution to meet real business requirements.
+
+---
+
+## Original Article
+
+https://aws.amazon.com/blogs/messaging-and-targeting/adding-a-voice-layer-to-whatsapp-conversations-with-aws-end-user-messaging/

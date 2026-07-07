@@ -1,29 +1,21 @@
 ---
-title: "Translated Blogs"
-date: 2024-01-01
+title: 'Translated Blogs'
+date: 2026-07-07
 weight: 3
 chapter: false
-pre: " <b> 3. </b> "
+pre: ' <b> 3. </b> '
 ---
 
+This section lists and introduces the AWS blogs that have been translated during the internship.
 
+### [Blog 1 - Customize Federated Sign-In with Inbound Federation Lambda Trigger in Amazon Cognito](3.1-Blog1/)
 
-This section will list and introduce the blogs you have translated. For example:
+This blog introduces the new **Inbound Federation Lambda Trigger** feature in Amazon Cognito, which allows developers to customize user information received from external Identity Providers (IdPs) before it is stored in the Cognito User Pool. The article explains how the trigger works in the Federated Sign-In flow and demonstrates practical use cases such as filtering oversized group attributes, normalizing user attributes, retrieving additional information from external systems, and automatically linking user accounts across different authentication methods. It also discusses implementation best practices to improve authentication flexibility, simplify backend logic, and enhance identity management for both B2B and B2C applications.
 
-###  [Blog 1 - Getting started with healthcare data lakes: Using microservices](3.1-Blog1/)
-This blog introduces how to start building a data lake in the healthcare sector by applying a microservices architecture. You will learn why data lakes are important for storing and analyzing diverse healthcare data (electronic medical records, lab test data, medical IoT devices…), how microservices help make the system more flexible, scalable, and easier to maintain. The article also guides you through the steps to set up the environment, organize the data processing pipeline, and ensure compliance with security & privacy standards such as HIPAA.
+### [Blog 2 - Adding a Voice Layer to WhatsApp Conversations with AWS End User Messaging](3.2-Blog2/)
 
-###  [Blog 2 - ...](3.2-Blog2/)
-This blog introduces how to start building a data lake in the healthcare sector by applying a microservices architecture. You will learn why data lakes are important for storing and analyzing diverse healthcare data (electronic medical records, lab test data, medical IoT devices…), how microservices help make the system more flexible, scalable, and easier to maintain. The article also guides you through the steps to set up the environment, organize the data processing pipeline, and ensure compliance with security & privacy standards such as HIPAA.
+This blog introduces how **AWS End User Messaging** enables businesses to add voice messaging capabilities to WhatsApp customer conversations. It explains how AWS services such as AWS Lambda, Amazon SNS, Amazon Transcribe, and Amazon Polly can be combined to build a voice-to-voice messaging solution that converts speech to text, processes user requests, and generates natural voice responses. The article also covers common use cases, deployment with AWS CDK, and best practices for creating scalable and accessible customer communication experiences.
 
-###  [Blog 3 - ...](3.3-Blog3/)
-This blog introduces how to start building a data lake in the healthcare sector by applying a microservices architecture. You will learn why data lakes are important for storing and analyzing diverse healthcare data (electronic medical records, lab test data, medical IoT devices…), how microservices help make the system more flexible, scalable, and easier to maintain. The article also guides you through the steps to set up the environment, organize the data processing pipeline, and ensure compliance with security & privacy standards such as HIPAA.
+### [Blog 3 - ...](3.3-Blog3/)
 
-###  [Blog 4 - ...](3.4-Blog4/)
-This blog introduces how to start building a data lake in the healthcare sector by applying a microservices architecture. You will learn why data lakes are important for storing and analyzing diverse healthcare data (electronic medical records, lab test data, medical IoT devices…), how microservices help make the system more flexible, scalable, and easier to maintain. The article also guides you through the steps to set up the environment, organize the data processing pipeline, and ensure compliance with security & privacy standards such as HIPAA.
-
-###  [Blog 5 - ...](3.5-Blog5/)
-This blog introduces how to start building a data lake in the healthcare sector by applying a microservices architecture. You will learn why data lakes are important for storing and analyzing diverse healthcare data (electronic medical records, lab test data, medical IoT devices…), how microservices help make the system more flexible, scalable, and easier to maintain. The article also guides you through the steps to set up the environment, organize the data processing pipeline, and ensure compliance with security & privacy standards such as HIPAA.
-
-###  [Blog 6 - ...](3.6-Blog6/)
-This blog introduces how to start building a data lake in the healthcare sector by applying a microservices architecture. You will learn why data lakes are important for storing and analyzing diverse healthcare data (electronic medical records, lab test data, medical IoT devices…), how microservices help make the system more flexible, scalable, and easier to maintain. The article also guides you through the steps to set up the environment, organize the data processing pipeline, and ensure compliance with security & privacy standards such as HIPAA.
+This blog introduces ...

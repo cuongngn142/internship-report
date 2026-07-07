@@ -1,125 +1,190 @@
 ---
-title: "Blog 2"
-date: 2024-01-01
-weight: 1
+title: 'Blog 2'
+date: 2024-07-07
+weight: 2
 chapter: false
-pre: " <b> 3.2. </b> "
+pre: ' <b> 3.2. </b> '
 ---
 
+# Thêm lớp giọng nói vào các cuộc trò chuyện WhatsApp với AWS End User Messaging
 
+Các doanh nghiệp trên toàn thế giới sử dụng WhatsApp như một trong những kênh chính để giao tiếp với khách hàng. Đây là nền tảng quen thuộc, đáng tin cậy và hiệu quả cho nhiều tình huống như xác nhận lịch hẹn, hỗ trợ khách hàng, gửi thông báo và các hoạt động kinh doanh khác. Tuy nhiên, phần lớn các cuộc trò chuyện hiện nay vẫn chỉ dựa trên tin nhắn văn bản.
 
-# Bắt đầu với healthcare data lakes: Sử dụng microservices
+Mặc dù nhắn tin văn bản rất tiện lợi, nhưng trong nhiều trường hợp việc gõ phím có thể chậm, bất tiện hoặc không thể truyền tải đầy đủ ý định của người dùng. Khi đó, tin nhắn thoại mang đến một phương thức giao tiếp tự nhiên và hiệu quả hơn.
 
-Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. **Data lake** là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.
-
-Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, *“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”*, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.
-
----
-
-## Hướng dẫn kiến trúc
-
-Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.
-
-Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các **HL7v2 messages** được định dạng theo **Quy tắc mã hóa 7 (ER7)** thông qua giao diện REST.
-
-**Kiến trúc giải pháp bây giờ như sau:**
-
-> *Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.*
+Trong bài viết này, AWS giới thiệu cách **AWS End User Messaging** cho phép doanh nghiệp nhận và phản hồi tin nhắn thoại trên WhatsApp. Bằng cách kết hợp các dịch vụ như AWS Lambda, Amazon Transcribe, Amazon Polly và Amazon SNS, doanh nghiệp có thể xây dựng giải pháp giao tiếp voice-to-voice mà không cần triển khai các cuộc gọi thoại thời gian thực.
 
 ---
 
-Mặc dù thuật ngữ *microservices* có một số sự mơ hồ cố hữu, một số đặc điểm là chung:
-- Chúng nhỏ, tự chủ, kết hợp rời rạc
-- Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ
-- Chuyên biệt để giải quyết một việc
-- Thường được triển khai trong **event-driven architecture**
+## Vì sao tin nhắn thoại quan trọng
 
-Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:
-- **Nội tại**: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng
-- **Bên ngoài**: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng
-- **Con người**: quyền sở hữu nhóm, quản lý *cognitive load*
+Tin nhắn văn bản vẫn là phương thức giao tiếp phổ biến, tuy nhiên tin nhắn thoại mang lại nhiều lợi ích riêng.
 
----
+Một số ưu điểm nổi bật gồm:
 
-## Lựa chọn công nghệ và phạm vi giao tiếp
+- Truyền tải cảm xúc, ngữ điệu và mức độ nhấn mạnh tốt hơn.
+- Giao tiếp nhanh hơn vì nói thường nhanh hơn gõ trên thiết bị di động.
+- Cải thiện khả năng tiếp cận cho người cao tuổi hoặc người gặp khó khăn về thị lực.
+- Linh hoạt hơn khi người dùng có thể lựa chọn giữa giọng nói và văn bản tùy theo hoàn cảnh.
 
-| Phạm vi giao tiếp                        | Các công nghệ / mô hình cần xem xét                                                        |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Trong một microservice                   | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Giữa các microservices trong một dịch vụ | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Giữa các dịch vụ                         | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+Thay vì thay thế tin nhắn văn bản, tin nhắn thoại đóng vai trò bổ sung, giúp nâng cao trải nghiệm giao tiếp với khách hàng.
 
 ---
 
-## The pub/sub hub
+## Các trường hợp sử dụng phổ biến
 
-Việc sử dụng kiến trúc **hub-and-spoke** (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.
-- Mỗi microservice chỉ phụ thuộc vào *hub*
-- Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất
-- Giảm số lượng synchronous calls vì pub/sub là *push* không đồng bộ một chiều
+Tin nhắn thoại đặc biệt hữu ích trong những tình huống mà việc nói thuận tiện hơn so với gõ văn bản.
 
-Nhược điểm: cần **phối hợp và giám sát** để tránh microservice xử lý nhầm message.
+Một số trường hợp sử dụng điển hình gồm:
 
----
+- Người lớn tuổi thích nghe và nói hơn là đọc và gõ.
+- Nhân viên hiện trường hoặc tài xế không thuận tiện để nhập văn bản trong khi làm việc.
+- Các ứng dụng y tế, nơi bệnh nhân có thể mô tả triệu chứng bằng giọng nói tự nhiên hơn.
+- Nhà hàng và dịch vụ du lịch, nơi khách hàng có thể đặt bàn hoặc đặt dịch vụ nhanh chóng.
+- Hỗ trợ khách hàng đối với các vấn đề phức tạp cần giải thích bằng lời nói.
 
-## Core microservice
-
-Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:
-- **Amazon S3** bucket cho dữ liệu
-- **Amazon DynamoDB** cho danh mục dữ liệu
-- **AWS Lambda** để ghi message vào data lake và danh mục
-- **Amazon SNS** topic làm *hub*
-- **Amazon S3** bucket cho artifacts như mã Lambda
-
-> Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.
+Những tình huống này cho thấy tin nhắn thoại có thể nâng cao hiệu quả giao tiếp cũng như cải thiện trải nghiệm của khách hàng.
 
 ---
 
-## Front door microservice
+## AWS End User Messaging và WhatsApp
 
-- Cung cấp API Gateway để tương tác REST bên ngoài
-- Xác thực & ủy quyền dựa trên **OIDC** thông qua **Amazon Cognito**
-- Cơ chế *deduplication* tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
-  1. SNS deduplication TTL chỉ 5 phút
-  2. SNS FIFO yêu cầu SQS FIFO
-  3. Chủ động báo cho sender biết message là bản sao
+AWS End User Messaging là dịch vụ được AWS quản lý hoàn toàn, cho phép doanh nghiệp gửi và nhận tin nhắn thông qua nhiều kênh khác nhau, bao gồm:
+
+- WhatsApp
+- SMS
+- MMS (chỉ tại Hoa Kỳ)
+- Cuộc gọi thoại đi (Outbound Voice)
+- Thông báo đẩy (Push Notifications)
+
+Đối với WhatsApp, các tin nhắn đến sẽ tự động được chuyển vào một Amazon SNS Topic, từ đó có thể tích hợp với các dịch vụ AWS khác như:
+
+- Amazon SNS
+- Amazon SQS
+- AWS Lambda
+- Amazon Bedrock
+
+Kiến trúc hướng sự kiện (Event-driven Architecture) này giúp việc xử lý cả tin nhắn văn bản và tin nhắn thoại trở nên đơn giản thông qua các dịch vụ serverless.
+
+Đối với xử lý giọng nói, nhà phát triển có thể kết hợp các dịch vụ AI của AWS như:
+
+- Amazon Transcribe để chuyển giọng nói thành văn bản (Speech-to-Text).
+- Amazon Polly để chuyển văn bản thành giọng nói (Text-to-Speech).
+- Các mô hình nhận dạng giọng nói của bên thứ ba như Whisper thông qua Amazon Bedrock Marketplace.
 
 ---
 
-## Staging ER7 microservice
+## Kiến trúc Voice-to-Voice Messaging
 
-- Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute
-- Step Functions Express Workflow để chuyển ER7 → JSON
-- Hai Lambda:
-  1. Sửa format ER7 (newline, carriage return)
-  2. Parsing logic
-- Kết quả hoặc lỗi được đẩy lại vào pub/sub hub
+Nhờ kiến trúc linh hoạt của AWS End User Messaging, doanh nghiệp có thể xây dựng quy trình giao tiếp voice-to-voice hoàn chỉnh.
+
+Quy trình hoạt động gồm các bước sau:
+
+1. Khách hàng gửi một tin nhắn thoại qua WhatsApp.
+2. AWS End User Messaging tiếp nhận tin nhắn.
+3. Amazon SNS phát hành sự kiện (Inbound Event).
+4. AWS Lambda tải xuống và xử lý tệp âm thanh.
+5. Amazon Transcribe (hoặc Whisper) chuyển giọng nói thành văn bản.
+6. Chatbot hoặc ứng dụng hội thoại xử lý nội dung yêu cầu.
+7. Amazon Polly chuyển phản hồi thành giọng nói tự nhiên.
+8. AWS End User Messaging gửi tin nhắn thoại phản hồi trở lại cho khách hàng qua WhatsApp.
+
+Do giải pháp xử lý các tệp âm thanh đã được ghi sẵn nên đây là mô hình xử lý bất đồng bộ (Asynchronous Messaging), khác với cuộc gọi thoại thời gian thực.
 
 ---
 
-## Tính năng mới trong giải pháp
+## Giải pháp mẫu
 
-### 1. AWS CloudFormation cross-stack references
-Ví dụ *outputs* trong core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+AWS cung cấp một dự án mã nguồn mở sử dụng AWS CDK để minh họa kiến trúc này.
+
+Dự án mẫu thực hiện các chức năng sau:
+
+- Nhận tin nhắn thoại từ WhatsApp.
+- Chuyển giọng nói thành văn bản.
+- Xử lý nội dung bằng chatbot.
+- Tạo phản hồi bằng giọng nói tự nhiên.
+- Gửi phản hồi thoại trở lại WhatsApp.
+
+Giải pháp hỗ trợ nhiều chế độ triển khai:
+
+- Chỉ nhận tin nhắn (Inbound Only)
+- Chỉ gửi tin nhắn (Outbound Only)
+- Giao tiếp Voice-to-Voice hoàn chỉnh
+
+Các tính năng hiện có bao gồm:
+
+- Mã hóa toàn bộ dữ liệu bằng AWS KMS.
+- Cho phép cấu hình Amazon SNS Topic.
+- Lựa chọn giữa Amazon Transcribe và Whisper để nhận dạng giọng nói.
+- Hỗ trợ chuyển văn bản thành giọng nói bằng Amazon Polly.
+- Hỗ trợ xử lý đồng thời cả tin nhắn văn bản và tin nhắn thoại.
+
+---
+
+## Bắt đầu triển khai
+
+Giải pháp hoàn chỉnh được cung cấp dưới dạng dự án AWS CDK mã nguồn mở.
+
+Trước khi triển khai, cần chuẩn bị:
+
+- Một tài khoản AWS với đầy đủ quyền cần thiết.
+- Node.js phiên bản 18 trở lên.
+- AWS CDK CLI đã được cài đặt.
+- Một tài khoản WhatsApp Business đã đăng ký với AWS End User Messaging.
+
+Khi đăng ký WhatsApp Business Account, cần tạo một doanh nghiệp trên Meta. Số điện thoại sử dụng phải chưa từng được liên kết với tài khoản WhatsApp cá nhân. Sau đó, kích hoạt ứng dụng WhatsApp Business bằng chính số điện thoại này.
+
+---
+
+## Triển khai giải pháp
+
+Đầu tiên, sao chép (clone) dự án mẫu và cài đặt các thư viện cần thiết.
+
+```bash
+npm install
+```
+
+Tiếp theo, cấu hình **WhatsApp Phone Number ID** trong tệp `config.params.json`. Nếu chưa cấu hình, AWS CDK sẽ yêu cầu nhập thông tin này trong quá trình triển khai.
+
+Biên dịch dự án:
+
+```bash
+npm run build
+```
+
+Triển khai hạ tầng:
+
+```bash
+cdk deploy
+```
+
+Sau khi triển khai, AWS CDK sẽ tự động tạo toàn bộ tài nguyên cần thiết, bao gồm:
+
+- Các hàm AWS Lambda
+- Các Amazon SNS Topic
+- Các Amazon S3 Bucket
+- Các IAM Role
+
+Để biết thêm chi tiết về quá trình cấu hình, có thể tham khảo tài liệu trong GitHub Repository do AWS cung cấp.
+
+Khi không còn sử dụng, có thể xóa toàn bộ tài nguyên để tránh phát sinh chi phí:
+
+```bash
+cdk destroy
+```
+
+---
+
+## Kết luận
+
+Tin nhắn thoại đã trở thành một phương thức giao tiếp quen thuộc trong các cuộc trò chuyện cá nhân trên WhatsApp. Việc đưa khả năng này vào các cuộc hội thoại giữa doanh nghiệp và khách hàng giúp quá trình giao tiếp trở nên tự nhiên, dễ tiếp cận và hiệu quả hơn.
+
+Bằng cách kết hợp AWS End User Messaging với các dịch vụ như AWS Lambda, Amazon Transcribe, Amazon Polly và Amazon SNS, nhà phát triển có thể xây dựng các giải pháp giao tiếp bằng giọng nói có khả năng mở rộng mà không làm thay đổi cách khách hàng tương tác với doanh nghiệp.
+
+Dự án mẫu AWS CDK là điểm khởi đầu phù hợp để thử nghiệm giải pháp voice-to-voice và mở rộng cho các nhu cầu thực tế của doanh nghiệp.
+
+---
+
+## Bài viết gốc
+
+https://aws.amazon.com/vi/blogs/messaging-and-targeting/adding-a-voice-layer-to-whatsapp-conversations-with-aws-end-user-messaging/
