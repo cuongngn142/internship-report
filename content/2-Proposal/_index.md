@@ -1,112 +1,197 @@
 ---
-title: "Proposal"
-date: 2024-01-01
+title: 'Proposal'
+date: 2026-07-07
 weight: 2
 chapter: false
-pre: " <b> 2. </b> "
+pre: ' <b> 2. </b> '
 ---
 
-In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
+# Security Operations Center (SOC) on AWS
 
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+## A Serverless Event-Driven Platform for Automated Threat Detection and Incident Response
 
 ### 1. Executive Summary
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+
+The Security Operations Center (SOC) on AWS is a serverless and event-driven security platform designed to automatically detect, analyze, and respond to cybersecurity threats in real time. The architecture follows the five core functions of the NIST Cybersecurity Framework: **Identify, Protect, Detect, Respond, and Recover**.
+
+The solution protects cloud workloads deployed inside an Amazon VPC by integrating Amazon CloudFront, AWS WAF, AWS Shield Standard, Amazon GuardDuty, IAM Access Analyzer, AWS Security Hub, Amazon EventBridge, AWS Lambda, AWS Step Functions, Amazon SNS, Amazon Athena, and Amazon S3.
+
+To optimize operational costs, the platform adopts FinOps principles by leveraging AWS Free Tier where possible, storing security logs in Amazon S3 instead of CloudWatch Logs, and querying data directly with Amazon Athena.
 
 ### 2. Problem Statement
-### What’s the Problem?
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
 
-### The Solution
-The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
+#### What's the Problem?
 
-### Benefits and Return on Investment
-The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
+Traditional security monitoring often relies on manual investigation and delayed incident response. Common challenges include:
+
+- Lack of centralized security visibility.
+- Slow threat detection.
+- Manual incident response.
+- High operational costs.
+- Difficulty correlating security findings.
+
+#### The Solution
+
+The proposed SOC platform integrates AWS native security services into an automated security pipeline.
+
+Incoming traffic is protected by Amazon CloudFront, AWS WAF and AWS Shield Standard before entering the Amazon VPC. AWS CloudTrail and Amazon VPC Flow Logs collect security events and store them centrally in Amazon S3 using AWS KMS encryption.
+
+Amazon GuardDuty analyzes CloudTrail Management Events and VPC Flow Logs, while IAM Access Analyzer detects unintended resource exposure. AWS Security Hub aggregates findings and forwards them through Amazon EventBridge. Depending on severity, AWS Lambda or AWS Step Functions automatically isolate EC2 instances, block malicious IP addresses through AWS WAF IP Sets, revoke IAM Access Keys, generate incident reports in Amazon S3, and send notifications through Amazon SNS.
+
+SOC analysts investigate incidents using Amazon Athena.
+
+#### Benefits and Return on Investment
+
+- Automated threat detection.
+- Near real-time incident response.
+- Reduced MTTD and MTTR.
+- Centralized security monitoring.
+- Lower operational costs through serverless architecture.
+- Cost-efficient log storage using Amazon S3.
 
 ### 3. Solution Architecture
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+The architecture follows a layered defense-in-depth approach.
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+#### Architecture Layers
+
+1. **Edge Protection** – Amazon CloudFront, AWS WAF and AWS Shield Standard protect against DDoS, SQL Injection, XSS and brute-force attacks.
+
+2. **Network Isolation** – Amazon VPC contains a Public Subnet with an Application Load Balancer and NAT Instance (t4g.nano), while Amazon EC2 instances remain inside a Private Subnet protected by Security Groups.
+
+3. **Data Collection** – AWS CloudTrail Management Events and Amazon VPC Flow Logs are stored in Amazon S3 using AWS KMS encryption.
+
+4. **Storage** – Amazon S3 stores logs and incident reports with a 90-day Lifecycle Policy. Amazon Athena provides SQL-based investigation.
+
+5. **Threat Detection** – Amazon GuardDuty, IAM Access Analyzer and AWS Security Hub detect and aggregate security findings.
+
+6. **Automated Response** – Amazon EventBridge triggers AWS Lambda or AWS Step Functions to block IP addresses, isolate EC2 instances, revoke IAM credentials and notify SOC analysts.
+
+7. **Monitoring Dashboard** – Amazon CloudWatch Dashboard displays findings, Lambda executions, blocked IPs and SNS notifications.
+
+![SOC Architecture](/images/2-Proposal/aws_soc_architecture.png)
 
 ### AWS Services Used
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
 
-### Component Design
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+| AWS Service                 | Purpose                  |
+| --------------------------- | ------------------------ |
+| Amazon CloudFront           | Edge protection          |
+| AWS WAF                     | Web application firewall |
+| AWS Shield Standard         | DDoS protection          |
+| Amazon VPC                  | Network isolation        |
+| Application Load Balancer   | Traffic distribution     |
+| Amazon EC2                  | Protected workload       |
+| AWS CloudTrail              | Management event logging |
+| Amazon VPC Flow Logs        | Network traffic logging  |
+| Amazon S3                   | Centralized log storage  |
+| AWS KMS                     | Log encryption           |
+| Amazon GuardDuty            | Threat detection         |
+| IAM Access Analyzer         | IAM exposure analysis    |
+| AWS Security Hub            | Findings aggregation     |
+| Amazon EventBridge          | Event routing            |
+| AWS Lambda                  | Automated response       |
+| AWS Step Functions          | Workflow orchestration   |
+| Amazon SNS                  | Alert notification       |
+| Amazon Athena               | Security investigation   |
+| Amazon CloudWatch Dashboard | Monitoring               |
 
 ### 4. Technical Implementation
-**Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
-- Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-- Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-- Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
 
-**Technical Requirements**
-- Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
-- Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
+#### Implementation Phases
+
+- **Phase 1:** Research AWS security services and design the SOC architecture.
+- **Phase 2:** Deploy AWS infrastructure using Terraform.
+- **Phase 3:** Configure CloudTrail, VPC Flow Logs, GuardDuty, IAM Access Analyzer and Security Hub.
+- **Phase 4:** Implement automated response using EventBridge, Lambda, Step Functions and SNS.
+
+#### Technical Requirements
+
+- AWS Security Services
+- AWS Networking
+- Terraform
+- AWS Lambda (Python)
+- IAM
+- Amazon EventBridge
+- AWS Step Functions
+- AWS CloudTrail
+- Amazon S3
+- Amazon Athena
+- AWS KMS
+- Amazon GuardDuty
+- AWS Security Hub
+- Amazon CloudWatch
 
 ### 5. Timeline & Milestones
-**Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design and adjust architecture.
-    - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
+
+- **Month 1**
+  - Study AWS security services.
+  - Research the NIST Cybersecurity Framework.
+  - Design the system architecture.
+
+- **Month 2**
+  - Deploy infrastructure.
+  - Configure logging.
+  - Enable security services.
+
+- **Month 3**
+  - Develop automated response.
+  - Test detection and response.
+  - Complete deployment and documentation.
 
 ### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
 
-### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-    - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-    - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-    - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-    - Amazon API Gateway: $0.01/month (2,000 requests).
-    - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
-    - AWS Glue Crawlers: $0.07/month (1 crawler).
-    - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
+| Service                     | Estimated Cost           |
+| --------------------------- | ------------------------ |
+| Amazon S3                   | Low                      |
+| Amazon Athena               | Pay per scanned data     |
+| Amazon GuardDuty            | Trial / Minimal workload |
+| AWS CloudTrail              | Free Management Events   |
+| AWS Lambda                  | Free Tier                |
+| Amazon EventBridge          | Free Tier                |
+| Amazon SNS                  | Free Tier                |
+| AWS Security Hub            | Trial / Limited usage    |
+| AWS WAF                     | Minimal                  |
+| Amazon CloudWatch Dashboard | Minimal                  |
+| NAT Instance (t4g.nano)     | Low                      |
 
-Total: $0.7/month, $8.40/12 months
-
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
+**Estimated monthly operating cost:** Under **USD 60**.
 
 ### 7. Risk Assessment
+
 #### Risk Matrix
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
+
+| Risk                       | Impact | Probability |
+| -------------------------- | ------ | ----------- |
+| False positives            | Medium | Medium      |
+| Misconfigured IAM policies | High   | Low         |
+| Unexpected AWS costs       | Medium | Low         |
+| Lambda execution failures  | Medium | Low         |
+| Service quota limitations  | Low    | Low         |
 
 #### Mitigation Strategies
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
+
+- Configure GuardDuty Suppression Rules.
+- Apply least-privilege IAM policies.
+- Monitor AWS Budgets.
+- Validate automated workflows before deployment.
 
 #### Contingency Plans
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
+
+- Investigate incidents manually using Athena.
+- Restore Security Groups if required.
+- Re-enable revoked IAM credentials.
+- Roll back infrastructure using Terraform.
 
 ### 8. Expected Outcomes
-#### Technical Improvements:
-Real-time data and analytics replace manual processes.
-Scalable to 10-15 stations.
+
+#### Technical Improvements
+
+- Automated cloud threat detection.
+- Real-time monitoring.
+- Centralized log management.
+- Automated incident response.
+- Cost-efficient serverless security operations.
+
 #### Long-term Value
-1-year data foundation for AI research.
-Reusable for future projects.
+
+The SOC platform serves as a practical reference architecture for learning and implementing cloud security on AWS. It demonstrates how serverless and event-driven AWS services can be integrated to build an automated Security Operations Center following the NIST Cybersecurity Framework. The project can be reused for education, research and future cloud security development.
