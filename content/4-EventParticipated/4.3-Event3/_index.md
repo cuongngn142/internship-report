@@ -1,38 +1,39 @@
 ---
-
 title: 'Event 3'
 date: 2026-07-04
 weight: 3
 chapter: false
 pre: ' <b> 4.3. </b> '
-----------------------
+---
+
+---
 
 # Event 3 – Mini Meetup: First Cloud AI Journey
 
 ### Event Information
 
-* **Event Name:** Mini Meetup – First Cloud AI Journey
-* **Date & Time:** 09:00 AM, July 4, 2026
-* **Location:** Online
-* **Role:** Online Participant
+- **Event Name:** Mini Meetup – First Cloud AI Journey
+- **Date & Time:** 09:00 AM, July 4, 2026
+- **Location:** Online
+- **Role:** Online Participant
 
 ---
 
 ## Purpose of the Event
 
-* Explore the latest trends in Cloud Computing and Artificial Intelligence (AI).
-* Share career development experiences from industry professionals.
-* Provide career guidance for students and newcomers entering the Cloud and AI fields.
-* Introduce the essential technical skills and mindset required to meet current industry demands.
+- Explore the latest trends in Cloud Computing and Artificial Intelligence (AI).
+- Share career development experiences from industry professionals.
+- Provide career guidance for students and newcomers entering the Cloud and AI fields.
+- Introduce the essential technical skills and mindset required to meet current industry demands.
 
 ---
 
 ## Speakers
 
-* **Mr. Nguyen Gia Hung** – *Job Market & Career Trend*
-* **Mr. Vinh Banh** – *Data Engineering Career Journey*
-* **Ms. Nhu Tran** – *AI Ready Fresher*
-* **Mr. Khang Nguyen** – *Career Development & Growth Mindset*
+- **Mr. Nguyen Gia Hung** – _Job Market & Career Trend_
+- **Mr. Vinh Banh** – _Data Engineering Career Journey_
+- **Ms. Nhu Tran** – _AI Ready Fresher_
+- **Mr. Khang Nguyen** – _Career Development & Growth Mindset_
 
 ---
 
@@ -44,11 +45,11 @@ The speaker provided an overview of Vietnam's Cloud Computing market and discuss
 
 Main topics included:
 
-* An overview of the rapid growth of the cloud market in Vietnam.
-* AWS investment and market expansion in Vietnam from 2015 to 2026.
-* Companies that are building and operating their infrastructure on AWS.
-* Growing demand for Cloud Engineers, DevOps Engineers, Solutions Architects, Data Engineers, and Security Engineers.
-* Future industry trends and the skills employers are looking for in cloud professionals.
+- An overview of the rapid growth of the cloud market in Vietnam.
+- AWS investment and market expansion in Vietnam from 2015 to 2026.
+- Companies that are building and operating their infrastructure on AWS.
+- Growing demand for Cloud Engineers, DevOps Engineers, Solutions Architects, Data Engineers, and Security Engineers.
+- Future industry trends and the skills employers are looking for in cloud professionals.
 
 ---
 
@@ -58,11 +59,11 @@ The speaker shared his career journey from learning cloud technologies to workin
 
 Main topics included:
 
-* Building an effective learning roadmap for AWS and Data Engineering.
-* Essential technical foundations for becoming a Data Engineer.
-* Personal experiences working in startup and Big Tech environments.
-* Technical and soft skills required for long-term career growth.
-* Practical advice for students pursuing careers in data and cloud technologies.
+- Building an effective learning roadmap for AWS and Data Engineering.
+- Essential technical foundations for becoming a Data Engineer.
+- Personal experiences working in startup and Big Tech environments.
+- Technical and soft skills required for long-term career growth.
+- Practical advice for students pursuing careers in data and cloud technologies.
 
 ---
 
@@ -72,10 +73,10 @@ The session focused on preparing students for the AI era.
 
 Main topics included:
 
-* Essential skills that fresh graduates should develop before entering the workforce.
-* Using AI as a productivity tool rather than relying on it completely.
-* The importance of critical thinking, self-learning, and strong technical fundamentals.
-* Building a professional portfolio and continuously improving skills to remain competitive.
+- Essential skills that fresh graduates should develop before entering the workforce.
+- Using AI as a productivity tool rather than relying on it completely.
+- The importance of critical thinking, self-learning, and strong technical fundamentals.
+- Building a professional portfolio and continuously improving skills to remain competitive.
 
 ---
 
@@ -85,12 +86,12 @@ The speaker shared practical advice on career development and personal growth fo
 
 Main topics included:
 
-* Developing the habit of asking "Why" to understand the root cause of problems instead of simply memorizing information.
-* Building a long-term learning mindset and continuously improving personal skills.
-* Actively participating in real-world projects, hackathons, and community activities to gain practical experience.
-* Strengthening teamwork, communication, and professional networking skills.
-* Prioritizing learning opportunities, experience, and long-term career growth over the salary of the first job.
-* Understanding that employers value attitude, adaptability, and continuous learning in addition to technical knowledge.
+- Developing the habit of asking "Why" to understand the root cause of problems instead of simply memorizing information.
+- Building a long-term learning mindset and continuously improving personal skills.
+- Actively participating in real-world projects, hackathons, and community activities to gain practical experience.
+- Strengthening teamwork, communication, and professional networking skills.
+- Prioritizing learning opportunities, experience, and long-term career growth over the salary of the first job.
+- Understanding that employers value attitude, adaptability, and continuous learning in addition to technical knowledge.
 
 ---
 
@@ -98,26 +99,26 @@ Main topics included:
 
 ### Career Development
 
-* Gained a better understanding of the Cloud Computing and AI job market in Vietnam.
-* Learned about the most in-demand cloud-related career opportunities.
-* Understood the technical and soft skills expected from new graduates.
-* Developed a clearer career roadmap for Cloud Computing, Data Engineering, and Artificial Intelligence.
+- Gained a better understanding of the Cloud Computing and AI job market in Vietnam.
+- Learned about the most in-demand cloud-related career opportunities.
+- Understood the technical and soft skills expected from new graduates.
+- Developed a clearer career roadmap for Cloud Computing, Data Engineering, and Artificial Intelligence.
 
 ### Skill Development
 
-* Learned how to build a structured AWS and Cloud Computing learning roadmap.
-* Gained valuable career insights from professionals working in startups and Big Tech companies.
-* Understood how to use AI effectively to improve productivity while maintaining independent thinking and problem-solving skills.
-* Recognized the importance of communication skills, teamwork, and continuous learning for long-term career success.
+- Learned how to build a structured AWS and Cloud Computing learning roadmap.
+- Gained valuable career insights from professionals working in startups and Big Tech companies.
+- Understood how to use AI effectively to improve productivity while maintaining independent thinking and problem-solving skills.
+- Recognized the importance of communication skills, teamwork, and continuous learning for long-term career success.
 
 ---
 
 ## Application to My Internship
 
-* Continue strengthening my knowledge of Linux, Networking, and AWS services.
-* Follow a structured learning roadmap through AWS Skill Builder and hands-on projects.
-* Apply AI tools to support research, software development, and the **Security Operations Center (SOC)** project on AWS.
-* Participate in more workshops, meetups, and community events to stay updated with emerging technologies and expand my professional network.
+- Continue strengthening my knowledge of Linux, Networking, and AWS services.
+- Follow a structured learning roadmap through AWS Skill Builder and hands-on projects.
+- Apply AI tools to support research, software development, and the **Security Operations Center (SOC)** project on AWS.
+- Participate in more workshops, meetups, and community events to stay updated with emerging technologies and expand my professional network.
 
 ---
 
@@ -135,7 +136,7 @@ Overall, the event not only enhanced my understanding of current Cloud and AI tr
 
 ## Event Photos
 
-*Insert event photos here.*
+_Insert event photos here._
 
 > Overall, **Mini Meetup – First Cloud AI Journey** provided valuable insights into the Cloud Computing and AI job market while offering practical career advice from experienced professionals. The knowledge and inspiration gained from this event will support my continuous learning, skill development, and future career preparation.
 

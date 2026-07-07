@@ -1,4 +1,3 @@
-```markdown
 ---
 title: 'Báo cáo Thực tập'
 date: 2024-01-01
@@ -39,4 +38,3 @@ chapter: false
 5. [Workshop](5-Workshop/)
 6. [Tự đánh giá](6-Self-evaluation/)
 7. [Chia sẻ và phản hồi](7-Feedback/)
-```
