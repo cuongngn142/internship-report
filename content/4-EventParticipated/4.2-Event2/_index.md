@@ -1,122 +1,112 @@
 ---
+
 title: "Event 2"
-date: 2024-01-01
-weight: 1
+date: 2026-06-27
+weight: 2
 chapter: false
 pre: " <b> 4.2. </b> "
+----------------------
+
+# Event 2 – Data Driven, AI Risen FCAJ Community Day
+
+### Event Information
+
+* **Event Name:** Data Driven, AI Risen FCAJ Community Day
+* **Date & Time:** 09:00 AM, June 27, 2026
+* **Location:** Online
+* **Role:** Online Participant
+
 ---
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+### Purpose of the Event
 
-### Event Objectives
+* Explore the latest trends in Artificial Intelligence (AI), Cloud Computing, and DevOps.
+* Introduce AI Agent and Agentic AI solutions on cloud platforms.
+* Share AI-powered tools that support learning and software development.
+* Connect members of the AWS, AI, and Cloud Computing community.
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+---
 
 ### Speakers
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+* **Steve Tran** – *Cloud Agentic*
+* **Nghia Van** – *AI Voice*
+* **Trung**
+* **Trung**
+* **Bao** – *DevOps Agent*
+* **Nguyen Nguyen**
+* **Toan Nguyen** – *Amazon Quick*
+* **Nghi**
 
-### Key Highlights
+---
 
-#### Identifying the drawbacks of legacy application architecture
+### Key Topics
 
-- Long product release cycles → Lost revenue/missed opportunities
-- Inefficient operations → Reduced productivity, higher costs
-- Non-compliance with security regulations → Security breaches, loss of reputation
+#### Cloud Agentic
 
-#### Transitioning to modern application architecture – Microservices
+* Introduction to the concept of Agentic AI on cloud platforms.
+* The role of AI Agents in automating workflows and managing cloud infrastructure.
+* Collaboration among multiple AI Agents to solve real-world business problems.
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+#### AI Voice
 
-- **Queue Management**: Handle asynchronous tasks
-- **Caching Strategy**: Optimize performance
-- **Message Handling**: Flexible inter-service communication
+* Applications of AI in speech recognition and voice synthesis.
+* Emerging trends in Voice AI technologies.
+* Practical use cases of Voice AI in customer service and enterprise solutions.
 
-#### Domain-Driven Design (DDD)
+#### DevOps Agent
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts
-- **Bookstore case study**: Demonstrates real-world DDD application
-- **Context mapping**: 7 patterns for integrating bounded contexts
+* Applying AI Agents to DevOps workflows within AWS services.
+* Introduction to DevOps Agent and its capabilities.
+* Demonstration of supported AWS services and practical use cases.
 
-#### Event-Driven Architecture
+#### Amazon Quick
 
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming
-- **Benefits**: Loose coupling, scalability, resilience
-- **Sync vs async comparison**: Understanding the trade-offs
+* Introduction to Amazon Quick and its core features.
+* AI-powered solutions for data analysis and processing.
+* Examples of AI applications in enterprise environments.
 
-#### Compute Evolution
+---
 
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria for appropriate choice
+### What I Learned
 
-#### Amazon Q Developer
+#### AI and Cloud Knowledge
 
-- **SDLC automation**: From planning to maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
+* Gained a deeper understanding of the rapid growth of Agentic AI.
+* Learned how AI Agents can automate cloud-based operations and workflows.
+* Explored practical applications of Voice AI in modern businesses.
 
-### Key Takeaways
+#### Skill Development
 
-#### Design Mindset
+* Learned more about AWS learning pathways through **AWS Skill Builder**.
+* Gained insights into integrating AI with DevOps practices.
+* Expanded my knowledge of AI tools that support software development and cloud operations.
 
-- **Business-first approach**: Always start from the business domain, not the technology
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams
-- **Bounded contexts**: Identifying and managing complexity in large systems
+---
 
-#### Technical Architecture
+### Application to My Internship
 
-- **Event storming technique**: Practical method for modeling business processes
-- Use **event-driven communication** instead of synchronous calls
-- **Integration patterns**: When to use sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless
+* Explore and experiment with AI Agents in personal and internship projects.
+* Continue improving my AWS knowledge through **AWS Skill Builder**.
+* Research how AI can be integrated into my **Security Operations Center (SOC)** project to automate monitoring and incident response.
+* Learn more about AI-powered tools for cloud infrastructure management and software development.
 
-#### Modernization Strategy
+---
 
-- **Phased approach**: No rushing — follow a clear roadmap
-- **7Rs framework**: Multiple modernization paths depending on the application
-- **ROI measurement**: Cost reduction + business agility
+### Personal Experience
 
-### Applying to Work
+Participating in **Data Driven, AI Risen FCAJ Community Day** allowed me to stay up to date with the latest developments in Artificial Intelligence, Cloud Computing, and DevOps. Although I attended the event online, I was able to follow every presentation and gain valuable insights from the speakers.
 
-- **Apply DDD** to current projects: Event storming sessions with business teams
-- **Refactor microservices**: Use bounded contexts to define service boundaries
-- **Implement event-driven patterns**: Replace some sync calls with async messaging
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity
+The sessions on **Cloud Agentic**, **AI Voice**, **AWS Skill Builder**, and **DevOps Agent** demonstrated how AI is increasingly integrated into cloud infrastructure and software development. I was particularly interested in learning how AI Agents can automate operational tasks and improve system management on AWS.
 
-### Event Experience
+The introduction to **AWS Skill Builder** also provided useful learning resources and certification pathways that will help me continue developing my cloud computing skills.
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+Overall, the event broadened my understanding of AI-driven cloud technologies and inspired me to explore practical AI applications in future software and cloud projects.
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.
+---
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.
+### Event Photos
 
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.
+*Insert photos taken during the event here.*
 
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.
-
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.
-
-#### Some event photos
-*Add your event photos here*
-
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+> Overall, **Data Driven, AI Risen FCAJ Community Day** enhanced my knowledge of Artificial Intelligence, Cloud Computing, and DevOps while providing practical insights into how AI technologies are transforming software development and cloud infrastructure management on AWS.

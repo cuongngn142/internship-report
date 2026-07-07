@@ -1,122 +1,98 @@
 ---
-title: "Event 1"
-date: 2024-01-01
+title: 'Event 1'
+date: 2026-05-30
 weight: 1
 chapter: false
-pre: " <b> 4.1. </b> "
+pre: ' <b> 4.1. </b> '
 ---
 
+---
 
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
+# Event 1 – REMINDER FCAJ Community Day
 
-### Mục Đích Của Sự Kiện
+### Thông tin sự kiện
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+- **Tên sự kiện:** REMINDER FCAJ Community Day
+- **Thời gian:** 09:00 ngày 30/05/2026
+- **Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, Thành phố Hồ Chí Minh
+- **Vai trò:** Người tham dự
 
-### Danh Sách Diễn Giả
+---
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+### Mục đích của sự kiện
 
-### Nội Dung Nổi Bật
+- Giới thiệu về cộng đồng FCAJ và các hoạt động dành cho thành viên.
+- Cung cấp thông tin về chương trình AWS Hackathon.
+- Giới thiệu nền tảng học tập AWS Game 3D và FloCI.
+- Tạo cơ hội giao lưu, học hỏi và kết nối với cộng đồng AWS.
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+---
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+### Nội dung và hoạt động chính
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+#### Tìm hiểu về AWS Hackathon
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+- Giới thiệu tổng quan về AWS Hackathon.
+- Chia sẻ mục tiêu, hình thức tham gia và các chủ đề thường gặp.
+- Trao đổi kinh nghiệm chuẩn bị và tham gia các cuộc thi về Cloud Computing.
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
+#### Khám phá AWS Game 3D
 
-#### Domain-Driven Design (DDD)
+- Giới thiệu nền tảng AWS Game 3D.
+- Trải nghiệm phương pháp học AWS thông qua các tình huống mô phỏng.
+- Tìm hiểu cách nâng cao kỹ năng thực hành trên nền tảng AWS.
 
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
+#### Tìm hiểu FloCI
 
-#### Event-Driven Architecture
+- Giới thiệu nền tảng học tập FloCI.
+- Tìm hiểu các tài liệu, khóa học và bài thực hành về Cloud Computing.
+- Định hướng lộ trình học tập và phát triển kỹ năng trên AWS.
 
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
+#### Giao lưu cùng cộng đồng
 
-#### Compute Evolution
+- Trao đổi kinh nghiệm học tập và sử dụng các dịch vụ AWS.
+- Chia sẻ lộ trình học Cloud và định hướng nghề nghiệp.
+- Kết nối với các thành viên trong cộng đồng để mở rộng mối quan hệ và học hỏi kinh nghiệm thực tế.
 
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
+---
 
-#### Amazon Q Developer
+### Kết quả và giá trị đạt được
 
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
+Sau khi tham gia sự kiện, tôi đạt được những kết quả sau:
 
-### Những Gì Học Được
+- Hiểu rõ hơn về hoạt động của cộng đồng FCAJ và AWS.
+- Biết thêm về AWS Hackathon cũng như cách chuẩn bị để tham gia các cuộc thi về điện toán đám mây.
+- Tiếp cận các nền tảng học tập như AWS Game 3D và FloCI nhằm nâng cao kiến thức và kỹ năng thực hành.
+- Học hỏi kinh nghiệm từ các thành viên trong cộng đồng về quá trình học tập, thi chứng chỉ AWS và phát triển nghề nghiệp.
+- Mở rộng mối quan hệ với những người có cùng định hướng trong lĩnh vực Cloud Computing.
 
-#### Tư Duy Thiết Kế
+---
 
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
+### Ứng dụng vào quá trình thực tập
 
-#### Kiến Trúc Kỹ Thuật
+- Áp dụng các kiến thức và kinh nghiệm thu nhận được để xây dựng lộ trình học AWS hiệu quả hơn.
+- Tiếp tục nghiên cứu và thực hành các dịch vụ AWS phục vụ cho dự án Security Operations Center (SOC).
+- Chủ động tham gia các sự kiện cộng đồng để cập nhật công nghệ và mở rộng kiến thức.
+- Chuẩn bị nền tảng để tham gia các chương trình AWS Hackathon trong tương lai.
 
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
+---
 
-#### Chiến Lược Hiện Đại Hóa
+### Trải nghiệm khi tham gia sự kiện
 
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
+REMINDER FCAJ Community Day là một sự kiện giúp tôi có cơ hội tiếp cận với cộng đồng AWS, đồng thời tìm hiểu thêm nhiều nguồn học tập và hoạt động thực tiễn dành cho sinh viên yêu thích Cloud Computing.
 
-### Ứng Dụng Vào Công Việc
+Thông qua phần giới thiệu về AWS Hackathon, AWS Game 3D và FloCI, tôi có thêm nhiều thông tin hữu ích về các nền tảng hỗ trợ học tập cũng như cơ hội phát triển kỹ năng trong lĩnh vực điện toán đám mây. Bên cạnh đó, phần giao lưu với các thành viên trong cộng đồng giúp tôi học hỏi được nhiều kinh nghiệm thực tế về quá trình học AWS, định hướng lấy chứng chỉ và phát triển các dự án cá nhân.
 
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
+Sự kiện đã mang lại cho tôi nhiều kiến thức bổ ích, tạo động lực để tiếp tục học tập và hoàn thiện các kỹ năng về AWS trong quá trình thực tập.
 
-### Trải nghiệm trong event
+---
 
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
+### Một số hình ảnh khi tham gia sự kiện
 
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
+_Chèn hình ảnh tham gia sự kiện tại đây._
 
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
+> Nhìn chung, REMINDER FCAJ Community Day đã giúp tôi mở rộng kiến thức về hệ sinh thái AWS, tiếp cận các nền tảng học tập mới và kết nối với cộng đồng Cloud. Những kinh nghiệm thu được từ sự kiện sẽ là nền tảng hữu ích để tôi tiếp tục học tập và áp dụng vào các dự án thực tế trong thời gian tới.
 
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
-
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
-
-#### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
-
-#### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+![Image Event](/images/4-EventParticipated/IMG_20260530_083629.jpg)
+![Image Event](/images/4-EventParticipated/IMG_20260530_092220.jpg)
+![Image Event](/images/4-EventParticipated/IMG_20260530_111427.jpg)
