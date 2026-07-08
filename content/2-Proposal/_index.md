@@ -97,7 +97,7 @@ Through this project, the implementation process not only strengthens AWS knowle
 
 #### 3.1 Architecture Diagram
 
-![Image](/images/4-EventParticipated/AWS_SOC_Architecture_final.drawio.png)
+![Image](/images/2-Proposal/AWS_SOC_Architecture_final.drawio.png)
 
 The **Security Operations Center (SOC) on AWS** system is designed based on a **Serverless** combined with **Event-driven** architecture, where all security events are processed through an asynchronous event processing mechanism.
 

@@ -90,7 +90,7 @@ Thông qua dự án này, người thực hiện không chỉ củng cố kiến
 
 #### 3.1 Sơ đồ kiến trúc hệ thống
 
-![Image](/images/4-EventParticipated/AWS_SOC_Architecture_final.drawio.png)
+![Image](/images/2-Proposal/AWS_SOC_Architecture_final.drawio.png)
 
 Hệ thống **Security Operations Center (SOC) on AWS** được thiết kế theo mô hình **Serverless** kết hợp **Event-driven**, trong đó mọi sự kiện bảo mật đều được xử lý theo cơ chế bất đồng bộ (Asynchronous Event Processing). Khi một sự kiện hoặc hành vi bất thường xảy ra trên môi trường AWS, hệ thống sẽ tự động thu thập dữ liệu, phân tích mức độ ảnh hưởng, thực hiện các hành động phản ứng phù hợp và gửi cảnh báo tới quản trị viên mà không cần can thiệp thủ công.
 
