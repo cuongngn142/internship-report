@@ -17,13 +17,13 @@ chapter: false
 
 &emsp; **Trường:** Trường Đại học Công nghệ TP. Hồ Chí Minh (HUTECH)
 
-&emsp; **Chuyên ngành:** Kỹ thuật Phần mềm
+&emsp; **Chuyên ngành:** Công Nghệ Phần mềm
 
-&emsp; **Lớp:** AWS082025
+&emsp; **Lớp:** 22DTHC1
 
 &emsp; **Đơn vị thực tập:** Amazon Web Services Vietnam Co., Ltd.
 
-&emsp; **Vị trí thực tập:** FCJ Cloud Intern
+&emsp; **Vị trí thực tập:** Workforce Bootcamp - First Cloud AI Journey
 
 &emsp; **Thời gian thực tập:** Từ ngày 17/04/2026 đến ngày 10/07/2026
 
