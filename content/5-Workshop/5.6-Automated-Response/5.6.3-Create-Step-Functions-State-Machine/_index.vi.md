@@ -1,5 +1,5 @@
 ---
-title: 'Bước 3: Tạo Step Functions State Machine'
+title: 'Tạo Step Functions State Machine'
 date: 2026-07-09
 weight: 26
 chapter: false

@@ -1,5 +1,5 @@
 ---
-title: 'Step 1: Create a CloudWatch Dashboard'
+title: 'Create a CloudWatch Dashboard'
 date: 2026-07-09
 weight: 29
 chapter: false

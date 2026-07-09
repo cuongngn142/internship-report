@@ -1,5 +1,5 @@
 ---
-title: 'Bước 2: Tạo S3 bucket lưu log'
+title: 'Tạo S3 bucket lưu log'
 date: 2026-07-09
 weight: 14
 chapter: false

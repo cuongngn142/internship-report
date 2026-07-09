@@ -1,5 +1,5 @@
 ---
-title: 'Step 3: Create subnets'
+title: 'Create subnets'
 date: 2026-07-09
 weight: 7
 chapter: false

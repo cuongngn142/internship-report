@@ -1,5 +1,5 @@
 ---
-title: 'Step 2: Create an Internet Gateway'
+title: 'Create an Internet Gateway'
 date: 2026-07-09
 weight: 6
 chapter: false

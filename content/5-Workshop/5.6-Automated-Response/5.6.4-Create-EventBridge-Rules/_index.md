@@ -1,5 +1,5 @@
 ---
-title: 'Step 4: Create EventBridge Rules'
+title: 'Create EventBridge Rules'
 date: 2026-07-09
 weight: 27
 chapter: false

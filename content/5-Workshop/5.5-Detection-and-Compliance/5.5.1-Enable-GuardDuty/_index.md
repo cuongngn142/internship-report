@@ -1,5 +1,5 @@
 ---
-title: 'Step 1: Enable GuardDuty'
+title: 'Enable GuardDuty'
 date: 2026-07-09
 weight: 19
 chapter: false

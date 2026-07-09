@@ -1,5 +1,5 @@
 ---
-title: 'Bước 1: Tạo CloudWatch Dashboard'
+title: 'Tạo CloudWatch Dashboard'
 date: 2026-07-09
 weight: 29
 chapter: false

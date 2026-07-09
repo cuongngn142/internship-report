@@ -1,5 +1,5 @@
 ---
-title: 'Bước 5: Tạo Athena Workgroup và Glue Database'
+title: 'Tạo Athena Workgroup và Glue Database'
 date: 2026-07-09
 weight: 17
 chapter: false

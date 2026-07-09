@@ -1,5 +1,5 @@
 ---
-title: 'Step 6: Create Security Groups'
+title: 'Create Security Groups'
 date: 2026-07-09
 weight: 10
 chapter: false

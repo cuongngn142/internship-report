@@ -1,5 +1,5 @@
 ---
-title: 'Bước 6: Tạo Security Group'
+title: 'Tạo Security Group'
 date: 2026-07-09
 weight: 10
 chapter: false

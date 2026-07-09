@@ -1,5 +1,5 @@
 ---
-title: 'Bước 4: Bật Security Hub'
+title: 'Bật Security Hub'
 date: 2026-07-09
 weight: 22
 chapter: false

@@ -1,5 +1,5 @@
 ---
-title: 'Step 5: Create route tables'
+title: 'Create route tables'
 date: 2026-07-09
 weight: 9
 chapter: false

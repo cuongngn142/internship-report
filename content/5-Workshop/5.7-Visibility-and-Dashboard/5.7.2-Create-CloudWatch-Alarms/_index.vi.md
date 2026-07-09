@@ -1,5 +1,5 @@
 ---
-title: 'Bước 2: Tạo CloudWatch Alarms'
+title: 'Tạo CloudWatch Alarms'
 date: 2026-07-09
 weight: 30
 chapter: false

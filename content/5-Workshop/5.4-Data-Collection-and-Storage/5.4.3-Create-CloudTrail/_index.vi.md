@@ -1,5 +1,5 @@
 ---
-title: 'Bước 3: Tạo CloudTrail'
+title: 'Tạo CloudTrail'
 date: 2026-07-09
 weight: 15
 chapter: false

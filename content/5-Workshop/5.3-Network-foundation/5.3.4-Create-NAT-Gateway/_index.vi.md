@@ -1,5 +1,5 @@
 ---
-title: 'Bước 4: Tạo NAT Gateway'
+title: 'Tạo NAT Gateway'
 date: 2026-07-09
 weight: 8
 chapter: false

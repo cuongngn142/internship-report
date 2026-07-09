@@ -1,5 +1,5 @@
 ---
-title: 'Bước 2: Tạo Internet Gateway'
+title: 'Tạo Internet Gateway'
 date: 2026-07-09
 weight: 6
 chapter: false

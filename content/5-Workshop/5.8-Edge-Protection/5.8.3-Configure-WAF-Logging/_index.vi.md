@@ -1,5 +1,5 @@
 ---
-title: 'Bước 3: Cấu hình WAF Logging'
+title: 'Cấu hình WAF Logging'
 date: 2026-07-09
 weight: 32
 chapter: false

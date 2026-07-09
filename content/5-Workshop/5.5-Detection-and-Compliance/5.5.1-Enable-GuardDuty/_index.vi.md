@@ -1,5 +1,5 @@
 ---
-title: 'Bước 1: Bật GuardDuty'
+title: 'Bật GuardDuty'
 date: 2026-07-09
 weight: 19
 chapter: false

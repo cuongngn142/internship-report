@@ -1,5 +1,5 @@
 ---
-title: 'Step 4: Enable Security Hub'
+title: 'Enable Security Hub'
 date: 2026-07-09
 weight: 22
 chapter: false

@@ -1,5 +1,5 @@
 ---
-title: 'Bước 2: Tạo CloudFront Distribution'
+title: 'Tạo CloudFront Distribution'
 date: 2026-07-09
 weight: 31
 chapter: false

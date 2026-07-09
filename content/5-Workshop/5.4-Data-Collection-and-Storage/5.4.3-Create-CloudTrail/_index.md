@@ -1,5 +1,5 @@
 ---
-title: 'Step 3: Create CloudTrail'
+title: 'Create CloudTrail'
 date: 2026-07-09
 weight: 15
 chapter: false

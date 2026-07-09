@@ -1,5 +1,5 @@
 ---
-title: 'Step 3: Create a Step Functions State Machine'
+title: 'Create a Step Functions State Machine'
 date: 2026-07-09
 weight: 26
 chapter: false

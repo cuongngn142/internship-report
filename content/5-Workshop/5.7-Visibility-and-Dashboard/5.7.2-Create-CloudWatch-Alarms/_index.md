@@ -1,5 +1,5 @@
 ---
-title: 'Step 2: Create CloudWatch Alarms'
+title: 'Create CloudWatch Alarms'
 date: 2026-07-09
 weight: 30
 chapter: false

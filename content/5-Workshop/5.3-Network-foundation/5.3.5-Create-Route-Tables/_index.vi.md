@@ -1,5 +1,5 @@
 ---
-title: 'Bước 5: Tạo route table'
+title: 'Tạo route table'
 date: 2026-07-09
 weight: 9
 chapter: false

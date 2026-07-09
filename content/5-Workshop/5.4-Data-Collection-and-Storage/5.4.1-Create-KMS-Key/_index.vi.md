@@ -1,5 +1,5 @@
 ---
-title: 'Bước 1: Tạo KMS Key'
+title: 'Tạo KMS Key'
 date: 2026-07-09
 weight: 13
 chapter: false

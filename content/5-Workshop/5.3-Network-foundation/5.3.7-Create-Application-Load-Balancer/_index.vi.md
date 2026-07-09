@@ -1,5 +1,5 @@
 ---
-title: 'Bước 7: Tạo Application Load Balancer'
+title: 'Tạo Application Load Balancer'
 date: 2026-07-09
 weight: 11
 chapter: false

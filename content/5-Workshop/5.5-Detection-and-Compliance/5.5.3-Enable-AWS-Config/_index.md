@@ -1,5 +1,5 @@
 ---
-title: 'Step 3: Enable AWS Config'
+title: 'Enable AWS Config'
 date: 2026-07-09
 weight: 21
 chapter: false

@@ -1,5 +1,5 @@
 ---
-title: 'Step 2: Create a CloudFront Distribution'
+title: 'Create a CloudFront Distribution'
 date: 2026-07-09
 weight: 31
 chapter: false

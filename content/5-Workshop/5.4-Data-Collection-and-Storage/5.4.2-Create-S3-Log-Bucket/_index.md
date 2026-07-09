@@ -1,5 +1,5 @@
 ---
-title: 'Step 2: Create an S3 bucket for log storage'
+title: 'Create an S3 bucket for log storage'
 date: 2026-07-09
 weight: 14
 chapter: false

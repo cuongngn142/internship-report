@@ -1,5 +1,5 @@
 ---
-title: 'Step 4: Create a NAT Gateway'
+title: 'Create a NAT Gateway'
 date: 2026-07-09
 weight: 8
 chapter: false

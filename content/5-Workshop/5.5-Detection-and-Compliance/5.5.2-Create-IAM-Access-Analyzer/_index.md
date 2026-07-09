@@ -1,5 +1,5 @@
 ---
-title: 'Step 2: Create an IAM Access Analyzer'
+title: 'Create an IAM Access Analyzer'
 date: 2026-07-09
 weight: 20
 chapter: false

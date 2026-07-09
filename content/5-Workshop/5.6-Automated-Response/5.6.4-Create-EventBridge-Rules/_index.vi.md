@@ -1,5 +1,5 @@
 ---
-title: 'Bước 4: Tạo EventBridge Rules'
+title: 'Tạo EventBridge Rules'
 date: 2026-07-09
 weight: 27
 chapter: false

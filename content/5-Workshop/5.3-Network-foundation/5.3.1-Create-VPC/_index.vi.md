@@ -1,5 +1,5 @@
 ---
-title: 'Bước 1: Tạo VPC'
+title: 'Tạo VPC'
 date: 2026-07-09
 weight: 5
 chapter: false

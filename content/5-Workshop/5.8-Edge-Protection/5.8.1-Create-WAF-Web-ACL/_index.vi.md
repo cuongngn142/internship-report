@@ -1,5 +1,5 @@
 ---
-title: 'Bước 1: Tạo WAF Web ACL'
+title: 'Tạo WAF Web ACL'
 date: 2026-07-09
 weight: 30
 chapter: false

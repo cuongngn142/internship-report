@@ -1,5 +1,5 @@
 ---
-title: 'Bước 4: Tạo VPC Flow Logs'
+title: 'Tạo VPC Flow Logs'
 date: 2026-07-09
 weight: 16
 chapter: false

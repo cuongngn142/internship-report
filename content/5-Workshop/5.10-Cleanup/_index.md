@@ -1,5 +1,5 @@
 ---
-title: 'Step 9: Cleanup resources'
+title: 'Cleanup resources'
 date: 2026-07-09
 weight: 33
 chapter: false

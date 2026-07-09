@@ -1,5 +1,5 @@
 ---
-title: 'Step 3: Configure WAF Logging'
+title: 'Configure WAF Logging'
 date: 2026-07-09
 weight: 32
 chapter: false

@@ -1,5 +1,5 @@
 ---
-title: 'Step 7: Create an Application Load Balancer'
+title: 'Create an Application Load Balancer'
 date: 2026-07-09
 weight: 11
 chapter: false

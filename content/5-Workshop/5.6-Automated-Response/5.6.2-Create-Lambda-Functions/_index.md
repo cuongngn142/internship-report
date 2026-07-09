@@ -1,5 +1,5 @@
 ---
-title: 'Step 2: Create Lambda Functions'
+title: 'Create Lambda Functions'
 date: 2026-07-09
 weight: 25
 chapter: false

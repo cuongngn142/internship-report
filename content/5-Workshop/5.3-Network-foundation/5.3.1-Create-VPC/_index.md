@@ -1,5 +1,5 @@
 ---
-title: 'Step 1: Create a VPC'
+title: 'Create a VPC'
 date: 2026-07-09
 weight: 5
 chapter: false

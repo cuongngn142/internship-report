@@ -1,5 +1,5 @@
 ---
-title: 'Bước 2: Tạo IAM Access Analyzer'
+title: 'Tạo IAM Access Analyzer'
 date: 2026-07-09
 weight: 20
 chapter: false

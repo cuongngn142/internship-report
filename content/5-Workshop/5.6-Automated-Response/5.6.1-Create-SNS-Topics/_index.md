@@ -1,5 +1,5 @@
 ---
-title: 'Step 1: Create SNS Topics'
+title: 'Create SNS Topics'
 date: 2026-07-09
 weight: 24
 chapter: false

@@ -1,5 +1,5 @@
 ---
-title: 'Step 5: Create an Athena Workgroup and Glue Database'
+title: 'Create an Athena Workgroup and Glue Database'
 date: 2026-07-09
 weight: 17
 chapter: false

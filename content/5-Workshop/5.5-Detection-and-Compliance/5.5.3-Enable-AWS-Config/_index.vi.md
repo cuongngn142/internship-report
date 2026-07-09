@@ -1,5 +1,5 @@
 ---
-title: 'Bước 3: Bật AWS Config'
+title: 'Bật AWS Config'
 date: 2026-07-09
 weight: 21
 chapter: false

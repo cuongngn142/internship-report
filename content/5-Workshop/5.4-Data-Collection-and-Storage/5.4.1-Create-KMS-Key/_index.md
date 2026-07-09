@@ -1,5 +1,5 @@
 ---
-title: 'Step 1: Create a KMS Key'
+title: 'Create a KMS Key'
 date: 2026-07-09
 weight: 13
 chapter: false

@@ -1,5 +1,5 @@
 ---
-title: 'Bước 9: Dọn dẹp tài nguyên'
+title: 'Dọn dẹp tài nguyên'
 date: 2026-07-09
 weight: 33
 chapter: false

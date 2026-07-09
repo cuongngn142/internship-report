@@ -1,5 +1,5 @@
 ---
-title: 'Bước 2: Tạo Lambda Functions'
+title: 'Tạo Lambda Functions'
 date: 2026-07-09
 weight: 25
 chapter: false

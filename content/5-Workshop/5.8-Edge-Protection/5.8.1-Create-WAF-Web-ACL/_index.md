@@ -1,5 +1,5 @@
 ---
-title: 'Step 1: Create a WAF Web ACL'
+title: 'Create a WAF Web ACL'
 date: 2026-07-09
 weight: 30
 chapter: false

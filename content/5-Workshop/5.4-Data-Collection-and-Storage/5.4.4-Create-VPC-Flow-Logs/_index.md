@@ -1,5 +1,5 @@
 ---
-title: 'Step 4: Create VPC Flow Logs'
+title: 'Create VPC Flow Logs'
 date: 2026-07-09
 weight: 16
 chapter: false
