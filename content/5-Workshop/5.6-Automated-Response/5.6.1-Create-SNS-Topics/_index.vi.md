@@ -53,7 +53,7 @@ Lặp lại các bước tương tự với tên `soc-platform-high-alerts`
 - SNS topic đã tạo.
 - Subscription hoạt động.
 
-![Validation](/images/5-Workshop/valid-sns-high-alert.png)
+![Validation](/images/5-Workshop/5.6-Automated-response/valid-sns-high-alert.png)
 
 ## Chuyển sang bước tiếp theo
 

@@ -55,7 +55,7 @@ Repeat the same steps using the name `soc-platform-high-alerts`.
 - The SNS topics have been created.
 - The subscriptions are working.
 
-![Validation](/images/5-Workshop/valid-sns-high-alert.png)
+![Validation](/images/5-Workshop/5.6-Automated-response/valid-sns-high-alert.png)
 
 ## Next step
 
