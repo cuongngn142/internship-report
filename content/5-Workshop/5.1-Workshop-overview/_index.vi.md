@@ -1,5 +1,5 @@
 ---
-title: 'Giới thiệu workshop'
+title: 'Giới thiệu'
 date: 2026-07-09
 weight: 2
 chapter: false

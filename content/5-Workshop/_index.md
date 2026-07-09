@@ -1,5 +1,5 @@
 ---
-title: 'Workshop Setup AWS SOC Platform'
+title: 'Workshop'
 date: 2026-07-09
 weight: 1
 chapter: false
