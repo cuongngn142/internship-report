@@ -30,7 +30,7 @@ Amazon VPC cho phép tạo môi trường mạng riêng ảo phân tách khỏi 
 - **Tenancy**: Chọn **Default**
 - Giữ nguyên các cấu hình mặc định khác và click **Create VPC**
 
-![Create button](/images/5-Workshop/5.3-Vpc/create-vpc.png)
+![Create button](/images/5-Workshop/5.3-Vpc/create-vpc.PNG)
 
 ## Bước 3. Cấu hình nâng cao
 
