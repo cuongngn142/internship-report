@@ -1,7 +1,7 @@
 ---
 title: 'Dọn dẹp tài nguyên'
 date: 2026-07-09
-weight: 33
+weight: 60
 chapter: false
 pre: ' <b> 5.9. </b> '
 ---
