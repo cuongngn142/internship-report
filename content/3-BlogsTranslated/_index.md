@@ -16,6 +16,6 @@ This blog introduces the new **Inbound Federation Lambda Trigger** feature in Am
 
 This blog introduces how **AWS End User Messaging** enables businesses to add voice messaging capabilities to WhatsApp customer conversations. It explains how AWS services such as AWS Lambda, Amazon SNS, Amazon Transcribe, and Amazon Polly can be combined to build a voice-to-voice messaging solution that converts speech to text, processes user requests, and generates natural voice responses. The article also covers common use cases, deployment with AWS CDK, and best practices for creating scalable and accessible customer communication experiences.
 
-### [Blog 3 - ...](3.3-Blog3/)
+### [Blog 3 - How Amazon Bedrock Detects AI-Generated Phishing Attacks](3.3-Blog3/)
 
-This blog introduces ...
+This blog explains how **Amazon Bedrock** helps organizations detect AI-generated phishing emails using behavioral analysis instead of relying solely on traditional rule-based detection methods. By combining **Foundation Models**, **Amazon Bedrock Guardrails**, contextual analysis, and a continuous feedback loop, the solution can identify sophisticated phishing attempts, reduce false positives, and strengthen email security against modern AI-powered cyber threats.

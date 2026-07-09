@@ -19,7 +19,7 @@ CloudTrail records API activity and management events within your AWS account.
 - Open the **CloudTrail Console**.
 - Select **Create trail**.
 
-![CloudTrail create](/images/5-Workshop/placeholder.svg)
+![CloudTrail create](/images/5-Workshop/5.4-Data-Storage/cloudtrail.png)
 
 ## Step 2. Fill in the fields
 
@@ -42,14 +42,14 @@ Click **Next**.
 - **Data events** (optional): Add S3 and Lambda if needed.
 - Click **Next** → **Create trail**.
 
-![CloudTrail form](/images/5-Workshop/placeholder.svg)
+![CloudTrail form](/images/5-Workshop/5.4-Data-Storage/create-cloudtrail.png)
 
 ## Validation
 
 - CloudTrail has been created.
 - Logs are being delivered to the S3 bucket.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.4-Data-Storage/valid-cloudtrail.png)
 
 ## Next step
 

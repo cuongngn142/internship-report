@@ -20,7 +20,7 @@ VPC Flow Logs ghi lại thông tin traffic cho phân tích sự cố và phát h
 - Chọn VPC `soc-platform-vpc`.
 - Chọn **Flow logs** → **Create flow log**.
 
-![Flow logs create](/images/5-Workshop/placeholder.svg)
+![Flow logs create](/images/5-Workshop/5.4-Data-Storage/flow-log.png)
 
 ## Bước 2. Điền thông tin
 
@@ -37,14 +37,14 @@ Trong giao diện cấu hình:
   ```
 - Click **Create flow log**
 
-![Flow logs form](/images/5-Workshop/placeholder.svg)
+![Flow logs form](/images/5-Workshop/5.4-Data-Storage/create-fl.png)
 
 ## Validation
 
 - Flow log đã được tạo.
 - Traffic được ghi lại.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.4-Data-Storage/valid-fl.png)
 
 ## Chuyển sang bước tiếp theo
 

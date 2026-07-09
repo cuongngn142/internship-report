@@ -19,7 +19,7 @@ Amazon S3 is a durable object storage service used to store CloudTrail logs, VPC
 - Open the **S3 Console**.
 - Select **Create bucket**.
 
-![S3 create](/images/5-Workshop/placeholder.svg)
+![S3 create](/images/5-Workshop/5.4-Data-Storage/s3.png)
 
 ## Step 2. Fill in the fields
 
@@ -44,7 +44,7 @@ Amazon S3 is a durable object storage service used to store CloudTrail logs, VPC
 
 Click **Create bucket**.
 
-![S3 form](/images/5-Workshop/placeholder.svg)
+![S3 form](/images/5-Workshop/5.4-Data-Storage/create-s3-log.png)
 
 ## Step 3. Add the bucket policy
 
@@ -123,7 +123,7 @@ Add the following policy to allow services to write logs (CloudTrail, VPC Flow L
 
 Click **Save changes**.
 
-![Bucket policy](/images/5-Workshop/placeholder.svg)
+![Bucket policy](/images/5-Workshop/5.4-Data-Storage/log-policy.png)
 
 ## Step 4. Add lifecycle rules
 
@@ -150,14 +150,14 @@ Open the **Management** tab, then click **Create lifecycle rule**.
 - Set **Delete incomplete multipart uploads** to **7** days.
 - Click **Create rule**.
 
-![Lifecycle rule](/images/5-Workshop/placeholder.svg)
+![Lifecycle rule](/images/5-Workshop/5.4-Data-Storage/5.4-Data-Storage/log-lcr.png)
 
 ## Validation
 
 - The bucket has been created successfully.
 - The bucket can store logs and has the appropriate bucket policy and lifecycle rules configured.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.4-Data-Storage/valid-log)
 
 ## Next step
 

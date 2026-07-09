@@ -24,7 +24,7 @@ In the configuration page:
 - **VPC**: Select `soc-platform-vpc`.
 - Click **Create route table**.
 
-![Public route table](/images/5-Workshop/placeholder.svg)
+![Public route table](/images/5-Workshop/5.3-Vpc/rt-create.png)
 
 ## Step 2. Add a route to the Internet Gateway
 
@@ -35,7 +35,7 @@ Select the newly created route table, then open the **Routes** tab and click **E
 - **Target**: Select **Internet Gateway** → `soc-platform-igw`.
 - Click **Save changes**.
 
-![Route entry](/images/5-Workshop/placeholder.svg)
+![Route entry](/images/5-Workshop/5.3-Vpc/add-route.png)
 
 ## Step 3. Associate the public subnet
 
@@ -44,7 +44,7 @@ Open the **Subnet associations** tab, then click **Edit subnet associations**.
 - Select `soc-platform-public-subnet`.
 - Click **Save associations**.
 
-![Associate subnet](/images/5-Workshop/placeholder.svg)
+![Associate subnet](/images/5-Workshop/5.3-Vpc/association-public.png)
 
 ## Step 4. Create the private route table
 
@@ -53,6 +53,8 @@ Click **Create route table**.
 - **Name**: Enter `soc-platform-private-rt`.
 - **VPC**: Select `soc-platform-vpc`.
 - Click **Create route table**.
+- 
+![Private route table](/images/5-Workshop/5.3-Vpc/rt-create1.png)
 
 Select the newly created route table, then open the **Routes** tab and click **Edit routes**.
 
@@ -60,20 +62,22 @@ Select the newly created route table, then open the **Routes** tab and click **E
 - **Destination**: `0.0.0.0/0`.
 - **Target**: Select **NAT Gateway** → `soc-platform-nat-gw`.
 - Click **Save changes**.
+- 
+![Route entry private](/images/5-Workshop/5.3-Vpc/add-route1.png)
 
 Open the **Subnet associations** tab, then click **Edit subnet associations**.
 
 - Select `soc-platform-private-subnet`.
 - Click **Save associations**.
 
-![Private route table](/images/5-Workshop/placeholder.svg)
+![Associate subnet private](/images/5-Workshop/5.3-Vpc/association-private.png)
 
 ## Validation
 
 - The public subnet can access the Internet through the Internet Gateway.
 - The private subnet can access the Internet through the NAT Gateway.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.3-Vpc/valid-rt.png)
 
 ## Next step
 

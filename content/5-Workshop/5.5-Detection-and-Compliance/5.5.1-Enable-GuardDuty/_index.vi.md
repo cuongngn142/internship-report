@@ -19,7 +19,7 @@ Amazon GuardDuty sử dụng telemetry và machine learning để phát hiện m
 - Tìm dịch vụ `GuardDuty`.
 - Chọn **Get started**.
 
-![GuardDuty console](/images/5-Workshop/placeholder.svg)
+![GuardDuty console](/images/5-Workshop/5.5-Detection-Compiance/guardduty.png)
 
 ## Bước 2. Bật GuardDuty
 
@@ -31,14 +31,14 @@ Amazon GuardDuty sử dụng telemetry và machine learning để phát hiện m
   - **Malware Protection**: Chọn **Enable**
   - Click **Save**
 
-![GuardDuty form](/images/5-Workshop/placeholder.svg)
+![GuardDuty form](/images/5-Workshop/5.5-Detection-Compiance/setting-guardduty.png)
 
 ## Validation
 
 - GuardDuty đã được bật.
 - Các finding bắt đầu được tạo.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.5-Detection-Compiance/valid-guardduty.png)
 
 ## Chuyển sang bước tiếp theo
 

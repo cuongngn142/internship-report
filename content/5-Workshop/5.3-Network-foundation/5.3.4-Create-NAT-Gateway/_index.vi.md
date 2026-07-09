@@ -18,7 +18,7 @@ NAT Gateway cho phép tài nguyên trong subnet private truy cập Internet như
 
 Trên thanh điều hướng bên trái, chọn **NAT Gateways**, click **Create NAT gateway**
 
-![Create NAT](/images/5-Workshop/placeholder.svg)
+![Create NAT](/images/5-Workshop/5.3-Vpc/nat.png)
 
 ## Bước 2. Điền thông tin
 
@@ -30,14 +30,14 @@ Trong giao diện cấu hình:
 - **Elastic IP allocation ID**: Click **Allocate Elastic IP** để tạo mới
 - Click **Create NAT gateway**
 
-![NAT form](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.3-Vpc/create-nat.png)
 
 ## Validation
 
 - NAT Gateway đã được tạo.
 - Subnet private có thể đi ra Internet qua NAT.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Create NAT](/images/5-Workshop/5.3-Vpc/nat.png)
 
 ## Chuyển sang bước tiếp theo
 

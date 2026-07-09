@@ -19,23 +19,21 @@ IAM, VPC, S3, CloudTrail, GuardDuty và CloudWatch là những service sẽ đư
 - Tìm dịch vụ `IAM`.
 - Xác nhận tài khoản có quyền sử dụng các service cần thiết.
 
-![IAM console](/images/5-Workshop/placeholder.svg)
 
 ## Bước 2. Kiểm tra các service chính
 
 - Tìm và mở `VPC`, `EC2`, `S3`, `CloudTrail`, `GuardDuty`, `CloudWatch`.
 - Đảm bảo các console mở được.
 
-![Service overview](/images/5-Workshop/placeholder.svg)
+
 
 ## Validation
 
 - Tài khoản đã sẵn sàng.
 - Bạn có thể tiếp tục thực hiện các bước tiếp theo.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.1-Workshop-overview/valid-iam.png)
 
 ## Chuyển sang bước tiếp theo
 
 Tiếp theo, bạn sẽ bắt đầu xây dựng hạ tầng mạng.
-

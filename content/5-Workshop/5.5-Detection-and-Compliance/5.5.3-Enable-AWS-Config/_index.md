@@ -59,7 +59,7 @@ Add an inline policy for S3 access:
 
 - Click **Create policy**.
 
-![Config role](/images/5-Workshop/placeholder.svg)
+![Config role](/images/5-Workshop/5.5-Detection-Compiance/iam-create-role.png)
 
 ## Step 2. Enable AWS Config
 
@@ -89,14 +89,14 @@ Select the following managed rules:
 
 Click **Next** → **Confirm**.
 
-![Enable Config](/images/5-Workshop/placeholder.svg)
+![Enable Config](/images/5-Workshop/5.5-Detection-Compiance/awsconfig.png)
 
 ## Validation
 
 - AWS Config has been enabled.
 - Resource configurations are being recorded.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.5-Detection-Compiance/valid-awsconfig.png)
 
 ## Next step
 

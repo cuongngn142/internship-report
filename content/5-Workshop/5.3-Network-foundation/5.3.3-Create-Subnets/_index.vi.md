@@ -26,7 +26,7 @@ Trong giao diện cấu hình:
 - **IPv4 CIDR block**: Nhập `10.0.1.0/24`
 - Click **Create subnet**
 
-![Public subnet form](/images/5-Workshop/placeholder.svg)
+![Public subnet form](/images/5-Workshop/5.3-Vpc/create-subnet.PNG)
 
 ## Bước 2. Bật public IPv4
 
@@ -35,7 +35,7 @@ Trong giao diện cấu hình:
 - Bật **Auto-assign public IPv4 address**.
 - Click **Save**
 
-![Public subnet settings](/images/5-Workshop/placeholder.svg)
+![Public subnet settings](/images/5-Workshop/5.3-Vpc/enable-ipv4.png)
 
 ## Bước 3. Tạo private subnet
 
@@ -47,14 +47,14 @@ Click **Create subnet**:
 - **IPv4 CIDR block**: Nhập `10.0.10.0/24`
 - Click **Create subnet**
 
-![Private subnet form](/images/5-Workshop/placeholder.svg)
+![Private subnet form](/images/5-Workshop/5.3-Vpc/create-private-subnet.png)
 
 ## Validation
 
 - Public subnet và private subnet đã được tạo.
 - Public subnet có thể nhận public IP.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.3-Vpc/subnet-created.png)
 
 ## Chuyển sang bước tiếp theo
 

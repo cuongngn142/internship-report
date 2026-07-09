@@ -33,6 +33,7 @@ Mở **IAM console**, chọn **Roles** → **Create role**
 
 - **Role name**: Nhập `soc-platform-lambda-execution-role`
 - Click **Create role**
+![Create IAM role](/images/5-Workshop/5.6-Automated-response/iam-role.png)
 
 Thêm inline policy cho SOC operations:
 
@@ -84,8 +85,10 @@ Thêm inline policy cho SOC operations:
 ```
 
 - Click **Create policy**
+- 
+![Lambda role](/images/5-Workshop/5.6-Automated-response/created-lambda-ex-role.png)
 
-![Lambda role](/images/5-Workshop/placeholder.svg)
+
 
 ## Bước 2. Tạo Lambda `soc-platform-isolate-ec2`
 
@@ -111,7 +114,7 @@ Mở **AWS Lambda console**, click **Create function**:
 
 Click **Deploy**
 
-![Lambda isolate](/images/5-Workshop/placeholder.svg)
+![Lambda isolate](/images/5-Workshop/5.6-Automated-response/created-lambda-isolate-ec2.png)
 
 ## Bước 3. Tạo Lambda `soc-platform-revoke-iam`
 
@@ -121,7 +124,7 @@ Lặp lại các bước tương tự:
 - **Environment variables**: `LOG_BUCKET`
 - Code từ phần RevokeIAMFunction
 
-![Lambda revoke IAM](/images/5-Workshop/placeholder.svg)
+![Lambda revoke IAM](/images/5-Workshop/5.6-Automated-response/created-lambda-revoke.png)
 
 ## Bước 4. Tạo Lambda `soc-platform-send-notification`
 
@@ -133,14 +136,14 @@ Lặp lại các bước tương tự:
   - `HIGH_TOPIC_ARN`: ARN của high alerts topic
 - Code từ phần SendNotificationFunction
 
-![Lambda notify](/images/5-Workshop/placeholder.svg)
+![Lambda notify](/images/5-Workshop/5.6-Automated-response/created-lambda-send-noti.png)
 
 ## Validation
 
 - 3 Lambda function đã được tạo.
 - Các function có thể được gọi bởi workflow phản ứng.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.6-Automated-response/valid-lambda.png)
 
 ## Chuyển sang bước tiếp theo
 

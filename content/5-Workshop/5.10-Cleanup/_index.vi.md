@@ -27,7 +27,7 @@ Thực hiện đúng thứ tự sẽ giúp tránh các lỗi dependency và rút
 - Đã lưu lại log, hình ảnh hoặc tài liệu cần thiết.
 - Đồng ý xóa toàn bộ tài nguyên đã tạo.
 
-![Cleanup overview](/images/5-Workshop/placeholder.svg)
+
 
 ---
 
@@ -40,7 +40,7 @@ Thực hiện đúng thứ tự sẽ giúp tránh các lỗi dependency và rút
 5. Chọn **Delete**.
 6. Xác nhận xóa.
 
-![CloudFront cleanup](/images/5-Workshop/placeholder.svg)
+![CloudFront cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-cloudf-distribution.png)
 
 ---
 
@@ -56,7 +56,7 @@ Thực hiện đúng thứ tự sẽ giúp tránh các lỗi dependency và rút
 8. Quay lại danh sách Web ACL.
 9. Chọn **Delete**.
 
-![WAF cleanup](/images/5-Workshop/placeholder.svg)
+![WAF cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-waf.png)
 
 ---
 
@@ -71,6 +71,8 @@ Thực hiện đúng thứ tự sẽ giúp tránh các lỗi dependency và rút
 - `soc-platform-guardduty-critical`
 - `soc-platform-lambda-errors`
 - `soc-platform-waf-high-blocks`
+- 
+
 
 4. Chọn **Actions** → **Delete**.
 
@@ -80,7 +82,7 @@ Thực hiện đúng thứ tự sẽ giúp tránh các lỗi dependency và rút
 2. Chọn `soc-platform-security-dashboard`.
 3. Chọn **Delete**.
 
-![CloudWatch cleanup](/images/5-Workshop/placeholder.svg)
+![CloudWatch cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-cloudwatch-dashboard.png)
 
 ---
 
@@ -103,7 +105,7 @@ Xóa lần lượt:
 4. Quay lại danh sách Rules.
 5. Chọn **Delete**.
 
-![EventBridge cleanup](/images/5-Workshop/placeholder.svg)
+![EventBridge cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-eventbridge-rule.png)
 
 ---
 
@@ -114,7 +116,7 @@ Xóa lần lượt:
 3. Chọn **Delete**.
 4. Xác nhận.
 
-![Step Functions cleanup](/images/5-Workshop/placeholder.svg)
+![Step Functions cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-stepfunc-machine.png)
 
 ---
 
@@ -132,7 +134,7 @@ Xóa lần lượt:
 1. Chọn **Actions**.
 2. Chọn **Delete**.
 
-![Lambda cleanup](/images/5-Workshop/placeholder.svg)
+![Lambda cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-lambda-func.png)
 
 ---
 
@@ -147,7 +149,7 @@ Xóa lần lượt:
 
 4. Chọn **Delete** và xác nhận.
 
-![SNS cleanup](/images/5-Workshop/placeholder.svg)
+![SNS cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-sns-topic.png)
 
 ---
 
@@ -186,7 +188,7 @@ Xóa lần lượt:
 8. Xóa **Configuration Recorder**.
 9. Xóa **Delivery Channel**.
 
-![Security services cleanup](/images/5-Workshop/placeholder.svg)
+![Security services cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-awsconfig.png)
 
 ---
 
@@ -198,7 +200,7 @@ Xóa lần lượt:
 4. Chọn **Delete**.
 5. Xác nhận.
 
-![CloudTrail cleanup](/images/5-Workshop/placeholder.svg)
+![CloudTrail cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-cloutrail.png)
 
 ---
 
@@ -210,7 +212,7 @@ Xóa lần lượt:
 4. Chọn Flow Log.
 5. Chọn **Actions** → **Delete flow logs**.
 
-![Flow logs cleanup](/images/5-Workshop/placeholder.svg)
+![Flow logs cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-vpc.png)
 
 ---
 
@@ -223,6 +225,8 @@ Xóa lần lượt:
 3. Chọn `soc-platform-workgroup`.
 4. Chọn **Delete**.
 
+![Athena cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-athena.png)
+
 ### 11.2 Xóa Glue Database
 
 1. Mở **AWS Glue Console**.
@@ -230,7 +234,7 @@ Xóa lần lượt:
 3. Chọn `soc_platform_logs_db`.
 4. Chọn **Delete**.
 
-![Athena and Glue cleanup](/images/5-Workshop/placeholder.svg)
+![Athena and Glue cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-glue.png)
 
 ---
 
@@ -248,7 +252,7 @@ Xóa lần lượt:
 2. Chọn `soc-platform-tg`.
 3. Chọn **Actions** → **Delete**.
 
-![ALB cleanup](/images/5-Workshop/placeholder.svg)
+![ALB cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-target-group.png)
 
 ---
 
@@ -262,13 +266,15 @@ Xóa lần lượt:
 4. Chọn **Delete NAT Gateway**.
 5. Chờ trạng thái chuyển thành **Deleted**.
 
+![NAT cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-natgateway.png)
+
 ### 13.2 Release Elastic IP
 
 1. Chọn **Elastic IPs**.
 2. Chọn Elastic IP có tag `soc-platform-nat-eip`.
 3. Chọn **Release Elastic IP addresses**.
 
-![NAT cleanup](/images/5-Workshop/placeholder.svg)
+![Elastic IP cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-elasticips.png)
 
 ---
 
@@ -286,7 +292,7 @@ Xóa lần lượt:
 
 > **Lưu ý:** Không thể xóa Default Security Group của VPC.
 
-![Security group cleanup](/images/5-Workshop/placeholder.svg)
+![Security group cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-sec-group.png)
 
 ---
 
@@ -326,7 +332,7 @@ Xóa lần lượt:
 3. Chọn **Delete VPC**.
 4. Nhập **delete** để xác nhận.
 
-![VPC cleanup](/images/5-Workshop/placeholder.svg)
+![VPC cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-vpc.png)
 
 ---
 
@@ -342,7 +348,7 @@ Xóa lần lượt:
 6. Chọn **Delete**.
 7. Nhập tên Bucket để xác nhận.
 
-![S3 cleanup](/images/5-Workshop/placeholder.svg)
+![S3 cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-s3-logs.png)
 
 ---
 
@@ -357,7 +363,7 @@ Xóa lần lượt:
 
 > **Lưu ý:** AWS KMS Key sẽ không bị xóa ngay mà chỉ được lên lịch xóa.
 
-![KMS cleanup](/images/5-Workshop/placeholder.svg)
+![KMS cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-kms.png)
 
 ---
 
@@ -377,7 +383,7 @@ Xóa lần lượt:
    - Chọn **Delete**.
    - Xác nhận.
 
-![IAM cleanup](/images/5-Workshop/placeholder.svg)
+![IAM cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-iam-role.png)
 
 ---
 

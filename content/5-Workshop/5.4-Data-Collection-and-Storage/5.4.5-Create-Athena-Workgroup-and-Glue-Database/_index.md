@@ -19,7 +19,7 @@ Athena allows you to query data stored directly in Amazon S3 using SQL, while a 
 - Open the **Athena Console**.
 - Select **Workgroups** → **Create workgroup**.
 
-![Athena workgroup](/images/5-Workshop/placeholder.svg)
+![Athena workgroup](/images/5-Workshop/5.4-Data-Storage/athena-g.png)
 
 ## Step 2. Fill in the fields
 
@@ -31,7 +31,7 @@ In the configuration page:
 - **Publish query metrics to CloudWatch**: Select **Enable**.
 - Click **Create workgroup**.
 
-![Athena form](/images/5-Workshop/placeholder.svg)
+![Athena form](/images/5-Workshop/5.4-Data-Storage/create-groupwork.png)
 
 ## Step 3. Create the Glue Database
 
@@ -44,14 +44,14 @@ In the configuration page:
 - **Description**: Enter `SOC Platform logs database for Athena queries`.
 - Click **Create database**.
 
-![Glue DB](/images/5-Workshop/placeholder.svg)
+![Glue DB](/images/5-Workshop/5.4-Data-Storage/glue-database.png)
 
 ## Validation
 
 - The Athena Workgroup is ready.
 - The Glue Database can be used for querying logs.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.4-Data-Storage/valid-glue-database)
 
 ## Next step
 

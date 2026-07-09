@@ -19,7 +19,7 @@ AWS KMS helps encrypt data at rest and in transit.
 - Search for the `KMS` service.
 - Select **Create key**.
 
-![Create key](/images/5-Workshop/placeholder.svg)
+![Create key](/images/5-Workshop/5.4-Data-Storage/kms.png)
 
 ## Step 2. Fill in the fields
 
@@ -45,14 +45,14 @@ AWS KMS helps encrypt data at rest and in transit.
 - Add the following services: `cloudtrail.amazonaws.com`, `s3.amazonaws.com`, `delivery.logs.amazonaws.com`, `guardduty.amazonaws.com`.
 - Click **Next** → **Finish**.
 
-![KMS form](/images/5-Workshop/placeholder.svg)
+![KMS form](/images/5-Workshop/5.4-Data-Storage/kms-configure-key.png)
 
 ## Validation
 
 - The KMS key has been created.
 - It can be used to encrypt S3 logs.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.4-Data-Storage/created-key.png)
 
 ## Next step
 

@@ -20,7 +20,6 @@ Several resources in this workshop depend on one another. For example, CloudFron
 - You have saved any logs, snapshots, or documents you may need.
 - You agree to remove the resources created during the workshop.
 
-![Cleanup overview](/images/5-Workshop/placeholder.svg)
 
 ## Step 1. Delete the CloudFront distribution
 
@@ -29,7 +28,7 @@ Several resources in this workshop depend on one another. For example, CloudFron
 3. Click **Disable** and wait for the status to become **Disabled**.
 4. After it is disabled, select the distribution and click **Delete**.
 
-![CloudFront cleanup](/images/5-Workshop/placeholder.svg)
+![CloudFront cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-cloudf-distribution.png)
 
 ## Step 2. Delete the WAF Web ACL
 
@@ -39,7 +38,7 @@ Several resources in this workshop depend on one another. For example, CloudFron
 4. Open **Logging and metrics** and click **Disable logging**.
 5. Return to the Web ACL list, select `soc-platform-web-acl`, and click **Delete**.
 
-![WAF cleanup](/images/5-Workshop/placeholder.svg)
+![WAF cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-waf.png)
 
 ## Step 3. Delete CloudWatch resources
 
@@ -59,7 +58,7 @@ Several resources in this workshop depend on one another. For example, CloudFron
 2. Select `soc-platform-security-dashboard`.
 3. Click **Delete**.
 
-![CloudWatch cleanup](/images/5-Workshop/placeholder.svg)
+![CloudWatch cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-cloudwatch-dashboard.png)
 
 ## Step 4. Delete EventBridge rules
 
@@ -73,7 +72,7 @@ Several resources in this workshop depend on one another. For example, CloudFron
    - Open the rule → **Targets** tab → remove all targets
    - Return and click **Delete**
 
-![EventBridge cleanup](/images/5-Workshop/placeholder.svg)
+![EventBridge cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-eventbridge-rule.png)
 
 ## Step 5. Delete the Step Functions state machine
 
@@ -82,7 +81,7 @@ Several resources in this workshop depend on one another. For example, CloudFron
 3. Click **Delete**.
 4. Confirm the deletion.
 
-![Step Functions cleanup](/images/5-Workshop/placeholder.svg)
+![Step Functions cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-stepfunc-machine.png)
 
 ## Step 6. Delete Lambda functions
 
@@ -93,7 +92,7 @@ Several resources in this workshop depend on one another. For example, CloudFron
    - `soc-platform-send-notification`
 3. For each function: click **Actions** → **Delete**.
 
-![Lambda cleanup](/images/5-Workshop/placeholder.svg)
+![Lambda cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-lambda-func.png)
 
 ## Step 7. Delete SNS topics
 
@@ -104,7 +103,7 @@ Several resources in this workshop depend on one another. For example, CloudFron
    - `soc-platform-high-alerts`
 4. For each topic: click **Delete** and confirm.
 
-![SNS cleanup](/images/5-Workshop/placeholder.svg)
+![SNS cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-sns-topic.png)
 
 ## Step 8. Delete security services
 
@@ -141,7 +140,7 @@ Several resources in this workshop depend on one another. For example, CloudFron
 8. Delete the **Configuration Recorder**.
 9. Delete the **Delivery Channel**.
 
-![Security services cleanup](/images/5-Workshop/placeholder.svg)
+![Security services cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-awsconfig.png)
 
 ---
 
@@ -153,7 +152,7 @@ Several resources in this workshop depend on one another. For example, CloudFron
 4. Click **Delete**.
 5. Confirm the deletion.
 
-![CloudTrail cleanup](/images/5-Workshop/placeholder.svg)
+![CloudTrail cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-cloutrail.png)
 
 ---
 
@@ -165,7 +164,7 @@ Several resources in this workshop depend on one another. For example, CloudFron
 4. Select the flow log.
 5. Click **Actions** → **Delete flow logs**.
 
-![Flow logs cleanup](/images/5-Workshop/placeholder.svg)
+![Flow logs cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-vpc.png)
 
 ---
 
@@ -178,6 +177,8 @@ Several resources in this workshop depend on one another. For example, CloudFron
 3. Select `soc-platform-workgroup`.
 4. Click **Delete**.
 
+![Athena cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-athena.png)
+
 ### 11.2 Delete the Glue Database
 
 1. Open the **AWS Glue** console.
@@ -185,7 +186,7 @@ Several resources in this workshop depend on one another. For example, CloudFron
 3. Select `soc_platform_logs_db`.
 4. Click **Delete**.
 
-![Athena and Glue cleanup](/images/5-Workshop/placeholder.svg)
+![Athena and Glue cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-glue.png)
 
 ---
 
@@ -203,7 +204,7 @@ Several resources in this workshop depend on one another. For example, CloudFron
 2. Select `soc-platform-tg`.
 3. Click **Actions** → **Delete**.
 
-![ALB cleanup](/images/5-Workshop/placeholder.svg)
+![ALB cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-target-group.png)
 
 ---
 
@@ -217,13 +218,15 @@ Several resources in this workshop depend on one another. For example, CloudFron
 4. Click **Actions** → **Delete NAT gateway**.
 5. Wait until the status changes to **Deleted**.
 
+![NAT cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-natgateway.png)
+
 ### 13.2 Release the Elastic IP
 
 1. Select **Elastic IPs**.
 2. Select the Elastic IP tagged `soc-platform-nat-eip`.
 3. Click **Actions** → **Release Elastic IP addresses**.
 
-![NAT cleanup](/images/5-Workshop/placeholder.svg)
+![Elastic IP cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-elasticips.png)
 
 ---
 
@@ -242,7 +245,7 @@ Several resources in this workshop depend on one another. For example, CloudFron
 
 > **Note:** You cannot delete the default security group of the VPC.
 
-![Security group cleanup](/images/5-Workshop/placeholder.svg)
+![Security group cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-sec-group.png)
 
 ---
 
@@ -281,7 +284,7 @@ Several resources in this workshop depend on one another. For example, CloudFron
 3. Click **Actions** → **Delete VPC**.
 4. Type **delete** to confirm.
 
-![VPC cleanup](/images/5-Workshop/placeholder.svg)
+![VPC cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-vpc.png)
 
 ---
 
@@ -297,7 +300,7 @@ Several resources in this workshop depend on one another. For example, CloudFron
 6. Click **Delete**.
 7. Enter the bucket name to confirm.
 
-![S3 cleanup](/images/5-Workshop/placeholder.svg)
+![S3 cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-s3-logs.png)
 
 ---
 
@@ -312,7 +315,7 @@ Several resources in this workshop depend on one another. For example, CloudFron
 
 > **Note:** The KMS key is not deleted immediately. It remains in a pending deletion state until the waiting period expires.
 
-![KMS cleanup](/images/5-Workshop/placeholder.svg)
+![KMS cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-kms.png)
 
 ---
 
@@ -332,7 +335,7 @@ Several resources in this workshop depend on one another. For example, CloudFron
    - Click **Delete**.
    - Confirm the deletion.
 
-![IAM cleanup](/images/5-Workshop/placeholder.svg)
+![IAM cleanup](/images/5-Workshop/5.10-Cleanup/cleanup-iam-role.png)
 
 ---
 

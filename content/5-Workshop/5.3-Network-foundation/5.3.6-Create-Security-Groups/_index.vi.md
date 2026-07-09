@@ -24,7 +24,7 @@ Trong giao diện cấu hình:
 - **Description**: Nhập `Security group for Application Load Balancer`
 - **VPC**: Chọn `soc-platform-vpc`
 
-![ALB SG](/images/5-Workshop/placeholder.svg)
+![ALB SG](/images/5-Workshop/5.3-Vpc/create-alb-sg.png)
 
 ## Bước 2. Thêm rule cho ALB SG
 
@@ -36,7 +36,7 @@ Trong giao diện cấu hình:
 
 Click **Create security group**
 
-![ALB SG rules](/images/5-Workshop/placeholder.svg)
+![ALB SG rules](/images/5-Workshop/5.3-Vpc/alb-sg-rule.png)
 
 ## Bước 3. Tạo security group cho ứng dụng
 
@@ -58,7 +58,7 @@ Click **Create security group**:
 
 Click **Create security group**
 
-![App SG](/images/5-Workshop/placeholder.svg)
+![APP SG](/images/5-Workshop/5.3-Vpc/create-app-sg.png)
 
 ## Bước 4. Tạo Isolation Security Group
 
@@ -72,7 +72,7 @@ Click **Create security group**:
 
 Click **Create security group**
 
-![App SG](/images/5-Workshop/placeholder.svg)
+![App SG](/images/5-Workshop/5.3-Vpc/create-isolate-sg.png)
 
 ## Validation
 
@@ -84,7 +84,7 @@ Click **Create security group**
 - `soc-platform-isolation-sg` không có Inbound rules và không có Outbound rules.
 - Cả ba Security Group đều thuộc VPC `soc-platform-vpc`.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.3-Vpc/created-sg.png)
 
 ## Chuyển sang bước tiếp theo
 

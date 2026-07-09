@@ -1,124 +1,213 @@
 ---
-title: "Blog 3"
-date: 2024-01-01
-weight: 1
+title: 'Blog 3'
+date: 2024-07-09
+weight: 3
 chapter: false
-pre: " <b> 3.3. </b> "
+pre: ' <b> 3.3. </b> '
 ---
 
+# Cách Amazon Bedrock phòng chống các cuộc tấn công phishing do AI tạo ra
 
-# Bắt đầu với healthcare data lakes: Sử dụng microservices
+Trong nhiều năm, các hệ thống bảo mật email chủ yếu dựa trên các quy tắc phát hiện truyền thống như lỗi chính tả, lời chào chung chung hoặc tên miền người gửi không hợp lệ để nhận diện các email phishing. Tuy nhiên, với sự phát triển của Generative AI, những dấu hiệu này đang dần biến mất.
 
-Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. **Data lake** là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.
+Ngày nay, kẻ tấn công có thể sử dụng các mô hình AI kết hợp cùng nguồn thông tin công khai (OSINT) để tạo ra những email có ngữ pháp hoàn hảo, nội dung phù hợp với từng người nhận và mang tính cá nhân hóa rất cao. Điều này khiến các giải pháp lọc email truyền thống khó có thể phát hiện chính xác.
 
-Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, *“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”*, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.
-
----
-
-## Hướng dẫn kiến trúc
-
-Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.
-
-Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các **HL7v2 messages** được định dạng theo **Quy tắc mã hóa 7 (ER7)** thông qua giao diện REST.
-
-**Kiến trúc giải pháp bây giờ như sau:**
-
-> *Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.*
+Trong bài viết này, AWS giới thiệu cách **Amazon Bedrock** kết hợp các **Foundation Models**, **Amazon Bedrock Guardrails** và cơ chế phân tích hành vi để phát hiện các email phishing do AI tạo ra trước khi chúng đến hộp thư người dùng.
 
 ---
 
-Mặc dù thuật ngữ *microservices* có một số sự mơ hồ cố hữu, một số đặc điểm là chung:
-- Chúng nhỏ, tự chủ, kết hợp rời rạc
-- Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ
-- Chuyên biệt để giải quyết một việc
-- Thường được triển khai trong **event-driven architecture**
+## Sự thay đổi của các cuộc tấn công phishing
 
-Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:
-- **Nội tại**: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng
-- **Bên ngoài**: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng
-- **Con người**: quyền sở hữu nhóm, quản lý *cognitive load*
+Các hệ thống chống phishing truyền thống thường phát hiện email dựa trên những dấu hiệu như:
 
----
+- Lỗi chính tả và ngữ pháp.
+- Lời chào chung chung.
+- Logo hoặc thương hiệu giả mạo.
+- Tên miền người gửi không khớp.
+- Định dạng email bất thường.
 
-## Lựa chọn công nghệ và phạm vi giao tiếp
+Trong nhiều năm, những phương pháp này mang lại hiệu quả rất cao.
 
-| Phạm vi giao tiếp                        | Các công nghệ / mô hình cần xem xét                                                        |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Trong một microservice                   | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Giữa các microservices trong một dịch vụ | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Giữa các dịch vụ                         | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+Tuy nhiên, với sự hỗ trợ của Generative AI, các cuộc tấn công phishing hiện đại đã thay đổi hoàn toàn.
 
----
+Kẻ tấn công có thể:
 
-## The pub/sub hub
+- Thu thập dữ liệu từ các nguồn OSINT.
+- Phân tích lượng lớn thông tin công khai về doanh nghiệp và người dùng.
+- Sinh ra hàng nghìn email khác nhau với nội dung hoàn toàn tự nhiên.
+- Cá nhân hóa từng email theo vai trò, phòng ban hoặc lịch sử giao tiếp.
+- Điều chỉnh nội dung theo thời gian thực dựa trên phản hồi của nạn nhân.
 
-Việc sử dụng kiến trúc **hub-and-spoke** (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.
-- Mỗi microservice chỉ phụ thuộc vào *hub*
-- Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất
-- Giảm số lượng synchronous calls vì pub/sub là *push* không đồng bộ một chiều
-
-Nhược điểm: cần **phối hợp và giám sát** để tránh microservice xử lý nhầm message.
+Kết quả là nhiều email phishing hiện nay có chất lượng tương đương với email hợp lệ và không còn kích hoạt các bộ lọc truyền thống.
 
 ---
 
-## Core microservice
+## Amazon Bedrock hỗ trợ phát hiện phishing như thế nào
 
-Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:
-- **Amazon S3** bucket cho dữ liệu
-- **Amazon DynamoDB** cho danh mục dữ liệu
-- **AWS Lambda** để ghi message vào data lake và danh mục
-- **Amazon SNS** topic làm *hub*
-- **Amazon S3** bucket cho artifacts như mã Lambda
+Amazon Bedrock là dịch vụ Generative AI được quản lý hoàn toàn của AWS, cho phép sử dụng nhiều Foundation Models từ AWS và các đối tác AI để xây dựng các ứng dụng AI an toàn, riêng tư và có trách nhiệm.
 
-> Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.
+Thay vì chỉ kiểm tra ngữ pháp hay từ khóa, Amazon Bedrock bổ sung thêm một lớp **phân tích hành vi (Behavior Analysis Layer)** nhằm đánh giá:
 
----
+- Ngữ cảnh của email.
+- Hành vi giao tiếp của người gửi.
+- Các dấu hiệu thao túng tâm lý.
+- Những điểm bất thường trong nội dung.
 
-## Front door microservice
-
-- Cung cấp API Gateway để tương tác REST bên ngoài
-- Xác thực & ủy quyền dựa trên **OIDC** thông qua **Amazon Cognito**
-- Cơ chế *deduplication* tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
-  1. SNS deduplication TTL chỉ 5 phút
-  2. SNS FIFO yêu cầu SQS FIFO
-  3. Chủ động báo cho sender biết message là bản sao
+Nhờ đó, hệ thống có thể phát hiện những cuộc tấn công phishing tinh vi mà các giải pháp dựa trên quy tắc (Rule-based Detection) khó nhận ra.
 
 ---
 
-## Staging ER7 microservice
+## Hai thành phần chính của giải pháp
 
-- Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute
-- Step Functions Express Workflow để chuyển ER7 → JSON
-- Hai Lambda:
-  1. Sửa format ER7 (newline, carriage return)
-  2. Parsing logic
-- Kết quả hoặc lỗi được đẩy lại vào pub/sub hub
+### Foundation Models
+
+Các Foundation Models chịu trách nhiệm phân tích nội dung email bằng khả năng hiểu ngôn ngữ tự nhiên.
+
+Mô hình có thể:
+
+- Hiểu mối quan hệ ngữ cảnh trong email.
+- Phát hiện các hành vi thao túng tinh vi.
+- Xác định các điểm bất thường trong cách giao tiếp.
+- Nhận diện các mẫu giả mạo mới chưa từng xuất hiện.
+
+Thay vì tìm kiếm lỗi chính tả, mô hình đánh giá ý nghĩa và mục đích của toàn bộ nội dung email.
 
 ---
 
-## Tính năng mới trong giải pháp
+### Amazon Bedrock Guardrails
 
-### 1. AWS CloudFormation cross-stack references
-Ví dụ *outputs* trong core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+Amazon Bedrock Guardrails cung cấp các cơ chế bảo vệ nhằm đảm bảo việc phân tích AI luôn tuân thủ chính sách bảo mật của tổ chức.
+
+Các khả năng chính gồm:
+
+- Bộ lọc nội dung (Content Filters).
+- Bộ lọc từ ngữ.
+- Danh sách chủ đề bị từ chối.
+- Phát hiện thông tin nhạy cảm.
+- Contextual Grounding nhằm giảm hiện tượng Model Hallucination.
+
+Nhờ vậy, kết quả phân tích có độ chính xác cao hơn và giảm số lượng cảnh báo giả (False Positive).
+
+---
+
+## Quy trình phân tích email gồm 5 bước
+
+Amazon Bedrock được tích hợp vào hệ thống email dưới dạng một lớp phân tích chạy song song với hạ tầng hiện có.
+
+Toàn bộ quá trình chỉ diễn ra trong vài mili giây trước khi email được chuyển tới người dùng.
+
+### Bước 1. Input Guardrails và tiền xử lý
+
+Email đầu vào được kiểm tra bởi Amazon Bedrock Guardrails.
+
+Các nội dung nhạy cảm hoặc bất thường sẽ được đánh dấu để xem xét trước khi tiếp tục quá trình phân tích.
+
+---
+
+### Bước 2. Xây dựng Prompt có ngữ cảnh
+
+Hệ thống tạo một Prompt phân tích bằng cách kết hợp:
+
+- Nội dung email.
+- Lịch sử giao tiếp của người gửi.
+- Ngữ cảnh tổ chức.
+- Các ví dụ phishing đã biết.
+
+Các dữ liệu này được truy xuất thông qua Amazon Bedrock Knowledge Bases.
+
+---
+
+### Bước 3. Phân tích bằng Foundation Models
+
+Foundation Models thực hiện phân tích email dựa trên Prompt đã xây dựng.
+
+Trong quá trình này, Guardrails đảm bảo mô hình chỉ đưa ra kết quả trong phạm vi chính sách bảo mật đã định nghĩa.
+
+---
+
+### Bước 4. Chấm điểm rủi ro đa yếu tố
+
+Sau khi phân tích, hệ thống đánh giá mức độ nguy hiểm của email dựa trên ba nhóm tiêu chí:
+
+- Nội dung bất thường.
+- Hành vi sai lệch.
+- Chi tiết ngữ cảnh.
+
+Các yếu tố này được tổng hợp thành điểm rủi ro để phục vụ quyết định xử lý.
+
+---
+
+### Bước 5. Phân loại và định tuyến
+
+Dựa trên điểm rủi ro, email sẽ được xử lý tự động:
+
+- Email an toàn được chuyển tới người dùng.
+- Email đáng ngờ được chuyển cho đội ngũ bảo mật.
+- Email nguy hiểm bị chặn trước khi đến hộp thư.
+
+---
+
+## Vòng lặp phản hồi liên tục
+
+Một trong những điểm mạnh của giải pháp là khả năng cải thiện độ chính xác theo thời gian thông qua Continuous Feedback Loop.
+
+Quy trình gồm năm giai đoạn:
+
+### Analyze
+
+Foundation Models phân tích email bằng Prompt động dựa trên dữ liệu phishing và ngữ cảnh người gửi.
+
+### Score
+
+Hệ thống gán điểm rủi ro từ 0 đến 100 và cách ly các email đáng ngờ.
+
+### Review
+
+Đội ngũ bảo mật xác minh các email đã bị đánh dấu để xác định:
+
+- Phishing thực sự.
+- Cảnh báo giả (False Positive).
+
+### Learn
+
+Các kết quả xác minh được bổ sung vào:
+
+- Thư viện ví dụ.
+- Hồ sơ hành vi người gửi.
+- Bộ dữ liệu về các mẫu phishing mới.
+
+### Enhance
+
+Các ví dụ mới được sử dụng trong Dynamic Prompt Engineering và Few-shot Learning nhằm cải thiện chất lượng phân tích cho các email tiếp theo.
+
+Qua thời gian, hệ thống ngày càng hiểu rõ hành vi giao tiếp bình thường của tổ chức và giảm đáng kể số lượng cảnh báo sai.
+
+---
+
+## Lợi ích của giải pháp
+
+Việc kết hợp Amazon Bedrock với hạ tầng bảo mật email hiện có mang lại nhiều lợi ích:
+
+- Phát hiện các email phishing do AI tạo ra.
+- Hiểu ngữ cảnh thay vì chỉ dựa trên từ khóa.
+- Phân tích hành vi giao tiếp của người gửi.
+- Giảm tỷ lệ False Positive.
+- Không cần thay đổi hệ thống email hiện tại.
+- Liên tục học hỏi từ các cuộc tấn công mới.
+- Tự động phân loại và định tuyến email theo mức độ rủi ro.
+
+---
+
+## Kết luận
+
+Sự phát triển của Generative AI đã làm thay đổi hoàn toàn cách thức thực hiện các cuộc tấn công phishing. Những email được tạo ra ngày càng tự nhiên, chính xác và khó phân biệt với email hợp lệ.
+
+Amazon Bedrock giải quyết thách thức này bằng cách kết hợp Foundation Models, Amazon Bedrock Guardrails và cơ chế phân tích hành vi để phát hiện các dấu hiệu thao túng tinh vi mà các hệ thống dựa trên quy tắc truyền thống không thể nhận ra.
+
+Nhờ vòng lặp phản hồi liên tục, hệ thống ngày càng cải thiện độ chính xác, giảm cảnh báo giả và hỗ trợ đội ngũ bảo mật tập trung xử lý các mối đe dọa thực sự, trong khi hạ tầng email hiện tại vẫn hoạt động bình thường.
+
+---
+
+## Bài viết gốc
+
+https://aws.amazon.com/vi/blogs/machine-learning/how-amazon-bedrock-catches-ai-generated-phishing/

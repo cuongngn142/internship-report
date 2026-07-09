@@ -19,7 +19,7 @@ CloudWatch Dashboards allow you to display important metrics and resource status
 - Search for the `CloudWatch` service.
 - Select **Dashboards** → **Create dashboard**.
 
-![Search service](/images/5-Workshop/IMG_20260704_112101.jpg)
+![Search service](/images/5-Workshop/5.7-Visibility-Dashboard/create-cloudwatch-dashboard.png)
 
 ## Step 2. Fill in the fields
 
@@ -29,7 +29,6 @@ CloudWatch Dashboards allow you to display important metrics and resource status
 
 Click **Create dashboard**.
 
-![Filled form](/images/5-Workshop/IMG_20260704_112101.jpg)
 
 ## Step 3. Add widgets
 
@@ -90,14 +89,12 @@ Click **Create dashboard**.
 
 Click **Save dashboard**.
 
-![Result created](/images/5-Workshop/IMG_20260704_112101.jpg)
 
 ## Validation
 
 - The dashboard has been created.
 - Key metrics can be viewed directly from the dashboard.
 
-![Verification](/images/5-Workshop/IMG_20260704_112101.jpg)
 
 ## Next step
 

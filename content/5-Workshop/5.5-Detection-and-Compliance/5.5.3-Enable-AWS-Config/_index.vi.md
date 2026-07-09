@@ -59,7 +59,8 @@ Thêm inline policy cho S3 access:
 
 - Click **Create policy**
 
-![Config role](/images/5-Workshop/placeholder.svg)
+![Config role](/images/5-Workshop/5.5-Detection-Compiance/iam-create-role.png)
+
 
 ## Bước 2. Bật AWS Config
 
@@ -87,14 +88,14 @@ Thêm inline policy cho S3 access:
 
 Click **Next** → **Confirm**
 
-![Enable Config](/images/5-Workshop/placeholder.svg)
+![Enable Config](/images/5-Workshop/5.5-Detection-Compiance/awsconfig.png)
 
 ## Validation
 
 - AWS Config đã hoạt động.
 - Tài nguyên bắt đầu được ghi nhận.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.5-Detection-Compiance/valid-awsconfig.png)
 
 ## Chuyển sang bước tiếp theo
 

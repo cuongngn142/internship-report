@@ -50,7 +50,7 @@ Thêm inline policy:
 }
 ```
 
-![Step Functions role](/images/5-Workshop/placeholder.svg)
+![Step Functions role](/images/5-Workshop/5.6-Automated-response/create-stepf-role.png)
 
 ## Bước 2. Tạo state machine
 
@@ -71,14 +71,14 @@ SecurityResponseStateMachine)
 
 Click **Create state machine**
 
-![Create state machine](/images/5-Workshop/placeholder.svg)
+![Create state machine](/images/5-Workshop/5.6-Automated-response/create-state-machine.png)
 
 ## Validation
 
 - State machine đã được tạo.
 - Workflow có thể chạy khi nhận event.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.6-Automated-response/stepf-sec-response.png)
 
 ## Chuyển sang bước tiếp theo
 

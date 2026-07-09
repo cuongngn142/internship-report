@@ -19,7 +19,7 @@ Amazon CloudFront is AWS's content delivery network (CDN) that reduces latency a
 - Open the **CloudFront Console**.
 - Select **Create distribution**.
 
-![Create distribution](/images/5-Workshop/placeholder.svg)
+![Create distribution](/images/5-Workshop/5.8-Edge-Protection/create-distribution.png)
 
 ## Step 2. Fill in the fields
 
@@ -55,14 +55,14 @@ Amazon CloudFront is AWS's content delivery network (CDN) that reduces latency a
 
 Click **Create distribution**.
 
-![Distribution form](/images/5-Workshop/placeholder.svg)
+
 
 ## Validation
 
 - The distribution has been created.
 - Traffic can be routed through CloudFront.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+
 
 ## Next step
 

@@ -21,7 +21,7 @@ Mở **CloudWatch console**
 - Chọn **Alarms**.
 - Nhấn **Create alarm**.
 
-![Search service](/images/5-Workshop/IMG_20260704_112101.jpg)
+![create alarm](/images/5-Workshop/5.7-Visibility-Dashboard/cloudwatch-create-alarm.png)
 
 ## Bước 2. Điền các field
 
@@ -46,7 +46,7 @@ Mở **CloudWatch console**
 
 Click **Create alarm**
 
-![Filled form](/images/5-Workshop/IMG_20260704_112101.jpg)
+
 
 ## Bước 3. Tạo Lambda Error Alarm
 
@@ -54,7 +54,7 @@ Lặp lại tương tự với:
 
 - **Metric**: `AWS/Lambda` → `Errors` → FunctionName = `soc-platform-isolate-ec2`
 - **Alarm name**: `soc-platform-lambda-errors`
-
+![Validation](/images/5-Workshop/5.7-Visibility-Dashboard/lambda-error-alarm.png)
 ## Bước 4. Tạo WAF High Block Rate Alarm
 
 Lặp lại tương tự với:
@@ -69,7 +69,6 @@ Lặp lại tương tự với:
 - Alarm đã được tạo.
 - Cảnh báo sẽ được gửi khi metric vượt ngưỡng.
 
-![Verification](/images/5-Workshop/IMG_20260704_112101.jpg)
 
 ## Chuyển sang bước tiếp theo
 

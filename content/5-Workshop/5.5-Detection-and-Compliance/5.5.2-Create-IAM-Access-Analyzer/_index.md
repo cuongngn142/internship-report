@@ -19,7 +19,7 @@ IAM Access Analyzer helps identify resources that are shared unintentionally.
 - Open the **IAM Console**.
 - Select **Access Analyzer** → **Create analyzer**.
 
-![Access Analyzer](/images/5-Workshop/placeholder.svg)
+![Access Analyzer](/images/5-Workshop/5.5-Detection-Compiance/iam-analyzer.png)
 
 ## Step 2. Fill in the fields
 
@@ -29,14 +29,14 @@ In the configuration page:
 - **Zone of trust**: Select **Current account**.
 - Click **Create analyzer**.
 
-![Create analyzer form](/images/5-Workshop/placeholder.svg)
+![Create analyzer form](/images/5-Workshop/5.5-Detection-Compiance/config-iam-analyzer.png)
 
 ## Validation
 
 - The analyzer has been created.
 - Access analysis has started.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.5-Detection-Compiance/valid-analyzer.png)
 
 ## Next step
 

@@ -19,7 +19,7 @@ Amazon VPC cho phép tạo môi trường mạng riêng ảo phân tách khỏi 
 1. Mở **Amazon VPC console**.
 2. Trên thanh điều hướng bên trái, chọn **Your VPCs**, click **Create VPC**:
 
-![Search VPC](/images/5-Workshop/placeholder.svg)
+![Search VPC](/images/5-Workshop/5.3-Vpc/vpc-console.png)
 
 ## Bước 2. Nhấn Create VPC Và Điền Thông Tin
 
@@ -30,7 +30,7 @@ Amazon VPC cho phép tạo môi trường mạng riêng ảo phân tách khỏi 
 - **Tenancy**: Chọn **Default**
 - Giữ nguyên các cấu hình mặc định khác và click **Create VPC**
 
-![Create button](/images/5-Workshop/placeholder.svg)
+![Create button](/images/5-Workshop/5.3-Vpc/create-vpc)
 
 ## Bước 3. Cấu hình nâng cao
 
@@ -40,14 +40,14 @@ Sau khi tạo VPC, chọn VPC vừa tạo và click **Actions** → **Edit VPC s
 - Tick chọn **Enable DNS resolution**
 - Click **Save**
 
-![Advanced settings](/images/5-Workshop/placeholder.svg)
+![Advanced settings](/images/5-Workshop/5.3-Vpc/vpc-setting1.png)
 
 ## Validation
 
 - VPC `soc-platform-vpc` đã được tạo.
 - Trạng thái là **Available**.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.3-Vpc/vpc-setting2.png)
 
 ## Chuyển sang bước tiếp theo
 

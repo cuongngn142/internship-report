@@ -19,7 +19,7 @@ IAM Access Analyzer giúp xác định tài nguyên bị chia sẻ sai cách.
 - Mở IAM Console.
 - Chọn **Access Analyzer** → **Create analyzer**.
 
-![Access Analyzer](/images/5-Workshop/placeholder.svg)
+![Access Analyzer](/images/5-Workshop/5.5-Detection-Compiance/iam-analyzer.png)
 
 ## Bước 2. Điền thông tin
 
@@ -29,14 +29,14 @@ Trong giao diện cấu hình:
 - **Zone of trust**: Chọn **Current account**
 - Click **Create analyzer**
 
-![Create analyzer form](/images/5-Workshop/placeholder.svg)
+![Create analyzer form](/images/5-Workshop/5.5-Detection-Compiance/config-iam-analyzer.png)
 
 ## Validation
 
 - Analyzer đã được tạo.
 - Quá trình phân tích quyền truy cập bắt đầu.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.5-Detection-Compiance/valid-analyzer.png)
 
 ## Chuyển sang bước tiếp theo
 

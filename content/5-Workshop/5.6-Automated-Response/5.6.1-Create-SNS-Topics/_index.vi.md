@@ -26,8 +26,7 @@ Trong giao diện cấu hình:
 - **Encryption**: Chọn **Enable encryption** và chọn KMS key `alias/aws/sns`
 - Click **Create topic**
 
-![Create SNS topic](/images/5-Workshop/placeholder.svg)
-
+![Create SNS topic](/images/5-Workshop/5.6-Automated-response/sns-topic.png)
 ## Bước 2. Thêm subscription
 
 Click **Create subscription**:
@@ -36,26 +35,25 @@ Click **Create subscription**:
 - **Endpoint**: Nhập email của SOC team
 - Click **Create subscription**
 
-![SNS subscription](/images/5-Workshop/placeholder.svg)
 
 ## Bước 3. Xác nhận email
 
 - Xác nhận subscription trong email.
 
-![Confirm email](/images/5-Workshop/placeholder.svg)
+![SNS subscription](/images/5-Workshop/5.6-Automated-response/create-sub-critical.png)
 
 ## Bước 4. Tạo High Alerts Topic
 
 Lặp lại các bước tương tự với tên `soc-platform-high-alerts`
 
-![Confirm email](/images/5-Workshop/placeholder.svg)
+![Confirm email](/images/5-Workshop/5.6-Automated-response/create-sns-high-alert.png)
 
 ## Validation
 
 - SNS topic đã tạo.
 - Subscription hoạt động.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/valid-sns-high-alert.png)
 
 ## Chuyển sang bước tiếp theo
 

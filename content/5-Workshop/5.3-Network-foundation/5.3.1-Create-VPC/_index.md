@@ -19,7 +19,7 @@ Amazon VPC allows you to create a private virtual network that is isolated from 
 1. Open the **Amazon VPC Console**.
 2. In the navigation pane on the left, select **Your VPCs**, then click **Create VPC**.
 
-![Search VPC](/images/5-Workshop/placeholder.svg)
+![Search VPC](/images/5-Workshop/5.3-Vpc/vpc-console.png)
 
 ## Step 2. Click Create VPC
 
@@ -30,7 +30,7 @@ Amazon VPC allows you to create a private virtual network that is isolated from 
 - **Tenancy**: Select **Default**.
 - Leave all other settings as their default values, then click **Create VPC**.
 
-![Create button](/images/5-Workshop/placeholder.svg)
+![Create button](/images/5-Workshop/5.3-Vpc/create-vpc)
 
 ## Step 3. Fill in the fields
 
@@ -40,14 +40,14 @@ After the VPC has been created, select the newly created VPC and choose **Action
 - Check **Enable DNS resolution**.
 - Click **Save**.
 
-![Advanced settings](/images/5-Workshop/placeholder.svg)
+![Advanced settings](/images/5-Workshop/5.3-Vpc/vpc-setting1.png)
 
 ## Step 4. Configure advanced settings
 
 - The VPC `soc-platform-vpc` has been created.
 - Its status is **Available**.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.3-Vpc/vpc-setting2.png)
 
 ## Validation
 

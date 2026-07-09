@@ -24,7 +24,7 @@ Trong giao diện cấu hình:
 - **VPC**: Chọn `soc-platform-vpc`
 - Click **Create route table**
 
-![Public route table](/images/5-Workshop/placeholder.svg)
+![Public route table](/images/5-Workshop/5.3-Vpc/rt-create.png)
 
 ## Bước 2. Thêm route tới Internet Gateway
 
@@ -35,7 +35,7 @@ Chọn route table vừa tạo, tab **Routes**, click **Edit routes**:
 - **Target**: Chọn **Internet Gateway** → `soc-platform-igw`
 - Click **Save changes**
 
-![Route entry](/images/5-Workshop/placeholder.svg)
+![Route entry](/images/5-Workshop/5.3-Vpc/add-route.png)
 
 ## Bước 3. Gắn subnet public
 
@@ -44,7 +44,7 @@ Tab **Subnet associations**, click **Edit subnet associations**:
 - Tick chọn `soc-platform-public-subnet`
 - Click **Save associations**
 
-![Associate subnet](/images/5-Workshop/placeholder.svg)
+![Associate subnet](/images/5-Workshop/5.3-Vpc/association-public.png)
 
 ## Bước 4. Tạo private route table
 
@@ -53,6 +53,7 @@ Click **Create route table**:
 - **Name**: Nhập `soc-platform-private-rt`
 - **VPC**: Chọn `soc-platform-vpc`
 - Click **Create route table**
+![Private route table](/images/5-Workshop/5.3-Vpc/rt-create1.png)
 
 Chọn route table vừa tạo, tab **Routes**, click **Edit routes**:
 
@@ -60,20 +61,21 @@ Chọn route table vừa tạo, tab **Routes**, click **Edit routes**:
 - **Destination**: `0.0.0.0/0`
 - **Target**: Chọn **NAT Gateway** → `soc-platform-nat-gw`
 - Click **Save changes**
+![Route entry private](/images/5-Workshop/5.3-Vpc/add-route1.png)
 
 Tab **Subnet associations**, click **Edit subnet associations**:
 
 - Tick chọn `soc-platform-private-subnet`
 - Click **Save associations**
 
-![Private route table](/images/5-Workshop/placeholder.svg)
+![Associate subnet private](/images/5-Workshop/5.3-Vpc/association-private.png)
 
 ## Validation
 
 - Public subnet đi ra Internet qua IGW.
 - Private subnet đi ra Internet qua NAT Gateway.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.3-Vpc/valid-rt.png)
 
 ## Chuyển sang bước tiếp theo
 

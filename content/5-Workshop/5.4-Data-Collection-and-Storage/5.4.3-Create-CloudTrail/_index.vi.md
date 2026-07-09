@@ -19,7 +19,7 @@ CloudTrail ghi lại hoạt động API và quản trị trên AWS account.
 - Mở CloudTrail Console.
 - Chọn **Create trail**.
 
-![CloudTrail create](/images/5-Workshop/placeholder.svg)
+![CloudTrail create](/images/5-Workshop/5.4-Data-Storage/cloudtrail.png)
 
 ## Bước 2. Điền thông tin
 
@@ -42,14 +42,14 @@ Click **Next**
 - **Data events** (optional): Thêm S3 và Lambda nếu cần
 - Click **Next** → **Create trail**
 
-![CloudTrail form](/images/5-Workshop/placeholder.svg)
+![CloudTrail form](/images/5-Workshop/5.4-Data-Storage/create-cloudtrail.png)
 
 ## Validation
 
 - CloudTrail đã được tạo.
 - Log bắt đầu được gửi tới bucket.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.4-Data-Storage/valid-cloudtrail.png)
 
 ## Chuyển sang bước tiếp theo
 

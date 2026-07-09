@@ -18,7 +18,7 @@ A NAT Gateway allows resources in a private subnet to access the Internet while 
 
 In the navigation pane on the left, select **NAT Gateways**, then click **Create NAT gateway**.
 
-![Create NAT](/images/5-Workshop/placeholder.svg)
+![Create NAT](/images/5-Workshop/5.3-Vpc/nat.png)
 
 ## Step 2. Fill in the fields
 
@@ -30,14 +30,14 @@ In the configuration page:
 - **Elastic IP allocation ID**: Click **Allocate Elastic IP** to create a new Elastic IP.
 - Click **Create NAT gateway**.
 
-![NAT form](/images/5-Workshop/placeholder.svg)
+![Create NAT](/images/5-Workshop/5.3-Vpc/create-nat.png)
 
 ## Validation
 
 - The NAT Gateway has been created.
 - The private subnet can access the Internet through the NAT Gateway.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.3-Vpc/nat-created.png)
 
 ## Next step
 

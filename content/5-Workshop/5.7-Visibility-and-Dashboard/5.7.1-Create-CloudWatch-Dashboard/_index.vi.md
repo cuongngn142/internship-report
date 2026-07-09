@@ -19,7 +19,7 @@ CloudWatch Dashboard cho phép bạn hiển thị các metrics và trạng thái
 - Tìm dịch vụ `CloudWatch`.
 - Chọn **Dashboards** → **Create dashboard**.
 
-![Search service](/images/5-Workshop/IMG_20260704_112101.jpg)
+![Search service](/images/5-Workshop/5.7-Visibility-Dashboard/create-cloudwatch-dashboard.png)
 
 ## Bước 2. Điền các field
 
@@ -27,7 +27,6 @@ CloudWatch Dashboard cho phép bạn hiển thị các metrics và trạng thái
 
 Click **Create dashboard**
 
-![Filled form](/images/5-Workshop/IMG_20260704_112101.jpg)
 
 ## Bước 3. Thêm widgets
 
@@ -88,14 +87,12 @@ Widget 9: Step Functions Executions
 
 Click **Save dashboard**
 
-![Result created](/images/5-Workshop/IMG_20260704_112101.jpg)
 
 ## Kiểm tra kết quả
 
 - Dashboard đã được tạo.
 - Metrics quan trọng có thể xem trực tiếp.
 
-![Verification](/images/5-Workshop/IMG_20260704_112101.jpg)
 
 ## Chuyển sang bước tiếp theo
 

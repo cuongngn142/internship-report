@@ -19,7 +19,7 @@ CloudFront là CDN của AWS giúp giảm độ trễ và bảo vệ ứng dụn
 - Mở CloudFront Console.
 - Chọn **Create distribution**.
 
-![Create distribution](/images/5-Workshop/placeholder.svg)
+
 
 ## Bước 2. Điền thông tin
 
@@ -55,14 +55,12 @@ CloudFront là CDN của AWS giúp giảm độ trễ và bảo vệ ứng dụn
 
 Click **Create distribution**
 
-![Distribution form](/images/5-Workshop/placeholder.svg)
 
 ## Validation
 
 - Distribution đã được tạo.
 - Traffic có thể đi qua CloudFront.
 
-![Validation](/images/5-Workshop/placeholder.svg)
 
 ## Chuyển sang bước tiếp theo
 

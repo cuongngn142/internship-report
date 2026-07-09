@@ -52,7 +52,7 @@ Add the following inline policy:
 }
 ```
 
-![Step Functions role](/images/5-Workshop/placeholder.svg)
+![Step Functions role](/images/5-Workshop/5.6-Automated-response/create-stepf-role.png)
 
 ## Step 2. Create the state machine
 
@@ -77,14 +77,14 @@ Open the **AWS Step Functions Console**, then click **Create state machine**.
 
 Click **Create state machine**.
 
-![Create state machine](/images/5-Workshop/placeholder.svg)
+![Create state machine](/images/5-Workshop/5.6-Automated-response/create-state-machine.png)
 
 ## Validation
 
 - The state machine has been created.
 - The workflow can run when an event is received.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.6-Automated-response/stepf-sec-response.png)
 
 ## Next step
 

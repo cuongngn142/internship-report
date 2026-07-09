@@ -19,7 +19,7 @@ Amazon S3 là dịch vụ lưu trữ object bền bỉ, dùng để lưu CloudTr
 - Mở S3 Console.
 - Chọn **Create bucket**.
 
-![S3 create](/images/5-Workshop/placeholder.svg)
+![S3 create](/images/5-Workshop/5.4-Data-Storage/s3.png)
 
 ## Bước 2. Điền thông tin
 
@@ -42,7 +42,7 @@ Amazon S3 là dịch vụ lưu trữ object bền bỉ, dùng để lưu CloudTr
 
 Click **Create bucket**
 
-![S3 form](/images/5-Workshop/placeholder.svg)
+![S3 form](/images/5-Workshop/5.4-Data-Storage/create-s3-log.png)
 
 ## Bước 3. Thêm bucket policy
 
@@ -118,7 +118,7 @@ Thêm policy cho phép các services ghi logs (CloudTrail, VPC Flow Logs, Config
 
 Click **Save changes**
 
-![Bucket policy](/images/5-Workshop/placeholder.svg)
+![Bucket policy](/images/5-Workshop/5.4-Data-Storage/log-policy.png)
 
 ## Bước 4. Thêm lifecycle rule
 
@@ -145,14 +145,14 @@ Tab **Management**, click **Create lifecycle rule**:
 - **Delete incomplete multipart uploads**: After **7** days
 - Click **Create rule**
 
-![Lifecycle rule](/images/5-Workshop/placeholder.svg)
+![Lifecycle rule](/images/5-Workshop/5.4-Data-Storage/5.4-Data-Storage/log-lcr.png)
 
 ## Validation
 
 - Bucket đã tạo thành công.
 - Bucket có thể lưu log và có policy/lifecycle phù hợp.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.4-Data-Storage/valid-log)
 
 ## Chuyển sang bước tiếp theo
 

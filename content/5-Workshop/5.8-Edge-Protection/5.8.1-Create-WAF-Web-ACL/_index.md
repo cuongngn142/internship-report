@@ -20,7 +20,7 @@ AWS WAF helps control requests to your application using rules based on IP addre
 
 Open the **AWS WAF Console** (switch to the **N. Virginia (`us-east-1`)** Region), then click **Create web ACL**.
 
-![Create WAF](/images/5-Workshop/placeholder.svg)
+![Create WAF](/images/5-Workshop/5.8-Edge-Protection/waf.png)
 
 ## Step 2. Fill in the fields
 
@@ -31,7 +31,7 @@ Open the **AWS WAF Console** (switch to the **N. Virginia (`us-east-1`)** Region
 - **CloudWatch metric name**: Enter `soc-platform-waf-metrics`.
 - Click **Next**.
 
-![WAF form](/images/5-Workshop/placeholder.svg)
+![WAF form](/images/5-Workshop/5.8-Edge-Protection/create-web-acl.png)
 
 ## Step 3. Add rules and rule groups
 
@@ -64,14 +64,14 @@ Click **Add rules** → **Add my own rules and rule groups**.
 
 Click **Next** → **Create web ACL**.
 
-![WAF rules](/images/5-Workshop/placeholder.svg)
+![WAF rules](/images/5-Workshop/5.8-Edge-Protection/create-rule.png)
 
 ## Validation
 
 - The Web ACL has been created.
 - Malicious requests can be blocked according to the configured rules.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.8-Edge-Protection/valid-wacl.png)
 
 ## Next step
 

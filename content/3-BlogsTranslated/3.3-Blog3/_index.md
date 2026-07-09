@@ -1,124 +1,210 @@
 ---
-title: "Blog 3"
-date: 2024-01-01
-weight: 1
+title: 'Blog 3'
+date: 2024-07-09
+weight: 3
 chapter: false
-pre: " <b> 3.3. </b> "
+pre: ' <b> 3.3. </b> '
 ---
 
+# How Amazon Bedrock Detects AI-Generated Phishing Attacks
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+For many years, email security systems have relied on traditional detection techniques such as identifying spelling mistakes, generic greetings, or suspicious sender domains to recognize phishing emails. However, the rise of Generative AI has fundamentally changed this landscape.
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+Today, attackers can combine AI models with Open Source Intelligence (OSINT) to generate phishing emails that are grammatically correct, contextually relevant, and highly personalized for individual recipients. As a result, many traditional email security solutions struggle to detect these sophisticated attacks.
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
-
----
-
-## Architecture Guidance
-
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
-
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
-
-**The solution architecture is now as follows:**
-
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+In this blog, AWS demonstrates how **Amazon Bedrock** combines **Foundation Models**, **Amazon Bedrock Guardrails**, and behavioral analysis to identify AI-generated phishing emails before they reach end users.
 
 ---
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:
-- Small, autonomous, loosely coupled
-- Reusable, communicating through well-defined interfaces
-- Specialized to do one thing well
-- Often implemented in an **event-driven architecture**
+## The Evolution of Phishing Attacks
 
-When determining where to draw boundaries between microservices, consider:
-- **Intrinsic**: technology used, performance, reliability, scalability
-- **Extrinsic**: dependent functionality, rate of change, reusability
-- **Human**: team ownership, managing *cognitive load*
+Traditional phishing detection systems commonly relied on indicators such as:
 
----
+- Spelling and grammar mistakes.
+- Generic greetings.
+- Fake branding or company logos.
+- Mismatched sender domains.
+- Unusual email formatting.
 
-## Technology Choices and Communication Scope
+These techniques were effective for many years because phishing emails often contained obvious mistakes.
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+However, modern phishing campaigns have evolved with the help of Generative AI.
 
----
+Attackers can now:
 
-## The Pub/Sub Hub
+- Gather information from publicly available OSINT sources.
+- Analyze large amounts of organizational and personal data.
+- Generate thousands of unique phishing emails.
+- Personalize messages based on job roles, departments, or previous conversations.
+- Adapt email content dynamically based on user responses.
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.
-- Each microservice depends only on the *hub*
-- Inter-microservice connections are limited to the contents of the published message
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
-
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
+As a result, phishing emails now closely resemble legitimate business communications and frequently bypass traditional rule-based detection systems.
 
 ---
 
-## Core Microservice
+## How Amazon Bedrock Helps Detect Phishing
 
-Provides foundational data and communication layer, including:
-- **Amazon S3** bucket for data
-- **Amazon DynamoDB** for data catalog
-- **AWS Lambda** to write messages into the data lake and catalog
-- **Amazon SNS** topic as the *hub*
-- **Amazon S3** bucket for artifacts such as Lambda code
+Amazon Bedrock is a fully managed AWS service that provides access to high-performing Foundation Models from AWS and leading AI providers, enabling organizations to build secure, private, and responsible generative AI applications.
 
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
+Instead of focusing only on keywords or grammar, Amazon Bedrock introduces an additional **behavioral analysis layer** capable of evaluating:
 
----
+- Email context.
+- Sender communication patterns.
+- Social engineering indicators.
+- Behavioral anomalies.
 
-## Front Door Microservice
-
-- Provides an API Gateway for external REST interaction
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:
-  1. SNS deduplication TTL is only 5 minutes
-  2. SNS FIFO requires SQS FIFO
-  3. Ability to proactively notify the sender that the message is a duplicate
+This approach allows organizations to detect sophisticated phishing attempts that traditional rule-based systems often fail to recognize.
 
 ---
 
-## Staging ER7 Microservice
+## Key Components of the Solution
 
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute
-- Step Functions Express Workflow to convert ER7 → JSON
-- Two Lambdas:
-  1. Fix ER7 formatting (newline, carriage return)
-  2. Parsing logic
-- Result or error is pushed back into the pub/sub hub
+### Foundation Models
+
+Foundation Models provide advanced natural language understanding to analyze email content.
+
+They can:
+
+- Understand contextual relationships within emails.
+- Detect subtle manipulation attempts.
+- Identify abnormal communication behavior.
+- Recognize previously unseen phishing patterns.
+
+Rather than searching for grammatical mistakes, the models evaluate the intent and overall meaning of each message.
 
 ---
 
-## New Features in the Solution
+### Amazon Bedrock Guardrails
 
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+Amazon Bedrock Guardrails provide configurable safety controls that ensure AI analysis aligns with an organization's security policies and responsible AI requirements.
+
+Key capabilities include:
+
+- Content filters.
+- Word filters.
+- Denied topics.
+- Sensitive information detection.
+- Contextual grounding to reduce model hallucinations.
+
+These features improve analysis accuracy while minimizing false positives.
+
+---
+
+## Five-Step Email Analysis Workflow
+
+Amazon Bedrock integrates into existing email infrastructure as an additional security analysis layer.
+
+The entire analysis process occurs within milliseconds before emails reach user inboxes.
+
+### Step 1. Input Guardrails and Pre-processing
+
+Incoming emails first pass through Amazon Bedrock Guardrails.
+
+Sensitive or suspicious content is identified and flagged for additional review before further analysis begins.
+
+---
+
+### Step 2. Context-Aware Prompt Construction
+
+The system builds an analysis prompt by combining:
+
+- Email content.
+- Sender communication history.
+- Organizational context.
+- Previously identified phishing examples.
+
+This contextual information is retrieved using Amazon Bedrock Knowledge Bases.
+
+---
+
+### Step 3. AI-Powered Analysis
+
+Foundation Models analyze the email using the generated prompt.
+
+Throughout this process, Guardrails ensure that the model operates within predefined security boundaries.
+
+---
+
+### Step 4. Multi-Factor Risk Scoring
+
+Based on the AI analysis, the system evaluates the email using three major factors:
+
+- Content anomalies.
+- Behavioral deviations.
+- Contextual inconsistencies.
+
+These factors are combined into an overall phishing risk score.
+
+---
+
+### Step 5. Classification and Automated Routing
+
+Emails are automatically routed according to their calculated risk level:
+
+- Safe emails are delivered to users.
+- Suspicious emails are forwarded to the security team.
+- High-risk phishing emails are automatically blocked.
+
+---
+
+## Continuous Feedback Loop
+
+One of the most important strengths of the solution is its ability to continuously improve through a feedback loop.
+
+The workflow consists of five stages.
+
+### Analyze
+
+Foundation Models evaluate incoming emails using dynamically generated prompts based on accumulated phishing intelligence and sender context.
+
+### Score
+
+Each email receives a risk score between 0 and 100, allowing suspicious messages to be isolated.
+
+### Review
+
+Security analysts examine flagged emails to determine whether they are genuine phishing attempts or false positives.
+
+### Learn
+
+Verified results update:
+
+- Example libraries.
+- Sender behavioral baselines.
+- Emerging phishing pattern databases.
+
+### Enhance
+
+Newly confirmed examples are incorporated into future prompts through dynamic prompt engineering and few-shot learning, enabling more accurate detection over time.
+
+As the knowledge base expands, the system becomes increasingly effective at distinguishing legitimate communication from phishing attempts while significantly reducing false positives.
+
+---
+
+## Benefits of the Solution
+
+Integrating Amazon Bedrock with existing email security infrastructure provides several advantages:
+
+- Detects AI-generated phishing emails.
+- Understands contextual meaning instead of relying solely on keywords.
+- Analyzes sender behavior and communication patterns.
+- Reduces false positive rates.
+- Works alongside existing email infrastructure without requiring major changes.
+- Continuously improves through feedback and learning.
+- Automatically classifies and routes emails based on risk levels.
+
+---
+
+## Conclusion
+
+Generative AI has dramatically changed the way phishing attacks are created, making malicious emails more natural, convincing, and difficult to distinguish from legitimate communications.
+
+Amazon Bedrock addresses this challenge by combining Foundation Models, Amazon Bedrock Guardrails, and behavioral analysis to identify sophisticated phishing attempts that traditional rule-based systems often miss.
+
+With its continuous feedback loop, the solution becomes increasingly accurate over time, reducing false positives while enabling security teams to focus on genuine threats without disrupting existing email infrastructure.
+
+---
+
+## Original Article
+
+https://aws.amazon.com/vi/blogs/machine-learning/how-amazon-bedrock-catches-ai-generated-phishing/

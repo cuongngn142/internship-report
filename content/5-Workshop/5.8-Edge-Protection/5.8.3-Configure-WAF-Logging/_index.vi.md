@@ -30,14 +30,14 @@ WAF logging giúp bạn phân tích tấn công và tối ưu rule.
 
 Click **Save**
 
-![WAF logging](/images/5-Workshop/placeholder.svg)
+
 
 ## Validation
 
 - Logging đã được bật.
 - Request có thể được lưu để phân tích sau này.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.8-Edge-Protection/config-loggin-wacl.png)
 
 ## Chuyển sang bước tiếp theo
 

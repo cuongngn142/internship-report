@@ -19,7 +19,7 @@ AWS KMS giúp mã hóa dữ liệu ở rest và transit.
 - Tìm dịch vụ `KMS`.
 - Chọn **Create key**.
 
-![Create key](/images/5-Workshop/placeholder.svg)
+![Create key](/images/5-Workshop/5.4-Data-Storage/kms.png)
 
 ## Bước 2. Điền thông tin
 
@@ -45,14 +45,14 @@ AWS KMS giúp mã hóa dữ liệu ở rest và transit.
 - Thêm các services: `cloudtrail.amazonaws.com`, `s3.amazonaws.com`, `delivery.logs.amazonaws.com`, `guardduty.amazonaws.com`
 - Click **Next** → **Finish**
 
-![KMS form](/images/5-Workshop/placeholder.svg)
+![KMS form](/images/5-Workshop/5.4-Data-Storage/kms-configure-key.png)
 
 ## Validation
 
 - KMS key đã được tạo.
 - Có thể dùng để mã hóa S3 logs.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.4-Data-Storage/created-key.png)
 
 ## Chuyển sang bước tiếp theo
 

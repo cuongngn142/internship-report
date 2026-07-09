@@ -18,7 +18,7 @@ An Internet Gateway is the connection point between the VPC and the Internet.
 
 In the navigation pane on the left, select **Internet Gateways**, then click **Create internet gateway**.
 
-![Internet Gateways](/images/5-Workshop/placeholder.svg)
+![Internet Gateways](/images/5-Workshop/5.3-Vpc/igw.png)
 
 ## Step 2. Create the IGW
 
@@ -27,7 +27,7 @@ In the configuration page:
 - **Name tag**: Enter `soc-platform-igw`.
 - Click **Create internet gateway**.
 
-![Create IGW](/images/5-Workshop/placeholder.svg)
+![Create IGW](/images/5-Workshop/5.3-Vpc/create-igw.png)
 
 ## Step 3. Attach it to the VPC
 
@@ -36,14 +36,14 @@ After the Internet Gateway has been created, click **Actions** → **Attach to V
 - Select the VPC `soc-platform-vpc`.
 - Click **Attach internet gateway**.
 
-![Attach IGW](/images/5-Workshop/placeholder.svg)
+![Attach IGW](/images/5-Workshop/5.3-Vpc/attach-to-vpc.PNG)
 
 ## Validation
 
 - The Internet Gateway has been attached to the VPC.
 - The VPC can connect to the Internet.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.3-Vpc/attach-to-vpc1.PNG)
 
 ## Next step
 

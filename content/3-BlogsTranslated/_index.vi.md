@@ -1,9 +1,9 @@
 ---
-title: "Các bài blog đã dịch"
+title: 'Các bài blog đã dịch'
 date: 2026-07-07
 weight: 3
 chapter: false
-pre: " <b> 3. </b> "
+pre: ' <b> 3. </b> '
 ---
 
 Phần này liệt kê và giới thiệu các bài blog AWS đã được dịch trong quá trình thực tập.
@@ -16,6 +16,6 @@ Blog này giới thiệu tính năng mới **Inbound Federation Lambda Trigger**
 
 Blog này giới thiệu cách **AWS End User Messaging** giúp doanh nghiệp bổ sung khả năng giao tiếp bằng giọng nói vào các cuộc trò chuyện với khách hàng trên WhatsApp. Bài viết trình bày cách kết hợp các dịch vụ AWS như AWS Lambda, Amazon SNS, Amazon Transcribe và Amazon Polly để xây dựng giải pháp voice-to-voice, cho phép chuyển giọng nói thành văn bản, xử lý nội dung yêu cầu và tạo phản hồi bằng giọng nói tự nhiên. Đồng thời, bài viết cũng giới thiệu các trường hợp sử dụng phổ biến, quy trình triển khai bằng AWS CDK và những khuyến nghị nhằm xây dựng hệ thống giao tiếp với khách hàng có khả năng mở rộng và dễ tiếp cận hơn.
 
-### [Blog 3 - ...](3.3-Blog3/)
+### [Blog 3 - Cách Amazon Bedrock phát hiện các cuộc tấn công phishing do AI tạo ra](3.3-Blog3/)
 
-Blog này giới thiệu ...
+Blog này giới thiệu cách **Amazon Bedrock** giúp phát hiện các email phishing được tạo bởi AI thông qua phân tích hành vi và ngữ cảnh thay vì chỉ dựa trên các quy tắc phát hiện truyền thống. Bài viết trình bày cách kết hợp **Foundation Models**, **Amazon Bedrock Guardrails** và vòng lặp phản hồi liên tục để nhận diện các cuộc tấn công phishing tinh vi, giảm cảnh báo giả và tăng cường khả năng bảo vệ hệ thống email trước các mối đe dọa hiện đại.

@@ -30,14 +30,13 @@ WAF logging helps you analyze attacks and optimize your WAF rules.
 
 Click **Save**.
 
-![WAF logging](/images/5-Workshop/placeholder.svg)
 
 ## Validation
 
 - Logging has been enabled.
 - Requests can be stored for later analysis.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.8-Edge-Protection/config-loggin-wacl.png)
 
 ## Next step
 

@@ -20,7 +20,7 @@ AWS WAF giúp kiểm soát request tới ứng dụng bằng rule dựa trên IP
 
 Mở **AWS WAF console** (chọn region **N. Virginia - us-east-1**), click **Create web ACL**
 
-![Create WAF](/images/5-Workshop/placeholder.svg)
+![Create WAF](/images/5-Workshop/5.8-Edge-Protection/waf.png)
 
 ## Bước 2. Điền thông tin
 
@@ -31,7 +31,7 @@ Mở **AWS WAF console** (chọn region **N. Virginia - us-east-1**), click **Cr
 - **CloudWatch metric name**: Nhập `soc-platform-waf-metrics`
 - Click **Next**
 
-![WAF form](/images/5-Workshop/placeholder.svg)
+![WAF form](/images/5-Workshop/5.8-Edge-Protection/create-web-acl.png)
 
 ## Bước 3. Thêm rule và rule groups
 
@@ -60,14 +60,14 @@ Click **Add rules** → **Add my own rules and rule groups**:
 
 Click **Next** → **Create web ACL**
 
-![WAF rules](/images/5-Workshop/placeholder.svg)
+![WAF rules](/images/5-Workshop/5.8-Edge-Protection/create-rule.png)
 
 ## Validation
 
 - Web ACL đã được tạo.
 - Request độc hại có thể bị chặn theo rule.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.8-Edge-Protection/valid-wacl.png)
 
 ## Chuyển sang bước tiếp theo
 

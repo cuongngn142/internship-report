@@ -19,7 +19,7 @@ Amazon GuardDuty uses telemetry data and machine learning to detect security thr
 - Search for the `GuardDuty` service.
 - Select **Get started**.
 
-![GuardDuty console](/images/5-Workshop/placeholder.svg)
+![GuardDuty console](/images/5-Workshop/5.5-Detection-Compiance/guardduty.png)
 
 ## Step 2. Enable GuardDuty
 
@@ -33,14 +33,14 @@ After enabling GuardDuty, select **Settings**.
 - **Malware Protection**: Select **Enable**.
 - Click **Save**.
 
-![GuardDuty form](/images/5-Workshop/placeholder.svg)
+![GuardDuty form](/images/5-Workshop/5.5-Detection-Compiance/setting-guardduty.png)
 
 ## Validation
 
 - GuardDuty has been enabled.
 - Findings are being generated.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.5-Detection-Compiance/valid-guardduty.png)
 
 ## Next step
 

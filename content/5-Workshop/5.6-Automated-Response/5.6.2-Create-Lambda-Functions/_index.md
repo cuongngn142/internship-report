@@ -33,7 +33,7 @@ Open the **IAM Console**, then select **Roles** → **Create role**.
 
 - **Role name**: Enter `soc-platform-lambda-execution-role`.
 - Click **Create role**.
-
+![Create IAM role](/images/5-Workshop/5.6-Automated-response/iam-role.png)
 Add an inline policy for SOC operations:
 
 - Select the newly created role → **Add permissions** → **Create inline policy**.
@@ -85,7 +85,7 @@ Add an inline policy for SOC operations:
 
 - Click **Create policy**.
 
-![Lambda role](/images/5-Workshop/placeholder.svg)
+![Lambda role](/images/5-Workshop/5.6-Automated-response/created-lambda-ex-role.png)
 
 ## Step 2. Create the `soc-platform-isolate-ec2` Lambda function
 
@@ -113,7 +113,7 @@ Open the **AWS Lambda Console**, then click **Create function**.
 
 Click **Deploy**.
 
-![Lambda isolate](/images/5-Workshop/placeholder.svg)
+![Lambda isolate](/images/5-Workshop/5.6-Automated-response/created-lambda-isolate-ec2.png)
 
 ## Step 3. Create the `soc-platform-revoke-iam` Lambda function
 
@@ -123,7 +123,7 @@ Repeat the same steps:
 - **Environment variables**: `LOG_BUCKET`.
 - Paste the code from the **RevokeIAMFunction** section.
 
-![Lambda revoke IAM](/images/5-Workshop/placeholder.svg)
+![Lambda revoke IAM](/images/5-Workshop/5.6-Automated-response/created-lambda-revoke.png)
 
 ## Step 4. Create the `soc-platform-send-notification` Lambda function
 
@@ -135,14 +135,14 @@ Repeat the same steps:
   - `HIGH_TOPIC_ARN`: ARN of the high alerts topic.
 - Paste the code from the **SendNotificationFunction** section.
 
-![Lambda notify](/images/5-Workshop/placeholder.svg)
+![Lambda notify](/images/5-Workshop/5.6-Automated-response/created-lambda-send-noti.png)
 
 ## Validation
 
 - All three Lambda functions have been created.
 - The functions can be invoked by the automated response workflow.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.6-Automated-response/valid-lambda.png)
 
 ## Next step
 

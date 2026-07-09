@@ -24,7 +24,7 @@ In the configuration page:
 - **Description**: Enter `Security group for Application Load Balancer`.
 - **VPC**: Select `soc-platform-vpc`.
 
-![ALB SG](/images/5-Workshop/placeholder.svg)
+![ALB SG](/images/5-Workshop/5.3-Vpc/create-alb-sg.png)
 
 ## Step 2. Add rules for the ALB security group
 
@@ -37,7 +37,7 @@ Under **Inbound rules**, click **Add rule**.
 
 Click **Create security group**.
 
-![ALB SG rules](/images/5-Workshop/placeholder.svg)
+![ALB SG rules](/images/5-Workshop/5.3-Vpc/alb-sg-rule.png)
 
 ## Step 3. Create the security group for the application
 
@@ -61,7 +61,7 @@ Under **Outbound rules**, delete the default rule and add the following rule.
 
 Click **Create security group**.
 
-![App SG](/images/5-Workshop/placeholder.svg)
+![APP SG](/images/5-Workshop/5.3-Vpc/create-app-sg.png)
 
 ## Step 4. Create the Isolation Security Group
 
@@ -75,7 +75,7 @@ Delete all **Inbound rules** and **Outbound rules** to completely isolate the re
 
 Click **Create security group**.
 
-![App SG](/images/5-Workshop/placeholder.svg)
+![App SG](/images/5-Workshop/5.3-Vpc/create-isolate-sg.png)
 
 ## Validation
 
@@ -87,7 +87,7 @@ Click **Create security group**.
 - `soc-platform-isolation-sg` has no inbound rules and no outbound rules.
 - All three security groups belong to the `soc-platform-vpc` VPC.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.3-Vpc/created-sg.png)
 
 ## Next step
 

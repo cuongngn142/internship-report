@@ -21,7 +21,7 @@ An Application Load Balancer distributes incoming traffic to multiple targets, i
 - Select **Application Load Balancer**.
 - Click **Create**.
 
-![Create ALB](/images/5-Workshop/placeholder.svg)
+![Create ALB](/images/5-Workshop/5.3-Vpc/alb.png)
 
 ## Step 2. Fill in the fields
 
@@ -40,7 +40,7 @@ An Application Load Balancer distributes incoming traffic to multiple targets, i
 
 - Select `soc-platform-alb-sg`.
 
-![ALB form](/images/5-Workshop/placeholder.svg)
+![ALB form](/images/5-Workshop/5.3-Vpc/alb-create.png)
 
 ## Step 3. Create the target group
 
@@ -53,14 +53,14 @@ Click **Create target group**.
 - **Health check path**: Enter `/health`.
 - Click **Next** → **Create target group**.
 
-![Target group](/images/5-Workshop/placeholder.svg)
+![Target group](/images/5-Workshop/5.3-Vpc/target-group.png)
 
 ## Validation
 
 - The Application Load Balancer has been created.
 - Traffic can be distributed to the target group.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.3-Vpc/created-alb.png)
 
 ## Next step
 

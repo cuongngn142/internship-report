@@ -20,9 +20,7 @@ Open the **CloudWatch Console**.
 
 - Select **Alarms**.
 - Click **Create alarm**.
-
-![Search service](/images/5-Workshop/IMG_20260704_112101.jpg)
-
+![create alarm](/images/5-Workshop/5.7-Visibility-Dashboard/cloudwatch-create-alarm.png)
 ## Step 2. Fill in the fields
 
 **Select metric**:
@@ -48,7 +46,6 @@ Open the **CloudWatch Console**.
 
 Click **Create alarm**.
 
-![Filled form](/images/5-Workshop/IMG_20260704_112101.jpg)
 
 ## Step 3. Create the Lambda Error Alarm
 
@@ -56,7 +53,7 @@ Repeat the same steps with the following settings:
 
 - **Metric**: `AWS/Lambda` → `Errors` → **FunctionName** = `soc-platform-isolate-ec2`.
 - **Alarm name**: `soc-platform-lambda-errors`.
-
+![Validation](/images/5-Workshop/5.7-Visibility-Dashboard/lambda-error-alarm.png)
 ## Step 4. Create the WAF High Block Rate Alarm
 
 Repeat the same steps with the following settings:
@@ -71,7 +68,6 @@ Repeat the same steps with the following settings:
 - The alarms have been created.
 - Notifications will be sent when the configured thresholds are exceeded.
 
-![Verification](/images/5-Workshop/IMG_20260704_112101.jpg)
 
 ## Next step
 

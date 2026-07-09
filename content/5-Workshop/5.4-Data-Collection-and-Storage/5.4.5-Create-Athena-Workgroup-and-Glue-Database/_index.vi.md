@@ -19,7 +19,7 @@ Athena cho phép query dữ liệu trực tiếp trên S3 bằng SQL; Glue Datab
 - Mở Athena Console.
 - Chọn **Workgroups** → **Create workgroup**.
 
-![Athena workgroup](/images/5-Workshop/placeholder.svg)
+![Athena workgroup](/images/5-Workshop/5.4-Data-Storage/athena-g.png)
 
 ## Bước 2. Điền thông tin
 
@@ -31,7 +31,7 @@ Trong giao diện cấu hình:
 - **Publish query metrics to CloudWatch**: Chọn **Enable**
 - Click **Create workgroup**
 
-![Athena form](/images/5-Workshop/placeholder.svg)
+![Athena form](/images/5-Workshop/5.4-Data-Storage/create-groupwork.png)
 
 ## Bước 3. Tạo Glue Database
 
@@ -44,14 +44,14 @@ Trong giao diện cấu hình:
 - **Description**: Nhập `SOC Platform logs database for Athena queries`
 - Click **Create database**
 
-![Glue DB](/images/5-Workshop/placeholder.svg)
+![Glue DB](/images/5-Workshop/5.4-Data-Storage/glue-database.png)
 
 ## Validation
 
 - Athena Workgroup đã sẵn sàng.
 - Glue Database có thể dùng cho query log.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.4-Data-Storage/valid-glue-database)
 
 ## Chuyển sang bước tiếp theo
 

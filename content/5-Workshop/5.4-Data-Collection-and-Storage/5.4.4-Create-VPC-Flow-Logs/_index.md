@@ -20,7 +20,7 @@ VPC Flow Logs capture network traffic information for troubleshooting and anomal
 - Select the `soc-platform-vpc` VPC.
 - Choose **Flow logs** → **Create flow log**.
 
-![Flow logs create](/images/5-Workshop/placeholder.svg)
+![Flow logs create](/images/5-Workshop/5.4-Data-Storage/flow-log.png)
 
 ## Step 2. Fill in the fields
 
@@ -39,14 +39,14 @@ ${version} ${account-id} ${interface-id} ${srcaddr} ${dstaddr} ${srcport} ${dstp
 
 - Click **Create flow log**.
 
-![Flow logs form](/images/5-Workshop/placeholder.svg)
+![Flow logs form](/images/5-Workshop/5.4-Data-Storage/create-fl.png)
 
 ## Validation
 
 - The flow log has been created.
 - Network traffic is being recorded.
 
-![Validation](/images/5-Workshop/placeholder.svg)
+![Validation](/images/5-Workshop/5.4-Data-Storage/valid-fl.png)
 
 ## Next step
 
