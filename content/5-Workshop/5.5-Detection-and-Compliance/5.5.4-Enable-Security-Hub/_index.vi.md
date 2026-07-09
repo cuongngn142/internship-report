@@ -19,7 +19,7 @@ Security Hub mang lại một dashboard tổng hợp từ nhiều dịch vụ b�
 - Mở Security Hub Console, click **Go to Security Hub**
 - Chọn **Enable Security Hub**.
 
-![Enable Security Hub](/images/5-Workshop/placeholder.svg)
+![Enable Security Hub](/images/5-Workshop/5.5-Detection-Compiance/enable-schub.png)
 
 ## Bước 2. Chọn standard
 
@@ -29,14 +29,10 @@ Sau khi enable, chọn **Security standards**:
 - Enable **CIS AWS Foundations Benchmark v1.4.0**
 - Click **Enable**
 
-![Select standards](/images/5-Workshop/placeholder.svg)
-
 ## Validation
 
 - Security Hub đã hoạt động.
 - Các finding có thể được xem tập trung.
-
-![Validation](/images/5-Workshop/placeholder.svg)
 
 ## Chuyển sang bước tiếp theo
 

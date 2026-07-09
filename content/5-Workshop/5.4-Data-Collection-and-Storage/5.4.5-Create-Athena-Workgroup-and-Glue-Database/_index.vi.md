@@ -51,7 +51,7 @@ Trong giao diện cấu hình:
 - Athena Workgroup đã sẵn sàng.
 - Glue Database có thể dùng cho query log.
 
-![Validation](/images/5-Workshop/5.4-Data-Storage/valid-glue-database)
+![Validation](/images/5-Workshop/5.4-Data-Storage/valid-glue-database.png)
 
 ## Chuyển sang bước tiếp theo
 

@@ -19,7 +19,7 @@ Security Hub provides a centralized dashboard that aggregates findings from mult
 - Open the **Security Hub Console**, then click **Go to Security Hub**.
 - Select **Enable Security Hub**.
 
-![Enable Security Hub](/images/5-Workshop/placeholder.svg)
+![Enable Security Hub](/images/5-Workshop/5.5-Detection-Compiance/enable-schub.png)
 
 ## Step 2. Select the security standards
 
@@ -29,14 +29,10 @@ After enabling Security Hub, select **Security standards**.
 - Enable **CIS AWS Foundations Benchmark v1.4.0**.
 - Click **Enable**.
 
-![Select standards](/images/5-Workshop/placeholder.svg)
-
 ## Validation
 
 - Security Hub has been enabled.
 - Security findings can be viewed in a centralized dashboard.
-
-![Validation](/images/5-Workshop/placeholder.svg)
 
 ## Next step
 

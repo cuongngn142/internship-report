@@ -51,7 +51,7 @@ In the configuration page:
 - The Athena Workgroup is ready.
 - The Glue Database can be used for querying logs.
 
-![Validation](/images/5-Workshop/5.4-Data-Storage/valid-glue-database)
+![Validation](/images/5-Workshop/5.4-Data-Storage/valid-glue-database.png)
 
 ## Next step
 

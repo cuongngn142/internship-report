@@ -145,14 +145,14 @@ Tab **Management**, click **Create lifecycle rule**:
 - **Delete incomplete multipart uploads**: After **7** days
 - Click **Create rule**
 
-![Lifecycle rule](/images/5-Workshop/5.4-Data-Storage/5.4-Data-Storage/log-lcr.png)
+![Lifecycle rule](/images/5-Workshop/5.4-Data-Storage/log-lcr.png)
 
 ## Validation
 
 - Bucket đã tạo thành công.
 - Bucket có thể lưu log và có policy/lifecycle phù hợp.
 
-![Validation](/images/5-Workshop/5.4-Data-Storage/valid-log)
+![Validation](/images/5-Workshop/5.4-Data-Storage/valid-log.png)
 
 ## Chuyển sang bước tiếp theo
 
