@@ -30,7 +30,7 @@ Amazon VPC allows you to create a private virtual network that is isolated from 
 - **Tenancy**: Select **Default**.
 - Leave all other settings as their default values, then click **Create VPC**.
 
-![Create button](/images/5-Workshop/5.3-Vpc/create-vpc)
+![Create button](/images/5-Workshop/5.3-Vpc/create-vpc.png)
 
 ## Step 3. Fill in the fields
 
