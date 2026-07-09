@@ -6,8 +6,6 @@ chapter: false
 pre: ' <b> 5. </b> '
 ---
 
-# Workshop
-
 ## Deploying a Secure and Automated AWS SOC Platform
 
 This workshop guides you step by step through designing, configuring, and deploying a SOC (Security Operations Center) platform on AWS. The solution uses AWS security, monitoring, and automation services to build a platform capable of collecting logs, detecting threats, generating alerts, and automatically responding to security events.

@@ -6,8 +6,6 @@ chapter: false
 pre: ' <b> 5. </b> '
 ---
 
-# Workshop
-
 ## Triển khai AWS SOC Platform an toàn và tự động
 
 Workshop này hướng dẫn bạn từng bước thiết kế, cấu hình và triển khai một nền tảng SOC (Security Operations Center) trên AWS. Giải pháp sử dụng các dịch vụ bảo mật, giám sát và tự động hóa của AWS để xây dựng một hệ thống có khả năng thu thập log, phát hiện mối đe dọa, cảnh báo và tự động ứng phó với các sự kiện bảo mật.
