@@ -1,54 +1,49 @@
 ---
 title: "Week 12 Worklog"
-date: 2024-01-01
-weight: 2
+date: 2026-07-06
+weight: 12
 chapter: false
 pre: " <b> 1.12. </b> "
 ---
 
-
 ### Week 12 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Build a centralized monitoring system.
+* Test the complete Security Operations Center architecture.
+* Evaluate project results and complete the project documentation.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 2 | - Build Amazon CloudWatch Dashboard <br> - Display security and operational metrics | 06/07/2026 | 06/07/2026 | https://docs.aws.amazon.com/cloudwatch/ |
+| 3 | - Configure CloudWatch Alarms <br> - Test Email Notification through Amazon SNS | 07/07/2026 | 07/07/2026 | https://docs.aws.amazon.com/cloudwatch/ |
+| 4 | - Perform simulated attack scenarios <br> - Check Security Findings in GuardDuty and Security Hub | 08/07/2026 | 08/07/2026 | https://docs.aws.amazon.com/guardduty/ |
+| 5 | - Evaluate the effectiveness of the Detect → Respond → Recover process <br> - Optimize IAM Policies following the Least Privilege principle | 09/07/2026 | 09/07/2026 | https://docs.aws.amazon.com/iam/ |
+| 6 | - Complete deployment documentation <br> - Evaluate costs and propose future system expansion directions | 10/07/2026 | 10/07/2026 | https://docs.aws.amazon.com/wellarchitected/ |
 
 ### Week 12 Achievements:
 
-* Understood what AWS is and mastered the basic service groups:
-  * Compute
-  * Storage
-  * Networking
-  * Database
-  * ...
+* Successfully built an Amazon CloudWatch Dashboard for centralized monitoring.
 
-* Successfully created and configured an AWS Free Tier account.
+* The dashboard displays important metrics including:
+  - GuardDuty Findings
+  - Security Hub Findings
+  - Lambda Invocations
+  - Step Functions Executions
+  - EC2 Health
+  - WAF Blocked Requests
+  - CloudFront Requests
+  - ALB Request Count
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Configured CloudWatch Alarms and successfully tested email notification delivery through Amazon SNS.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* Performed multiple simulated attack scenarios to evaluate the detection and response capabilities of the system.
 
-* Used AWS CLI to perform basic operations such as:
+* Verified that the complete Detect → Respond → Recover workflow operates correctly according to the designed architecture.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+* Optimized IAM Policies following the Least Privilege principle to reduce unnecessary access permissions.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Evaluated deployment costs and proposed future expansion directions including Multi-AZ, Multi-Account, Infrastructure as Code, Amazon Macie, and Amazon Detective.
+
+* Completed the project report, deployment documentation, and system user guide.

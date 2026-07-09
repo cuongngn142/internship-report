@@ -1,56 +1,49 @@
 ---
-title: "Worklog Tuần 12"
-date: 2024-01-01
-weight: 2
+title: 'Worklog Tuần 12'
+date: 2026-07-06
+weight: 12
 chapter: false
-pre: " <b> 1.12 </b> "
+pre: ' <b> 1.12. </b> '
 ---
-
 
 ### Mục tiêu tuần 12:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- Xây dựng hệ thống giám sát tập trung.
+- Kiểm thử toàn bộ kiến trúc Security Operations Center.
+- Đánh giá kết quả và hoàn thiện tài liệu dự án.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Xây dựng Amazon CloudWatch Dashboard <br> - Hiển thị các chỉ số bảo mật và vận hành | 06/07/2026 | 06/07/2026 | https://docs.aws.amazon.com/cloudwatch/ |
+| 3 | - Cấu hình CloudWatch Alarms <br> - Kiểm tra Email Notification qua Amazon SNS | 07/07/2026 | 07/07/2026 | https://docs.aws.amazon.com/cloudwatch/ |
+| 4 | - Thực hiện các kịch bản mô phỏng tấn công <br> - Kiểm tra Security Findings trên GuardDuty và Security Hub | 08/07/2026 | 08/07/2026 | https://docs.aws.amazon.com/guardduty/ |
+| 5 | - Đánh giá hiệu quả quy trình Detect → Respond → Recover <br> - Tối ưu IAM Policies theo nguyên tắc Least Privilege | 09/07/2026 | 09/07/2026 | https://docs.aws.amazon.com/iam/ |
+| 6 | - Hoàn thiện tài liệu triển khai <br> - Đánh giá chi phí và đề xuất hướng mở rộng hệ thống | 10/07/2026 | 10/07/2026 | https://docs.aws.amazon.com/wellarchitected/ |
 
 ### Kết quả đạt được tuần 12:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản:
-  * Compute
-  * Storage
-  * Networking
-  * Database
-  * ...
+- Xây dựng thành công Amazon CloudWatch Dashboard phục vụ giám sát tập trung.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+- Dashboard hiển thị các chỉ số quan trọng gồm:
+  - GuardDuty Findings
+  - Security Hub Findings
+  - Lambda Invocations
+  - Step Functions Executions
+  - EC2 Health
+  - WAF Blocked Requests
+  - CloudFront Requests
+  - ALB Request Count
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+- Cấu hình CloudWatch Alarms và kiểm thử thành công chức năng gửi cảnh báo qua Amazon SNS.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+- Thực hiện nhiều kịch bản mô phỏng tấn công nhằm đánh giá khả năng phát hiện và phản ứng của hệ thống.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+- Xác nhận toàn bộ quy trình Detect → Respond → Recover hoạt động đúng theo thiết kế.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+- Tối ưu IAM Policies theo nguyên tắc Least Privilege nhằm giảm thiểu quyền truy cập không cần thiết.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+- Đánh giá chi phí triển khai và đề xuất các hướng mở rộng như Multi-AZ, Multi-Account, Infrastructure as Code, Amazon Macie và Amazon Detective.
 
-
+- Hoàn thiện báo cáo, tài liệu triển khai và tài liệu hướng dẫn sử dụng hệ thống.
