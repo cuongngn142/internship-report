@@ -7,15 +7,13 @@ chapter: false
 pre: " 5.9. "
 -------------
 
-# Test & Validation
-
 In this lab, we will perform end-to-end testing to validate the complete SOC Automation workflow. The objective is to ensure that the solution operates correctly from the moment a finding is generated in AWS Security Hub, through AWS Step Functions orchestration, AWS Lambda remediation, and finally Amazon SNS notification delivery.
 
 ---
 
-# 1. Test Critical Response - Isolate EC2
+## 1. Test Critical Response - Isolate EC2
 
-## Scenario
+### Scenario
 
 This is the most aggressive response implemented by the system.
 
@@ -23,7 +21,7 @@ When AWS Security Hub detects an EC2 instance infected with malware or performin
 
 ---
 
-## Step 1: Open AWS Step Functions
+### Step 1: Open AWS Step Functions
 
 Navigate to:
 
@@ -31,11 +29,11 @@ Navigate to:
 
 Choose **Start execution**.
 
-![Image](/images/5-Workshop/5.9-Test-Validation/5.9-Test-Validation/anh1.png)
+![Image](/images/5-Workshop/5.9-Test-Validation/anh1.png)
 
 ---
 
-## Step 2: Paste the Event JSON
+### Step 2: Paste the Event JSON
 
 Use the following input:
 
@@ -86,11 +84,11 @@ Use the following input:
 }
 ```
 
-![Image](/images/5-Workshop/5.9-Test-Validation/5.9-Test-Validation/anh2.png)
+![Image](/images/5-Workshop/5.9-Test-Validation/anh2.png)
 
 ---
 
-## Step 3: Monitor the Execution
+### Step 3: Monitor the Execution
 
 Observe the workflow execution.
 
@@ -106,19 +104,19 @@ Isolate EC2
 Send Notification
 ```
 
-![Image](/images/5-Workshop/5.9-Test-Validation/5.9-Test-Validation/anh3.png)
+![Image](/images/5-Workshop/5.9-Test-Validation/anh3.png)
 
 The following image shows the EC2 instance before being isolated. At this point, the instance is still attached to its original Security Group.
 
-![Image](/images/5-Workshop/5.9-Test-Validation/5.9-Test-Validation/anh6.png)
+![Image](/images/5-Workshop/5.9-Test-Validation/anh6.png)
 
 After the workflow completes, the instance is attached to the Isolation Security Group, which contains no inbound or outbound rules.
 
-![Image](/images/5-Workshop/5.9-Test-Validation/5.9-Test-Validation/anh7.png)
+![Image](/images/5-Workshop/5.9-Test-Validation/anh7.png)
 
 ---
 
-## Step 4: Verify CloudWatch Logs
+### Step 4: Verify CloudWatch Logs
 
 Navigate to:
 
@@ -130,21 +128,21 @@ CloudWatch
 
 Verify that the Lambda function successfully isolated the EC2 instance.
 
-![Image](/images/5-Workshop/5.9-Test-Validation/5.9-Test-Validation/anh4.png)
+![Image](/images/5-Workshop/5.9-Test-Validation/anh4.png)
 
 ---
 
-## Step 5: Verify Email Notification
+### Step 5: Verify Email Notification
 
 Open the email address subscribed to the SNS topic.
 
 Verify that an email notification indicating the EC2 isolation has been received.
 
-![Image](/images/5-Workshop/5.9-Test-Validation/5.9-Test-Validation/anh5.png)
+![Image](/images/5-Workshop/5.9-Test-Validation/anh5.png)
 
 ---
 
-## Expected Result
+### Expected Result
 
 * The Step Functions execution completes successfully.
 * The EC2 Isolation Lambda function is invoked.
@@ -154,21 +152,21 @@ Verify that an email notification indicating the EC2 isolation has been received
 
 ---
 
-# 2. Test Critical Response - Revoke IAM Access Key
+## 2. Test Critical Response - Revoke IAM Access Key
 
-## Scenario
+### Scenario
 
 When an IAM Access Key is exposed or compromised, the system immediately revokes the credential to prevent unauthorized access to AWS resources.
 
 ---
 
-## Step 1: Open AWS Step Functions
+### Step 1: Open AWS Step Functions
 
 Repeat the steps from Test Case 1.
 
 ---
 
-## Step 2: Paste the Event JSON
+### Step 2: Paste the Event JSON
 
 ```json
 {
@@ -206,7 +204,7 @@ Repeat the steps from Test Case 1.
 
 ---
 
-## Step 3: Monitor the Execution
+### Step 3: Monitor the Execution
 
 Expected workflow:
 
@@ -232,7 +230,7 @@ After the simulated compromise, the Lambda function revokes the exposed Access K
 
 ---
 
-## Step 4: Verify CloudWatch Logs
+### Step 4: Verify CloudWatch Logs
 
 ```
 /aws/lambda/dev_revoke_iam
@@ -242,7 +240,7 @@ After the simulated compromise, the Lambda function revokes the exposed Access K
 
 ---
 
-## Step 5: Verify Email Notification
+### Step 5: Verify Email Notification
 
 Verify that an email notification indicating the Access Key has been revoked is received.
 
@@ -250,7 +248,7 @@ Verify that an email notification indicating the Access Key has been revoked is 
 
 ---
 
-## Expected Result
+### Expected Result
 
 * The Revoke IAM Lambda function is executed.
 * The Access Key is disabled or deleted according to the implementation.
@@ -259,9 +257,9 @@ Verify that an email notification indicating the Access Key has been revoked is 
 
 ---
 
-# 3. Test Critical Unsupported Resource - Skip Automated Action
+## 3. Test Critical Unsupported Resource - Skip Automated Action
 
-## Scenario
+### Scenario
 
 Some AWS resources, such as Amazon S3 and Amazon CloudFront, do not currently have automated remediation workflows.
 
@@ -269,13 +267,13 @@ To avoid disrupting production services, the system skips automated actions and 
 
 ---
 
-## Step 1: Open AWS Step Functions
+### Step 1: Open AWS Step Functions
 
 Repeat Step 1 from the previous test.
 
 ---
 
-## Step 2: Paste the Event JSON
+### Step 2: Paste the Event JSON
 
 ```json
 {
@@ -313,7 +311,7 @@ Repeat Step 1 from the previous test.
 
 ---
 
-## Step 3: Monitor the Execution
+### Step 3: Monitor the Execution
 
 ```
 Parse Finding
@@ -329,7 +327,7 @@ Send Notification
 
 ---
 
-## Step 4: Verify CloudWatch Logs
+### Step 4: Verify CloudWatch Logs
 
 Verify the Skip Action Lambda logs.
 
@@ -337,13 +335,13 @@ Verify the Skip Action Lambda logs.
 
 ---
 
-## Step 5: Verify Email Notification
+### Step 5: Verify Email Notification
 
 ![Image](/images/5-Workshop/5.9-Test-Validation/anh17.png)
 
 ---
 
-## Expected Result
+### Expected Result
 
 * No changes are made to the AWS resource.
 * The finding is logged.
@@ -352,21 +350,21 @@ Verify the Skip Action Lambda logs.
 
 ---
 
-# 4. Test High Severity (Human in the Loop)
+## 4. Test High Severity (Human in the Loop)
 
-## Scenario
+### Scenario
 
 For findings with High severity (between 4 and 6.9), the system does not perform automatic remediation. Instead, it logs the event and forwards it to the SOC analyst for manual review and decision-making.
 
 ---
 
-## Step 1: Open AWS Step Functions
+### Step 1: Open AWS Step Functions
 
 Repeat the steps from Test Case 1.
 
 ---
 
-## Step 2: Paste the Event JSON
+### Step 2: Paste the Event JSON
 
 ```json
 {
@@ -404,7 +402,7 @@ Repeat the steps from Test Case 1.
 
 ---
 
-## Step 3: Monitor the Execution
+### Step 3: Monitor the Execution
 
 ```
 Parse Finding
@@ -420,19 +418,19 @@ Send Notification
 
 ---
 
-## Step 4: Verify CloudWatch Logs
+### Step 4: Verify CloudWatch Logs
 
 ![Image](/images/5-Workshop/5.9-Test-Validation/anh20.png)
 
 ---
 
-## Step 5: Verify Email Notification
+### Step 5: Verify Email Notification
 
 ![Image](/images/5-Workshop/5.9-Test-Validation/anh21.png)
 
 ---
 
-## Expected Result
+### Expected Result
 
 * No automated remediation is performed.
 * CloudWatch Logs record the event.
@@ -441,9 +439,9 @@ Send Notification
 
 ---
 
-# 5. Test Low Severity (Log and Monitor)
+## 5. Test Low Severity (Log and Monitor)
 
-## Scenario
+### Scenario
 
 Low-severity findings are primarily used for observability purposes.
 
@@ -451,13 +449,13 @@ The workflow simply records the event in CloudWatch Logs without performing any 
 
 ---
 
-## Step 1: Open AWS Step Functions
+### Step 1: Open AWS Step Functions
 
 Repeat the steps from Test Case 1.
 
 ---
 
-## Step 2: Paste the Event JSON
+### Step 2: Paste the Event JSON
 
 ```json
 {
@@ -495,7 +493,7 @@ Repeat the steps from Test Case 1.
 
 ---
 
-## Step 3: Monitor the Execution
+### Step 3: Monitor the Execution
 
 ```
 Parse Finding
@@ -509,7 +507,7 @@ Log and Monitor
 
 ---
 
-## Expected Result
+### Expected Result
 
 * The Step Functions execution completes successfully.
 * No remediation action is performed.
