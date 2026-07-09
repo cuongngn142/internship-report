@@ -13,3 +13,5 @@ pre: ' <b> 5.9. </b> '
 ## Next step
 
 Next, you will clean up the workshop resources.
+
+---

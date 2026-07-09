@@ -13,3 +13,5 @@ pre: ' <b> 5.9. </b> '
 ## Chuyển sang bước tiếp theo
 
 Tiếp theo, bạn sẽ tới phần dọn dẹp tài nguyên.
+
+---
