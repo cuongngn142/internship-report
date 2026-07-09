@@ -1,19 +1,29 @@
 ---
-title : "Giới thiệu"
-date : 2024-01-01 
-weight : 1
-chapter : false
-pre : " <b> 5.1. </b> "
+title: 'Giới thiệu workshop'
+date: 2026-07-09
+weight: 2
+chapter: false
+pre: ' <b> 5.1. </b> '
 ---
 
-#### Giới thiệu về VPC Endpoint
+# Giới thiệu
 
-+ Điểm cuối VPC (endpoint) là thiết bị ảo. Chúng là các thành phần VPC có thể mở rộng theo chiều ngang, dự phòng và có tính sẵn sàng cao. Chúng cho phép giao tiếp giữa tài nguyên điện toán của bạn và dịch vụ AWS mà không gây ra rủi ro về tính sẵn sàng.
-+ Tài nguyên điện toán đang chạy trong VPC có thể truy cập Amazon S3 bằng cách sử dụng điểm cuối Gateway. Interface Endpoint  PrivateLink có thể được sử dụng bởi tài nguyên chạy trong VPC hoặc tại TTDL.
+## Giới thiệu về AWS SOC Platform
 
-#### Tổng quan về workshop
-Trong workshop này, bạn sẽ sử dụng hai VPC.
-+ **"VPC Cloud"** dành cho các tài nguyên cloud như Gateway endpoint và EC2 instance để kiểm tra.
-+ **"VPC On-Prem"** mô phỏng môi trường truyền thống như nhà máy hoặc trung tâm dữ liệu của công ty. Một EC2 Instance chạy phần mềm StrongSwan VPN đã được triển khai trong "VPC On-prem" và được cấu hình tự động để thiết lập đường hầm VPN Site-to-Site với AWS Transit Gateway. VPN này mô phỏng kết nối từ một vị trí tại TTDL (on-prem) với AWS cloud. Để giảm thiểu chi phí, chỉ một phiên bản VPN được cung cấp để hỗ trợ workshop này. Khi lập kế hoạch kết nối VPN cho production workloads của bạn, AWS khuyên bạn nên sử dụng nhiều thiết bị VPN để có tính sẵn sàng cao.
+AWS SOC Platform là một nền tảng Security Operations Center (SOC) trên AWS, được xây dựng nhằm cung cấp khả năng giám sát bảo mật, thu thập log, phát hiện mối đe dọa và tự động phản ứng với các sự kiện bảo mật.
 
-![overview](/images/5-Workshop/5.1-Workshop-overview/diagram1.png)
+Mục tiêu của workshop là hướng dẫn từng bước triển khai một kiến trúc SOC nhiều lớp (Defense in Depth) trên AWS bằng cách kết hợp các dịch vụ mạng, bảo mật, giám sát và tự động hóa.
+
+## Tổng quan về workshop
+
+- Hạ tầng mạng bảo mật với Amazon VPC.
+- Thu thập và lưu trữ log với CloudTrail, VPC Flow Logs và Amazon S3.
+- Phát hiện mối đe dọa với GuardDuty, Security Hub và AWS Config.
+- Tự động phản ứng với EventBridge, Lambda, Step Functions và SNS.
+- Giám sát hệ thống thông qua CloudWatch Dashboard.
+
+Sau khi hoàn thành workshop, bạn sẽ hiểu cách xây dựng một nền tảng SOC có khả năng giám sát, phát hiện và xử lý các sự kiện bảo mật trên AWS.
+
+Sơ đồ dưới đây mô tả kiến trúc AWS SOC Platform được triển khai trong workshop.
+
+![Image](/images/2-Proposal/AWS_SOC_Architecture_final.drawio.png)

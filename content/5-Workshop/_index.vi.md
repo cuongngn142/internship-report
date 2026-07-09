@@ -1,29 +1,78 @@
 ---
-title: "Workshop"
-date: 2024-01-01
-weight: 5
+title: 'Workshop Setup AWS SOC Platform'
+date: 2026-07-09
+weight: 1
 chapter: false
-pre: " <b> 5. </b> "
+pre: ' <b> 5. </b> '
 ---
 
+# Workshop
 
-# Đảm bảo truy cập Hybrid an toàn đến S3 bằng cách sử dụng VPC endpoint
+## Triển khai AWS SOC Platform an toàn và tự động
 
-#### Tổng quan
+Workshop này hướng dẫn bạn từng bước thiết kế, cấu hình và triển khai một nền tảng SOC (Security Operations Center) trên AWS. Giải pháp sử dụng các dịch vụ bảo mật, giám sát và tự động hóa của AWS để xây dựng một hệ thống có khả năng thu thập log, phát hiện mối đe dọa, cảnh báo và tự động ứng phó với các sự kiện bảo mật.
 
-**AWS PrivateLink** cung cấp kết nối riêng tư đến các dịch vụ aws từ VPCs hoặc trung tâm dữ liệu (on-premise) mà không làm lộ lưu lượng truy cập ra ngoài public internet.
+Toàn bộ hệ thống được triển khai theo mô hình nhiều lớp bảo mật (Defense in Depth), kết hợp giữa Network Security, Data Collection, Threat Detection, Automated Response và Monitoring Dashboard.
 
-Trong bài lab này, chúng ta sẽ học cách tạo, cấu hình, và kiểm tra VPC endpoints để cho phép workload của bạn tiếp cận các dịch vụ AWS mà không cần đi qua Internet công cộng.
+## Architecture Overview
 
-Chúng ta sẽ tạo hai loại endpoints để truy cập đến Amazon S3: gateway vpc endpoint và interface vpc endpoint. Hai loại vpc endpoints này mang đến nhiều lợi ích tùy thuộc vào việc bạn truy cập đến S3 từ môi trường cloud hay từ trung tâm dữ liệu (on-premise).
-+ **Gateway** - Tạo gateway endpoint để gửi lưu lượng đến Amazon S3 hoặc DynamoDB using private IP addresses. Bạn điều hướng lưu lượng từ VPC của bạn đến gateway endpoint bằng các bảng định tuyến (route tables)
-+ **Interface** - Tạo interface endpoint để gửi lưu lượng đến các dịch vụ điểm cuối (endpoints) sử dụng Network Load Balancer để phân phối lưu lượng. Lưu lượng dành cho dịch vụ điểm cuối được resolved bằng DNS.
+Workshop này bao gồm các lớp chính:
 
-#### Nội dung
+1. **Edge Protection**
+   - AWS WAF.
+   - Amazon CloudFront.
+   - WAF Logging.
 
-1. [Tổng quan về workshop](5.1-Workshop-overview/)
-2. [Chuẩn bị](5.2-Prerequiste/)
-3. [Truy cập đến S3 từ VPC](5.3-S3-vpc/)
-4. [Truy cập đến S3 từ TTDL On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (làm thêm)](5.5-Policy/)
-6. [Dọn dẹp tài nguyên](5.6-Cleanup/)
+2. **Network Foundation**
+   - Amazon VPC.
+   - Public/Private Subnets.
+   - Internet Gateway.
+   - NAT Gateway.
+   - Route Tables.
+   - Security Groups.
+   - Application Load Balancer.
+
+3. **Data Collection and Storage**
+   - AWS KMS.
+   - Amazon S3.
+   - AWS CloudTrail.
+   - VPC Flow Logs.
+   - Amazon Athena.
+   - AWS Glue Database.
+
+4. **Detection and Compliance**
+   - Amazon GuardDuty.
+   - IAM Access Analyzer.
+   - AWS Config.
+   - AWS Security Hub.
+
+5. **Automated Response**
+   - Amazon SNS.
+   - AWS Lambda.
+   - AWS Step Functions.
+   - Amazon EventBridge.
+
+6. **Visibility and Dashboard**
+   - Amazon CloudWatch Dashboard.
+   - CloudWatch Metrics.
+   - CloudWatch Alarms.
+
+7. **Test and Validation**
+   - Kiểm tra luồng hoạt động của hệ thống.
+   - Kiểm tra khả năng phát hiện và phản ứng với sự kiện bảo mật.
+
+8. **Resource Cleanup**
+   - Xóa các tài nguyên AWS sau khi hoàn thành workshop.
+
+## Content
+
+1. [Workshop Overview](./5.1-Workshop-overview/)
+2. [Prerequisites](./5.2-Prerequisites/)
+3. [Network & Security Infrastructure](./5.3-Network-foundation/)
+4. [Data Collection and Storage](./5.4-Data-Collection-and-Storage/)
+5. [Detection and Compliance](./5.5-Detection-and-Compliance/)
+6. [Automated Response](./5.6-Automated-Response/)
+7. [Visibility and Dashboard](./5.7-Visibility-and-Dashboard/)
+8. [Edge Protection](./5.8-Edge-Protection/)
+9. [Test & Validation](./5.9-Test-Validation/)
+10. [Resource Cleanup](./5.10-Cleanup/)

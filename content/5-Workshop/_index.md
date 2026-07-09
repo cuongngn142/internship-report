@@ -1,28 +1,78 @@
 ---
-title: "Workshop"
-date: 2024-01-01
-weight: 5
+title: 'Workshop Setup AWS SOC Platform'
+date: 2026-07-09
+weight: 1
 chapter: false
-pre: " <b> 5. </b> "
+pre: ' <b> 5. </b> '
 ---
 
-# Secure Hybrid Access to S3 using VPC Endpoints
+# Workshop
 
-#### Overview
+## Deploying a Secure and Automated AWS SOC Platform
 
-**AWS PrivateLink** provides private connectivity to AWS services from VPCs and your on-premises networks, without exposing your traffic to the Public Internet.
+This workshop guides you step by step through designing, configuring, and deploying a SOC (Security Operations Center) platform on AWS. The solution uses AWS security, monitoring, and automation services to build a platform capable of collecting logs, detecting threats, generating alerts, and automatically responding to security events.
 
-In this lab, you will learn how to create, configure, and test VPC endpoints that enable your workloads to reach AWS services without traversing the Public Internet.
+The entire platform is deployed using a Defense in Depth security model, combining multiple security layers including Network Security, Data Collection, Threat Detection, Automated Response, and Monitoring Dashboard.
 
-You will create two types of endpoints to access Amazon S3: a Gateway VPC endpoint, and an Interface VPC endpoint. These two types of VPC endpoints offer different benefits depending on if you are accessing Amazon S3 from the cloud or your on-premises location
-+ **Gateway** - Create a gateway endpoint to send traffic to Amazon S3 or DynamoDB using private IP addresses.You route traffic from your VPC to the gateway endpoint using route tables.
-+ **Interface** - Create an interface endpoint to send traffic to endpoint services that use a Network Load Balancer to distribute traffic. Traffic destined for the endpoint service is resolved using DNS.
+## Architecture Overview
 
-#### Content
+This workshop includes the following main layers:
 
-1. [Workshop overview](5.1-Workshop-overview)
-2. [Prerequiste](5.2-Prerequiste/)
-3. [Access S3 from VPC](5.3-S3-vpc/)
-4. [Access S3 from On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (Bonus)](5.5-Policy/)
-6. [Clean up](5.6-Cleanup/)
+1. **Edge Protection**
+   - AWS WAF.
+   - Amazon CloudFront.
+   - WAF Logging.
+
+2. **Network Foundation**
+   - Amazon VPC.
+   - Public/Private Subnets.
+   - Internet Gateway.
+   - NAT Gateway.
+   - Route Tables.
+   - Security Groups.
+   - Application Load Balancer.
+
+3. **Data Collection and Storage**
+   - AWS KMS.
+   - Amazon S3.
+   - AWS CloudTrail.
+   - VPC Flow Logs.
+   - Amazon Athena.
+   - AWS Glue Database.
+
+4. **Detection and Compliance**
+   - Amazon GuardDuty.
+   - IAM Access Analyzer.
+   - AWS Config.
+   - AWS Security Hub.
+
+5. **Automated Response**
+   - Amazon SNS.
+   - AWS Lambda.
+   - AWS Step Functions.
+   - Amazon EventBridge.
+
+6. **Visibility and Dashboard**
+   - Amazon CloudWatch Dashboard.
+   - CloudWatch Metrics.
+   - CloudWatch Alarms.
+
+7. **Test and Validation**
+   - Validate the system workflow.
+   - Verify the ability to detect and respond to security events.
+
+8. **Resource Cleanup**
+   - Remove AWS resources after completing the workshop.
+
+## Content
+
+1. [Workshop Overview](./5.1-Workshop-overview/)
+2. [Prerequisites](./5.2-Prerequisites/)
+3. [Network & Security Infrastructure](./5.3-Network-foundation/)
+4. [Data Collection and Storage](./5.4-Data-Collection-and-Storage/)
+5. [Detection and Compliance](./5.5-Detection-and-Compliance/)
+6. [Automated Response](./5.6-Automated-Response/)
+7. [Visibility and Dashboard](./5.7-Visibility-and-Dashboard/)
+8. [Edge Protection](./5.8-Edge-Protection/)
+9. [Test & Validation](./5.9-Test-Validation/)
+10. [Resource Cleanup](./5.10-Cleanup/)
