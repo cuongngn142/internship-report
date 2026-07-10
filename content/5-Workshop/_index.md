@@ -14,6 +14,8 @@ The entire platform is deployed using a Defense in Depth security model, combini
 
 ## Architecture Overview
 
+Project SOC GitHub Repository: https://github.com/cuongngn142/project-soc-aws
+
 This workshop includes the following main layers:
 
 1. **Edge Protection**

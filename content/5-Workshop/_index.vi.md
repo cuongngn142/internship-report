@@ -14,6 +14,8 @@ Toàn bộ hệ thống được triển khai theo mô hình nhiều lớp bảo
 
 ## Architecture Overview
 
+Đây là link repo github project soc: https://github.com/cuongngn142/project-soc-aws
+
 Workshop này bao gồm các lớp chính:
 
 1. **Edge Protection**
