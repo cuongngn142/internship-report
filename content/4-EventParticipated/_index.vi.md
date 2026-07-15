@@ -40,7 +40,7 @@ Trong quá trình thực tập, em đã tham gia 2 events, với mỗi event là
 
 &emsp;**Vai trò trong sự kiện:** Người tham dự online
 
-### [Event 3](4.2-Event2/)
+### [Event 3](4.3-Event3/)
 
 &emsp;**Tên sự kiện:** Mini Meetup First cloud AI Journey
 
@@ -49,3 +49,13 @@ Trong quá trình thực tập, em đã tham gia 2 events, với mỗi event là
 &emsp;**Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh
 
 &emsp;**Vai trò trong sự kiện:** Người tham dự online
+
+### [Event 4](4.4-Event4/)
+
+&emsp;**Tên sự kiện:** Mini Meetup First cloud AI Journey
+
+&emsp;**Thời gian:** 09:00 ngày 11/07/2026
+
+&emsp;**Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh
+
+&emsp;**Vai trò trong sự kiện:** Người tham dự

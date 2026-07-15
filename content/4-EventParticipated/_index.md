@@ -36,7 +36,7 @@ During my internship, I participated in two events. Each one was a memorable exp
 
  **Date and Time:** 09:00 AM, June 27, 2026
 
- **Location:** Online Event
+ **Location:** 26th Floor, Bitexco Financial Tower, No. 2 Hai Trieu Street, Sai Gon Ward, Ho Chi Minh City, Vietnam
 
  **Role:** Online Participant
 
@@ -46,6 +46,16 @@ During my internship, I participated in two events. Each one was a memorable exp
 
  **Date and Time:** 09:00 AM, July 4, 2026
 
- **Location:** Online Event
+ **Location:**26th Floor, Bitexco Financial Tower, No. 2 Hai Trieu Street, Sai Gon Ward, Ho Chi Minh City, Vietnam
 
  **Role:** Online Participant
+
+### [Event 4](4.4-Event4/)
+
+&emsp;**Event Name:** Mini Meetup – First Cloud AI Journey
+
+&emsp;**Date & Time:** 09:00 AM, July 11, 2026
+
+&emsp;**Location:** 26th Floor, Bitexco Financial Tower, No. 2 Hai Trieu Street, Sai Gon Ward, Ho Chi Minh City, Vietnam
+
+&emsp;**Role:** Participant
