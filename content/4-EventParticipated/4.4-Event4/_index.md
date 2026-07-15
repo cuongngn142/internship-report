@@ -8,129 +8,157 @@ pre: ' <b> 4.4. </b> '
 
 ---
 
-# Event 3 – Mini Meetup: First Cloud AI Journey
+# Event 4 – Mini Meetup
 
 ### Event Information
 
-- **Event Name:** Mini Meetup – First Cloud AI Journey
-- **Date & Time:** 09:00 AM, July 4, 2026
-- **Location:** Online
-- **Role:** Online Participant
+- **Event Name:** Mini Meetup
+- **Date:** July 11, 2026
+- **Location:** Offline
+- **Role:** Participant
 
 ---
 
 ## Purpose of the Event
 
-- Explore the latest trends in Cloud Computing and Artificial Intelligence (AI).
-- Share career development experiences from industry professionals.
-- Provide career guidance for students and newcomers entering the Cloud and AI fields.
-- Introduce the essential technical skills and mindset required to meet current industry demands.
+- Watch the Cloud Architect Championship Grand Final between Team **KLKAT** and Team **Ngũ Đại Hiệp**.
+- Learn how AWS AI Security Agent can improve software security.
+- Gain a better understanding of Service Level Agreements (SLA), Monitoring, and Cloud operations.
+- Explore AWS certification paths and career development opportunities.
 
 ---
 
-## Speakers
+## Event Topics
 
-- **Mr. Nguyen Gia Hung** – _Job Market & Career Trend_
-- **Mr. Vinh Banh** – _Data Engineering Career Journey_
-- **Ms. Nhu Tran** – _AI Ready Fresher_
-- **Mr. Khang Nguyen** – _Career Development & Growth Mindset_
+- **Cloud Architect Championship – Grand Final**
+- **The Security Bottleneck – AWS Security Agent**
+- **SLA and Monitoring**
+- **AWS Certification Roadmap**
 
 ---
 
 ## Key Topics
 
-### 1. Job Market & Career Trend – Mr. Nguyen Gia Hung
+### 1. Cloud Architect Championship – Grand Final
 
-The speaker provided an overview of Vietnam's Cloud Computing market and discussed future career opportunities in the industry.
+The event opened with the **Cloud Architect Championship Grand Final**, featuring the two best-performing teams: **KLKAT (Champion)** and **Ngũ Đại Hiệp (Runner-up)**. The finalists competed by answering technical questions designed to evaluate their knowledge of Cloud Computing and AWS architecture.
 
 Main topics included:
 
-- An overview of the rapid growth of the cloud market in Vietnam.
-- AWS investment and market expansion in Vietnam from 2015 to 2026.
-- Companies that are building and operating their infrastructure on AWS.
-- Growing demand for Cloud Engineers, DevOps Engineers, Solutions Architects, Data Engineers, and Security Engineers.
-- Future industry trends and the skills employers are looking for in cloud professionals.
+- Both teams answered **10 technical questions** with increasing difficulty.
+- The questions covered Cloud Architecture, AWS services, security, cost optimization, scalability, and high-availability system design.
+- Each question had a different score, with the final three questions carrying significantly higher points and having the greatest impact on the final result.
+- Team **KLKAT** consistently delivered correct answers, while **Ngũ Đại Hiệp** lost valuable points after missing several high-value questions toward the end of the competition.
+- As a result, **KLKAT** won the championship with a significant lead, while **Ngũ Đại Hiệp** finished in second place.
 
 ---
 
-### 2. Data Engineering Career Journey – Mr. Vinh Banh
+### 2. The Security Bottleneck – AWS Security Agent
 
-The speaker shared his career journey from learning cloud technologies to working at startups and large technology companies.
+This session focused on applying AI Agents to improve software security throughout the software development lifecycle.
+
+The speaker demonstrated how an AI Security Agent automatically analyzes source code to detect security vulnerabilities before deployment. The solution identifies **Critical** and **High** severity vulnerabilities while providing recommendations to help developers resolve security issues during development.
+
+The demonstration also included simulated security attacks against an application to evaluate its security posture. This session illustrated how AI can support DevSecOps practices by reducing manual code review efforts and detecting security risks earlier in the development process.
 
 Main topics included:
 
-- Building an effective learning roadmap for AWS and Data Engineering.
-- Essential technical foundations for becoming a Data Engineer.
-- Personal experiences working in startup and Big Tech environments.
-- Technical and soft skills required for long-term career growth.
-- Practical advice for students pursuing careers in data and cloud technologies.
+- Introduction to AWS Security Agent.
+- AI-powered automated source code analysis.
+- Demonstration of detecting Critical and High severity vulnerabilities.
+- Security testing through attack simulation.
 
 ---
 
-### 3. AI Ready Fresher – Ms. Nhu Tran
+### 3. SLA and Monitoring
 
-The session focused on preparing students for the AI era.
+This session focused on the concept of **Service Level Agreements (SLA)** and their role in maintaining service quality in modern cloud environments.
+
+The speaker explained that an **SLA (Service Level Agreement)** is a commitment between a service provider and its customers regarding the expected level of service. Typical SLA metrics include system availability, response time, recovery time, and other operational performance indicators.
+
+The presentation also emphasized that having a **healthy infrastructure does not necessarily guarantee satisfied users**. Servers, networks, and cloud services may all appear to be operating normally, yet users can still experience slow responses, failures, or poor application performance. Therefore, organizations should not only monitor infrastructure health but also measure the actual user experience to determine what truly matters from a business perspective.
 
 Main topics included:
 
-- Essential skills that fresh graduates should develop before entering the workforce.
-- Using AI as a productivity tool rather than relying on it completely.
-- The importance of critical thinking, self-learning, and strong technical fundamentals.
-- Building a professional portfolio and continuously improving skills to remain competitive.
+- Introduction to Service Level Agreements (SLA).
+- The importance of SLA in ensuring service quality.
+- The gap between healthy infrastructure and user satisfaction.
+- Why measuring real user experience is more important than monitoring infrastructure alone.
+- Key factors for maintaining service quality and improving customer experience.
 
 ---
 
-### 4. Career Development & Growth Mindset – Mr. Khang Nguyen
+### 4. AWS Certification Roadmap
 
-The speaker shared practical advice on career development and personal growth for students entering the technology industry.
+The final session introduced AWS certification pathways for students and professionals pursuing careers in Cloud Computing.
+
+The speaker provided an overview of AWS certifications, including **Foundational**, **Associate**, **Professional**, and **Specialty** levels. The presentation also covered recommended preparation time, examination methods, certification costs, and practical study strategies.
+
+Participants were introduced to official learning resources such as AWS Skill Builder, AWS Documentation, and Hands-on Labs to support effective certification preparation.
 
 Main topics included:
 
-- Developing the habit of asking "Why" to understand the root cause of problems instead of simply memorizing information.
-- Building a long-term learning mindset and continuously improving personal skills.
-- Actively participating in real-world projects, hackathons, and community activities to gain practical experience.
-- Strengthening teamwork, communication, and professional networking skills.
-- Prioritizing learning opportunities, experience, and long-term career growth over the salary of the first job.
-- Understanding that employers value attitude, adaptability, and continuous learning in addition to technical knowledge.
+- Overview of AWS certification paths.
+- Recommended preparation time for each certification.
+- Online and test center examination formats.
+- Certification exam fees.
+- Study strategies and exam preparation tips.
+- Official AWS learning resources.
+
+---
+
+## Q&A Session
+
+The event concluded with an interactive Q&A session covering the topics presented throughout the meetup.
+
+Discussion topics included:
+
+- Enterprise cloud architecture design.
+- AWS cost optimization strategies.
+- AI Security Agents in DevSecOps workflows.
+- Monitoring best practices.
+- The importance of SLA in production environments.
+- AWS certification preparation.
+- Common AWS services used in enterprise architectures.
+- Typical cloud security vulnerabilities.
+- Experiences from Cloud Architecture competitions.
+- Career development in Cloud Computing.
 
 ---
 
 ## What I Learned
 
-### Career Development
+### Technical Knowledge
 
-- Gained a better understanding of the Cloud Computing and AI job market in Vietnam.
-- Learned about the most in-demand cloud-related career opportunities.
-- Understood the technical and soft skills expected from new graduates.
-- Developed a clearer career roadmap for Cloud Computing, Data Engineering, and Artificial Intelligence.
+- Gained a deeper understanding of cloud architecture through real competition scenarios.
+- Learned how AI can assist developers in identifying software security vulnerabilities.
+- Better understood the importance of SLA and monitoring in maintaining service quality.
+- Developed a clearer understanding of AWS certification paths and career planning.
 
 ### Skill Development
 
-- Learned how to build a structured AWS and Cloud Computing learning roadmap.
-- Gained valuable career insights from professionals working in startups and Big Tech companies.
-- Understood how to use AI effectively to improve productivity while maintaining independent thinking and problem-solving skills.
-- Recognized the importance of communication skills, teamwork, and continuous learning for long-term career success.
+- Learned practical approaches to designing and presenting cloud architectures.
+- Improved my understanding of DevSecOps and secure software development.
+- Gained more knowledge about cloud monitoring and operational practices.
+- Built a clearer roadmap for learning AWS technologies and certifications.
 
 ---
 
 ## Application to My Internship
 
-- Continue strengthening my knowledge of Linux, Networking, and AWS services.
-- Follow a structured learning roadmap through AWS Skill Builder and hands-on projects.
-- Apply AI tools to support research, software development, and the **Security Operations Center (SOC)** project on AWS.
-- Participate in more workshops, meetups, and community events to stay updated with emerging technologies and expand my professional network.
+- Apply Security by Design principles to my AWS Security Operations Center (SOC) project.
+- Continue researching AI-assisted security review solutions.
+- Build a learning roadmap toward the AWS Certified Solutions Architect – Associate certification.
 
 ---
 
 ## Personal Experience
 
-Participating in **Mini Meetup – First Cloud AI Journey** provided me with valuable insights from professionals working in Cloud Computing, Data Engineering, and Artificial Intelligence. Although I attended the event online, I was able to follow every presentation and learn from the speakers' real-world experiences.
+The Mini Meetup provided valuable insights into cloud architecture, software security, cloud operations, and AWS career development. Each session combined technical concepts with practical demonstrations, making the presentations both engaging and applicable to real-world environments.
 
-I was particularly impressed by **Mr. Nguyen Gia Hung's** presentation, which provided a detailed overview of the rapid growth of Vietnam's cloud market and the increasing demand for AWS-related careers. **Mr. Vinh Banh** shared practical experiences from his career as a Data Engineer, offering useful advice on preparing for both startup and enterprise environments.
+I was particularly impressed by the AWS Security Agent demonstration, where AI automatically analyzed source code, detected critical security vulnerabilities, and assisted developers in improving software quality before deployment. The session on SLA and Monitoring also strengthened my understanding of the importance of delivering reliable services and focusing on user experience rather than infrastructure metrics alone.
 
-In addition, **Ms. Nhu Tran** emphasized the importance of preparing students for the AI era by combining strong technical foundations with AI-assisted productivity. **Mr. Khang Nguyen** highlighted the value of lifelong learning, curiosity, practical experience, and a growth mindset for building a successful career in technology.
-
-Overall, the event not only enhanced my understanding of current Cloud and AI trends but also helped me establish a clearer career direction and identify the skills I should continue developing throughout my internship and future professional career.
+Finally, the AWS Certification Roadmap session provided useful guidance on certification levels, preparation strategies, and learning resources. It helped me establish a clearer learning plan for pursuing AWS certifications after completing my internship.
 
 ---
 
@@ -138,6 +166,24 @@ Overall, the event not only enhanced my understanding of current Cloud and AI tr
 
 _Insert event photos here._
 
-> Overall, **Mini Meetup – First Cloud AI Journey** provided valuable insights into the Cloud Computing and AI job market while offering practical career advice from experienced professionals. The knowledge and inspiration gained from this event will support my continuous learning, skill development, and future career preparation.
+> The Mini Meetup provided valuable knowledge about Cloud Architecture, Cloud Security, AI-powered security solutions, SLA, Monitoring, and AWS certifications. The experience gained from this event will support my continuous learning and future career development in Cloud Computing.
 
-![Image Event](/images/4-EventParticipated/IMG_20260704_112101.jpg)
+![Image Event](/images/4-EventParticipated/evt41.png)
+
+![Image Event](/images/4-EventParticipated/evt42.png)
+
+![Image Event](/images/4-EventParticipated/evt43.png)
+
+![Image Event](/images/4-EventParticipated/evt44.png)
+
+![Image Event](/images/4-EventParticipated/evt45.png)
+
+![Image Event](/images/4-EventParticipated/evt46.png)
+
+![Image Event](/images/4-EventParticipated/evt47.png)
+
+![Image Event](/images/4-EventParticipated/evt48.png)
+
+```
+
+```
