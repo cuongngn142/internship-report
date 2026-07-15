@@ -1,4 +1,3 @@
-```md
 ---
 title: 'Event 4'
 date: 2026-07-11
@@ -163,4 +162,7 @@ Ngoài ra, phần giới thiệu về **AWS Certification Roadmap** đã giúp t
 ![Image Event](/images/4-EventParticipated/evt47.png)
 
 ![Image Event](/images/4-EventParticipated/evt48.png)
+
+```
+
 ```
