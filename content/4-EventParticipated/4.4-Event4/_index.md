@@ -107,25 +107,6 @@ Main topics included:
 
 ---
 
-## Q&A Session
-
-The event concluded with an interactive Q&A session covering the topics presented throughout the meetup.
-
-Discussion topics included:
-
-- Enterprise cloud architecture design.
-- AWS cost optimization strategies.
-- AI Security Agents in DevSecOps workflows.
-- Monitoring best practices.
-- The importance of SLA in production environments.
-- AWS certification preparation.
-- Common AWS services used in enterprise architectures.
-- Typical cloud security vulnerabilities.
-- Experiences from Cloud Architecture competitions.
-- Career development in Cloud Computing.
-
----
-
 ## What I Learned
 
 ### Technical Knowledge
